@@ -77,6 +77,7 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
     alignItems: 'center',
   };
 
+
   const viewMoreStyle: ViewStyle = {
     alignItems: 'center',
     marginTop: UI_CONFIG.SPACING[3], // 24px
@@ -93,7 +94,7 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
         <Text variant="product-title" color="text.primary" style={{ textAlign: 'center', marginBottom: 4 }}>
           {product.name}
         </Text>
-        <Text variant="price" color="text.secondary">
+        <Text variant="price-regular" color="text.secondary">
           {product.price}
         </Text>
       </View>
@@ -109,11 +110,11 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
 
         {/* Category navigation */}
         <View style={{ flexDirection: 'row', justifyContent: 'center', gap: UI_CONFIG.SPACING[3] }}>
-          <Text variant="body" color="text.primary" style={{ fontWeight: '600' }}>All</Text>
-          <Text variant="body" color="text.secondary">Apparel</Text>
-          <Text variant="body" color="text.secondary">Dress</Text>
-          <Text variant="body" color="text.secondary">Tshirt</Text>
-          <Text variant="body" color="text.secondary">Bag</Text>
+          <Text variant="body-regular" color="text.primary" style={{ fontWeight: '600' }}>All</Text>
+          <Text variant="body-regular" color="text.secondary">Apparel</Text>
+          <Text variant="body-regular" color="text.secondary">Dress</Text>
+          <Text variant="body-regular" color="text.secondary">Tshirt</Text>
+          <Text variant="body-regular" color="text.secondary">Bag</Text>
         </View>
       </View>
 
@@ -122,7 +123,7 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
       </View>
 
       <TouchableOpacity style={viewMoreStyle}>
-        <Text variant="button" color="text.primary">
+        <Text variant="button-regular" color="text.primary">
           Explore More →
         </Text>
       </TouchableOpacity>
