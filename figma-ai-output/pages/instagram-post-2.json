@@ -1,0 +1,785 @@
+{
+  "id": "6:1224",
+  "name": "instagram-post-2",
+  "originalName": "Instagram post - 2",
+  "type": "page",
+  "canvasName": "Components",
+  "meta": {
+    "screenType": "general",
+    "primaryFunction": "navigation",
+    "userIntent": "general interaction",
+    "deviceTarget": "desktop",
+    "canvasSource": "Components"
+  },
+  "structure": {
+    "id": "6:1224",
+    "name": "instagram-post-2",
+    "type": "FRAME",
+    "semanticRole": "container",
+    "depth": 0,
+    "layout": {
+      "position": {
+        "x": -270,
+        "y": 1830
+      },
+      "size": {
+        "width": 1080,
+        "height": 1080
+      },
+      "spacing": {},
+      "alignment": {},
+      "responsive": {
+        "breakpoints": {
+          "mobile": "adapt",
+          "tablet": "adapt",
+          "desktop": "show"
+        },
+        "behavior": "static"
+      },
+      "constraints": {
+        "horizontal": "LEFT",
+        "vertical": "TOP"
+      }
+    },
+    "styles": {
+      "background": {
+        "type": "solid",
+        "color": {
+          "hex": "#ffffff",
+          "rgba": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "opacity": 1
+        }
+      },
+      "border": {},
+      "effects": {},
+      "typography": {},
+      "appearance": {
+        "opacity": 1,
+        "visible": true,
+        "blendMode": "PASS_THROUGH"
+      }
+    },
+    "content": {
+      "type": null,
+      "data": null,
+      "placeholder": null
+    },
+    "interactions": [],
+    "context": {
+      "isRepeated": false,
+      "isClickable": false,
+      "isInputField": false,
+      "isNavigational": false,
+      "dataRole": null
+    },
+    "children": [
+      {
+        "id": "6:1225",
+        "name": "rectangle-1",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -553,
+            "y": 2206
+          },
+          "size": {
+            "width": 1670,
+            "height": 1314
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "adapt",
+              "tablet": "adapt",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "LEFT",
+            "vertical": "TOP"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#000000",
+              "rgba": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "6:1226",
+        "name": "vector",
+        "type": "VECTOR",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -237,
+            "y": 2066
+          },
+          "size": {
+            "width": 552,
+            "height": 245
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "LEFT",
+            "vertical": "TOP"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#dd8560",
+              "rgba": {
+                "r": 0.8666666746139526,
+                "g": 0.5215686559677124,
+                "b": 0.3764705955982208,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 0.10000000149011612,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "icon",
+          "data": "Vector",
+          "placeholder": "icon-placeholder"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "6:1227",
+        "name": "iphone-12-pro",
+        "type": "FRAME",
+        "semanticRole": "container",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 216,
+            "y": 1890
+          },
+          "size": {
+            "width": 475,
+            "height": 960
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "LEFT",
+            "vertical": "TOP"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#ffffff",
+              "rgba": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {
+            "radius": {
+              "all": 90,
+              "topLeft": 90,
+              "topRight": 90,
+              "bottomRight": 90,
+              "bottomLeft": 90
+            }
+          },
+          "effects": [
+            {
+              "type": "DROP_SHADOW",
+              "visible": true,
+              "offset": {
+                "x": -10,
+                "y": -20
+              },
+              "radius": 20,
+              "color": {
+                "hex": "#000000",
+                "rgba": {
+                  "r": 0,
+                  "g": 0,
+                  "b": 0,
+                  "a": 0.10000000149011612
+                }
+              }
+            }
+          ],
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": null,
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": [
+          {
+            "id": "6:1228",
+            "name": "object",
+            "type": "GROUP",
+            "semanticRole": "container",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": 216,
+                "y": 1890
+              },
+              "size": {
+                "width": 546,
+                "height": 1104
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "LEFT",
+                "vertical": "TOP"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#ffffff",
+                  "rgba": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {},
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": null,
+              "data": null,
+              "placeholder": null
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": [
+              {
+                "id": "6:1229",
+                "name": "iphone-12-pro",
+                "type": "RECTANGLE",
+                "semanticRole": "element",
+                "depth": 3,
+                "layout": {
+                  "position": {
+                    "x": 216,
+                    "y": 1890
+                  },
+                  "size": {
+                    "width": 546,
+                    "height": 1104
+                  },
+                  "spacing": {},
+                  "alignment": {},
+                  "responsive": {
+                    "breakpoints": {
+                      "mobile": "show",
+                      "tablet": "show",
+                      "desktop": "show"
+                    },
+                    "behavior": "static"
+                  },
+                  "constraints": {
+                    "horizontal": "LEFT",
+                    "vertical": "TOP"
+                  }
+                },
+                "styles": {
+                  "background": {
+                    "type": "image",
+                    "imageRef": "a350fb6826ce03d7a9efbe6b2481f402a6d6b266",
+                    "scaleMode": "STRETCH"
+                  },
+                  "border": {},
+                  "effects": {},
+                  "typography": {},
+                  "appearance": {
+                    "opacity": 1,
+                    "visible": true,
+                    "blendMode": "PASS_THROUGH"
+                  }
+                },
+                "content": {
+                  "type": "image",
+                  "data": "a350fb6826ce03d7a9efbe6b2481f402a6d6b266",
+                  "placeholder": "image-placeholder"
+                },
+                "interactions": [],
+                "context": {
+                  "isRepeated": false,
+                  "isClickable": false,
+                  "isInputField": false,
+                  "isNavigational": false,
+                  "dataRole": null
+                },
+                "children": []
+              },
+              {
+                "id": "6:1230",
+                "name": "iphone-12-pro",
+                "type": "RECTANGLE",
+                "semanticRole": "element",
+                "depth": 3,
+                "layout": {
+                  "position": {
+                    "x": 216,
+                    "y": 1890
+                  },
+                  "size": {
+                    "width": 546,
+                    "height": 1104
+                  },
+                  "spacing": {},
+                  "alignment": {},
+                  "responsive": {
+                    "breakpoints": {
+                      "mobile": "show",
+                      "tablet": "show",
+                      "desktop": "show"
+                    },
+                    "behavior": "static"
+                  },
+                  "constraints": {
+                    "horizontal": "LEFT",
+                    "vertical": "TOP"
+                  }
+                },
+                "styles": {
+                  "background": {
+                    "type": "image",
+                    "imageRef": "a350fb6826ce03d7a9efbe6b2481f402a6d6b266",
+                    "scaleMode": "STRETCH"
+                  },
+                  "border": {},
+                  "effects": {},
+                  "typography": {},
+                  "appearance": {
+                    "opacity": 1,
+                    "visible": true,
+                    "blendMode": "PASS_THROUGH"
+                  }
+                },
+                "content": {
+                  "type": "image",
+                  "data": "a350fb6826ce03d7a9efbe6b2481f402a6d6b266",
+                  "placeholder": "image-placeholder"
+                },
+                "interactions": [],
+                "context": {
+                  "isRepeated": false,
+                  "isClickable": false,
+                  "isInputField": false,
+                  "isNavigational": false,
+                  "dataRole": null
+                },
+                "children": []
+              },
+              {
+                "id": "6:1231",
+                "name": "iphone-12-pro",
+                "type": "RECTANGLE",
+                "semanticRole": "element",
+                "depth": 3,
+                "layout": {
+                  "position": {
+                    "x": 216,
+                    "y": 1890
+                  },
+                  "size": {
+                    "width": 546,
+                    "height": 1104
+                  },
+                  "spacing": {},
+                  "alignment": {},
+                  "responsive": {
+                    "breakpoints": {
+                      "mobile": "show",
+                      "tablet": "show",
+                      "desktop": "show"
+                    },
+                    "behavior": "static"
+                  },
+                  "constraints": {
+                    "horizontal": "LEFT",
+                    "vertical": "TOP"
+                  }
+                },
+                "styles": {
+                  "background": {
+                    "type": "solid",
+                    "color": {
+                      "hex": "#000000",
+                      "rgba": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 0,
+                        "a": 1
+                      },
+                      "opacity": 0.00009999999747378752
+                    }
+                  },
+                  "border": {},
+                  "effects": {},
+                  "typography": {},
+                  "appearance": {
+                    "opacity": 1,
+                    "visible": true,
+                    "blendMode": "PASS_THROUGH"
+                  }
+                },
+                "content": {
+                  "type": "decoration",
+                  "data": null,
+                  "placeholder": null
+                },
+                "interactions": [],
+                "context": {
+                  "isRepeated": false,
+                  "isClickable": false,
+                  "isInputField": false,
+                  "isNavigational": false,
+                  "dataRole": null
+                },
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "6:1232",
+            "name": "mask",
+            "type": "VECTOR",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": 242,
+                "y": 1913
+              },
+              "size": {
+                "width": 422,
+                "height": 913
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#000000",
+                  "rgba": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {},
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "icon",
+              "data": "Mask",
+              "placeholder": "icon-placeholder"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          },
+          {
+            "id": "6:1233",
+            "name": "mask",
+            "type": "VECTOR",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": 242,
+                "y": 1913
+              },
+              "size": {
+                "width": 422,
+                "height": 913
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#000000",
+                  "rgba": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {},
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "icon",
+              "data": "Mask",
+              "placeholder": "icon-placeholder"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          },
+          {
+            "id": "6:1234",
+            "name": "change-this",
+            "type": "VECTOR",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": 241,
+                "y": 1912
+              },
+              "size": {
+                "width": 424,
+                "height": 913
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#e7eaef",
+                  "rgba": {
+                    "r": 0.9058823585510254,
+                    "g": 0.9176470637321472,
+                    "b": 0.9372549057006836,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {},
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "icon",
+              "data": "Change This",
+              "placeholder": "icon-placeholder"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "insights": {
+    "keyInteractions": [],
+    "contentTypes": [
+      "icon",
+      "image"
+    ],
+    "layoutPatterns": [],
+    "accessibilityConsiderations": []
+  }
+}

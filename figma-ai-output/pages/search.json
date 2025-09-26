@@ -1,0 +1,717 @@
+{
+  "id": "1:3515",
+  "name": "search",
+  "originalName": "Search",
+  "type": "page",
+  "canvasName": "App",
+  "meta": {
+    "screenType": "search",
+    "primaryFunction": "navigation",
+    "userIntent": "find specific items",
+    "deviceTarget": "mobile",
+    "canvasSource": "App"
+  },
+  "structure": {
+    "id": "1:3515",
+    "name": "search",
+    "type": "FRAME",
+    "semanticRole": "search",
+    "depth": 0,
+    "layout": {
+      "position": {
+        "x": -2236,
+        "y": -2145
+      },
+      "size": {
+        "width": 375,
+        "height": 640
+      },
+      "spacing": {},
+      "alignment": {},
+      "responsive": {
+        "breakpoints": {
+          "mobile": "show",
+          "tablet": "show",
+          "desktop": "show"
+        },
+        "behavior": "static"
+      },
+      "constraints": {
+        "horizontal": "LEFT",
+        "vertical": "TOP"
+      }
+    },
+    "styles": {
+      "background": {
+        "type": "solid",
+        "color": {
+          "hex": "#ffffff",
+          "rgba": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "opacity": 1
+        }
+      },
+      "border": {},
+      "effects": {},
+      "typography": {},
+      "appearance": {
+        "opacity": 1,
+        "visible": true,
+        "blendMode": "PASS_THROUGH"
+      }
+    },
+    "content": {
+      "type": null,
+      "data": null,
+      "placeholder": null
+    },
+    "interactions": [],
+    "context": {
+      "isRepeated": false,
+      "isClickable": false,
+      "isInputField": true,
+      "isNavigational": false,
+      "dataRole": null
+    },
+    "children": [
+      {
+        "id": "1:3516",
+        "name": "search",
+        "type": "INSTANCE",
+        "semanticRole": "search",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -2220,
+            "y": -2123
+          },
+          "size": {
+            "width": 24,
+            "height": 24
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {},
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": null,
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": true,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": [
+          {
+            "id": "I1:3516;94:1726",
+            "name": "vector",
+            "type": "VECTOR",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": -2218,
+                "y": -2121
+              },
+              "size": {
+                "width": 18,
+                "height": 18
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {},
+              "border": {
+                "width": 1,
+                "color": {
+                  "hex": "#14142b",
+                  "rgba": {
+                    "r": 0.07887499779462814,
+                    "g": 0.07708333432674408,
+                    "b": 0.1666666716337204,
+                    "a": 1
+                  }
+                },
+                "style": "solid"
+              },
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "icon",
+              "data": "Vector",
+              "placeholder": "icon-placeholder"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          },
+          {
+            "id": "I1:3516;94:1727",
+            "name": "vector",
+            "type": "VECTOR",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": -2201,
+                "y": -2104
+              },
+              "size": {
+                "width": 3,
+                "height": 3
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {},
+              "border": {
+                "width": 1,
+                "color": {
+                  "hex": "#14142b",
+                  "rgba": {
+                    "r": 0.07887499779462814,
+                    "g": 0.07708333432674408,
+                    "b": 0.1666666716337204,
+                    "a": 1
+                  }
+                },
+                "style": "solid"
+              },
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "icon",
+              "data": "Vector",
+              "placeholder": "icon-placeholder"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "1:3517",
+        "name": "line-15",
+        "type": "LINE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -2220,
+            "y": -2086
+          },
+          "size": {
+            "width": 313,
+            "height": 0
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {},
+          "border": {
+            "width": 1,
+            "color": {
+              "hex": "#555555",
+              "rgba": {
+                "r": 0.3333333432674408,
+                "g": 0.3333333432674408,
+                "b": 0.3333333432674408,
+                "a": 1
+              }
+            },
+            "style": "solid"
+          },
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": null,
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "1:3518",
+        "name": "search-items",
+        "type": "TEXT",
+        "semanticRole": "search",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -2184,
+            "y": -2128
+          },
+          "size": {
+            "width": 87,
+            "height": 35
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#555555",
+              "rgba": {
+                "r": 0.3333333432674408,
+                "g": 0.3333333432674408,
+                "b": 0.3333333432674408,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Tenor Sans",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 34.5,
+            "letterSpacing": 0,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Search items",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": true,
+          "isNavigational": false,
+          "dataRole": "data-item"
+        },
+        "children": []
+      },
+      {
+        "id": "1:3519",
+        "name": "delete",
+        "type": "INSTANCE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -1930,
+            "y": -2120
+          },
+          "size": {
+            "width": 24,
+            "height": 24
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#ffffff",
+              "rgba": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": null,
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": [
+          {
+            "id": "I1:3519;670:786",
+            "name": "vector",
+            "type": "VECTOR",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": -1927,
+                "y": -2117
+              },
+              "size": {
+                "width": 18,
+                "height": 18
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#555555",
+                  "rgba": {
+                    "r": 0.3333333432674408,
+                    "g": 0.3333333432674408,
+                    "b": 0.3333333432674408,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {},
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "icon",
+              "data": "Vector",
+              "placeholder": "icon-placeholder"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "1:3520",
+        "name": "popular-search-terms",
+        "type": "TEXT",
+        "semanticRole": "search",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -2220,
+            "y": -2075
+          },
+          "size": {
+            "width": 142,
+            "height": 35
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#888888",
+              "rgba": {
+                "r": 0.5333333611488342,
+                "g": 0.5333333611488342,
+                "b": 0.5333333611488342,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Tenor Sans",
+            "fontSize": 14,
+            "fontWeight": 400,
+            "lineHeight": 34.5,
+            "letterSpacing": 0,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Popular search terms",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": true,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "1:3521",
+        "name": "trend-dress-bag-tshirt-beauty-accessories",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -2220,
+            "y": -2039
+          },
+          "size": {
+            "width": 92,
+            "height": 219
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#000000",
+              "rgba": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Tenor Sans",
+            "fontSize": 16,
+            "fontWeight": 400,
+            "lineHeight": 36.5,
+            "letterSpacing": 0,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Trend\nDress\nBag\nTshirt\nBeauty\nAccessories",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      }
+    ]
+  },
+  "insights": {
+    "keyInteractions": [],
+    "contentTypes": [
+      "icon",
+      "text"
+    ],
+    "layoutPatterns": [
+      "multi-item-layout"
+    ],
+    "accessibilityConsiderations": []
+  }
+}

@@ -1,0 +1,2716 @@
+{
+  "id": "2:1327",
+  "name": "color-guide",
+  "originalName": "Color Guide",
+  "type": "page",
+  "canvasName": "Components",
+  "meta": {
+    "screenType": "general",
+    "primaryFunction": "navigation",
+    "userIntent": "general interaction",
+    "deviceTarget": "laptop",
+    "canvasSource": "Components"
+  },
+  "structure": {
+    "id": "2:1327",
+    "name": "color-guide",
+    "type": "FRAME",
+    "semanticRole": "container",
+    "depth": 0,
+    "layout": {
+      "position": {
+        "x": -452,
+        "y": -1008
+      },
+      "size": {
+        "width": 820,
+        "height": 984
+      },
+      "spacing": {},
+      "alignment": {},
+      "responsive": {
+        "breakpoints": {
+          "mobile": "adapt",
+          "tablet": "show",
+          "desktop": "show"
+        },
+        "behavior": "static"
+      },
+      "constraints": {
+        "horizontal": "SCALE",
+        "vertical": "SCALE"
+      }
+    },
+    "styles": {
+      "background": {
+        "type": "solid",
+        "color": {
+          "hex": "#ffffff",
+          "rgba": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "opacity": 1
+        }
+      },
+      "border": {},
+      "effects": {},
+      "typography": {},
+      "appearance": {
+        "opacity": 1,
+        "visible": true,
+        "blendMode": "PASS_THROUGH"
+      }
+    },
+    "content": {
+      "type": null,
+      "data": null,
+      "placeholder": null
+    },
+    "interactions": [],
+    "context": {
+      "isRepeated": false,
+      "isClickable": false,
+      "isInputField": false,
+      "isNavigational": false,
+      "dataRole": null
+    },
+    "children": [
+      {
+        "id": "2:1328",
+        "name": "bg",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -452,
+            "y": -910
+          },
+          "size": {
+            "width": 820,
+            "height": 886
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "adapt",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "LEFT",
+            "vertical": "TOP"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#ffffff",
+              "rgba": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {
+            "width": 1,
+            "color": {
+              "hex": "#979797",
+              "rgba": {
+                "r": 0.5920000076293945,
+                "g": 0.5920000076293945,
+                "b": 0.5920000076293945,
+                "a": 1
+              }
+            },
+            "style": "solid"
+          },
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1329",
+        "name": "rectangle-220",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -225,
+            "y": -847
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#333333",
+              "rgba": {
+                "r": 0.20000000298023224,
+                "g": 0.20000000298023224,
+                "b": 0.20000000298023224,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1330",
+        "name": "body",
+        "type": "TEXT",
+        "semanticRole": "body-text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -225,
+            "y": -738
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Body",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1331",
+        "name": "used-for-body-copy-text",
+        "type": "TEXT",
+        "semanticRole": "body-text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -225,
+            "y": -723
+          },
+          "size": {
+            "width": 129,
+            "height": 16
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for body copy text",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1332",
+        "name": "label",
+        "type": "TEXT",
+        "semanticRole": "label",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -39,
+            "y": -738
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Label\n",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1333",
+        "name": "used-for-the-label-text",
+        "type": "TEXT",
+        "semanticRole": "label",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -39,
+            "y": -723
+          },
+          "size": {
+            "width": 121,
+            "height": 16
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for the label text.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1334",
+        "name": "rectangle-257",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -847
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#000000",
+              "rgba": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1335",
+        "name": "colors",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -408
+          },
+          "size": {
+            "width": 198,
+            "height": 26
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Poppins",
+            "fontSize": 20.950119018554688,
+            "fontWeight": 700,
+            "lineHeight": 21.823041915893555,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Colors",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1336",
+        "name": "title-active",
+        "type": "TEXT",
+        "semanticRole": "heading",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -738
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Title-Active",
+          "placeholder": "Sample Title"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": "title"
+        },
+        "children": []
+      },
+      {
+        "id": "2:1337",
+        "name": "used-for-both-links-and-titles",
+        "type": "TEXT",
+        "semanticRole": "heading",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -723
+          },
+          "size": {
+            "width": 157,
+            "height": 16
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for both links and titles.",
+          "placeholder": "Sample Title"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": true,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": "title"
+        },
+        "children": []
+      },
+      {
+        "id": "2:1338",
+        "name": "placeholder",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 150,
+            "y": -738
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Placeholder\n",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1339",
+        "name": "used-for-initial-copy-of-inputs",
+        "type": "TEXT",
+        "semanticRole": "input",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 150,
+            "y": -723
+          },
+          "size": {
+            "width": 160,
+            "height": 16
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for initial copy of inputs.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": true,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1340",
+        "name": "line",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -409,
+            "y": -552
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Line\n",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1341",
+        "name": "used-for-line-based-elements",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -410,
+            "y": -536
+          },
+          "size": {
+            "width": 183,
+            "height": 34
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for line based elements.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1342",
+        "name": "background",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -36,
+            "y": -552
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Background",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1343",
+        "name": "input-background",
+        "type": "TEXT",
+        "semanticRole": "input",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -222,
+            "y": -552
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Input Background",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": true,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1344",
+        "name": "off-white",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 150,
+            "y": -552
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Off-white",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1345",
+        "name": "used-for-element-backgrounds",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -37,
+            "y": -536
+          },
+          "size": {
+            "width": 178,
+            "height": 32
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for element backgrounds.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1346",
+        "name": "used-for-input-bg-accessibility",
+        "type": "TEXT",
+        "semanticRole": "input",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -223,
+            "y": -536
+          },
+          "size": {
+            "width": 180,
+            "height": 32
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for input bg accessibility.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": true,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1347",
+        "name": "used-to-avoid-darkmode-strain",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 149,
+            "y": -536
+          },
+          "size": {
+            "width": 174,
+            "height": 32
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used to avoid darkmode strain.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1348",
+        "name": "rectangle-284",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -39,
+            "y": -662
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#f8f0e7",
+              "rgba": {
+                "r": 0.9725490212440491,
+                "g": 0.9411764740943909,
+                "b": 0.9058823585510254,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {
+            "width": 0.43646082282066345,
+            "color": {
+              "hex": "#d9dbe9",
+              "rgba": {
+                "r": 0.8524772524833679,
+                "g": 0.8594365119934082,
+                "b": 0.9127904772758484,
+                "a": 1
+              }
+            },
+            "style": "solid"
+          },
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1349",
+        "name": "rectangle-289",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -225,
+            "y": -662
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#f9f9f9",
+              "rgba": {
+                "r": 0.9750000238418579,
+                "g": 0.9750000238418579,
+                "b": 0.9750000238418579,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {
+            "width": 0.43646082282066345,
+            "color": {
+              "hex": "#d9dbe9",
+              "rgba": {
+                "r": 0.8524772524833679,
+                "g": 0.8594365119934082,
+                "b": 0.9127904772758484,
+                "a": 1
+              }
+            },
+            "style": "solid"
+          },
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1350",
+        "name": "rectangle-286",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 147,
+            "y": -662
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#fcfcfc",
+              "rgba": {
+                "r": 0.9882352948188782,
+                "g": 0.9882352948188782,
+                "b": 0.9882352948188782,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {
+            "width": 0.43646082282066345,
+            "color": {
+              "hex": "#d9dbe9",
+              "rgba": {
+                "r": 0.8524772524833679,
+                "g": 0.8594365119934082,
+                "b": 0.9127904772758484,
+                "a": 1
+              }
+            },
+            "style": "solid"
+          },
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1351",
+        "name": "rectangle-223",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -39,
+            "y": -847
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#555555",
+              "rgba": {
+                "r": 0.3333333432674408,
+                "g": 0.3333333432674408,
+                "b": 0.3333333432674408,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1352",
+        "name": "rectangle-224",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": 150,
+            "y": -847
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#888888",
+              "rgba": {
+                "r": 0.5333333611488342,
+                "g": 0.5333333611488342,
+                "b": 0.5333333611488342,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1353",
+        "name": "rectangle-225",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -662
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#e0cfba",
+              "rgba": {
+                "r": 0.8784313797950745,
+                "g": 0.8117647171020508,
+                "b": 0.729411780834198,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1354",
+        "name": "secondary",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -224,
+            "y": -246
+          },
+          "size": {
+            "width": 113,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Secondary",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1355",
+        "name": "used-for-accents-actions",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -225,
+            "y": -230
+          },
+          "size": {
+            "width": 148,
+            "height": 16
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used for accents & actions.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1356",
+        "name": "rectangle-287",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -225,
+            "y": -355
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#dd8560",
+              "rgba": {
+                "r": 0.8666666746139526,
+                "g": 0.5215686559677124,
+                "b": 0.3764705955982208,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1357",
+        "name": "primary",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -411,
+            "y": -246
+          },
+          "size": {
+            "width": 104,
+            "height": 17
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#14142b",
+              "rgba": {
+                "r": 0.07887499779462814,
+                "g": 0.07708333432674408,
+                "b": 0.1666666716337204,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 13.96674633026123,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Primary\n",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1358",
+        "name": "used-as-the-primary-color",
+        "type": "TEXT",
+        "semanticRole": "text",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -230
+          },
+          "size": {
+            "width": 141,
+            "height": 16
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#6e7191",
+              "rgba": {
+                "r": 0.4313725531101227,
+                "g": 0.4431372582912445,
+                "b": 0.5686274766921997,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {
+            "fontFamily": "Montserrat",
+            "fontSize": 12,
+            "fontWeight": 400,
+            "lineHeight": 15.712589263916016,
+            "letterSpacing": 0.4364607632160187,
+            "textAlign": "LEFT"
+          },
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "text",
+          "data": "Used as the primary color.",
+          "placeholder": "Sample text"
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1359",
+        "name": "rectangle-256",
+        "type": "RECTANGLE",
+        "semanticRole": "element",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -412,
+            "y": -355
+          },
+          "size": {
+            "width": 173,
+            "height": 96
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "show",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "SCALE",
+            "vertical": "SCALE"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#a8715a",
+              "rgba": {
+                "r": 0.658823549747467,
+                "g": 0.4431372582912445,
+                "b": 0.3529411852359772,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": "decoration",
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": null
+        },
+        "children": []
+      },
+      {
+        "id": "2:1360",
+        "name": "title",
+        "type": "FRAME",
+        "semanticRole": "container",
+        "depth": 1,
+        "layout": {
+          "position": {
+            "x": -452,
+            "y": -1008
+          },
+          "size": {
+            "width": 820,
+            "height": 98
+          },
+          "spacing": {},
+          "alignment": {},
+          "responsive": {
+            "breakpoints": {
+              "mobile": "adapt",
+              "tablet": "show",
+              "desktop": "show"
+            },
+            "behavior": "static"
+          },
+          "constraints": {
+            "horizontal": "LEFT",
+            "vertical": "TOP"
+          }
+        },
+        "styles": {
+          "background": {
+            "type": "solid",
+            "color": {
+              "hex": "#ffffff",
+              "rgba": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "opacity": 1
+            }
+          },
+          "border": {},
+          "effects": {},
+          "typography": {},
+          "appearance": {
+            "opacity": 1,
+            "visible": true,
+            "blendMode": "PASS_THROUGH"
+          }
+        },
+        "content": {
+          "type": null,
+          "data": null,
+          "placeholder": null
+        },
+        "interactions": [],
+        "context": {
+          "isRepeated": false,
+          "isClickable": false,
+          "isInputField": false,
+          "isNavigational": false,
+          "dataRole": "title"
+        },
+        "children": [
+          {
+            "id": "2:1361",
+            "name": "bg",
+            "type": "RECTANGLE",
+            "semanticRole": "element",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": -452,
+                "y": -1008
+              },
+              "size": {
+                "width": 820,
+                "height": 98
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "adapt",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "SCALE"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#000000",
+                  "rgba": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 0,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {
+                "width": 1,
+                "color": {
+                  "hex": "#979797",
+                  "rgba": {
+                    "r": 0.5920000076293945,
+                    "g": 0.5920000076293945,
+                    "b": 0.5920000076293945,
+                    "a": 1
+                  }
+                },
+                "style": "solid"
+              },
+              "effects": {},
+              "typography": {},
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "decoration",
+              "data": null,
+              "placeholder": null
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          },
+          {
+            "id": "2:1362",
+            "name": "guide-for-colors",
+            "type": "TEXT",
+            "semanticRole": "text",
+            "depth": 2,
+            "layout": {
+              "position": {
+                "x": -402,
+                "y": -988
+              },
+              "size": {
+                "width": 64,
+                "height": 56
+              },
+              "spacing": {},
+              "alignment": {},
+              "responsive": {
+                "breakpoints": {
+                  "mobile": "show",
+                  "tablet": "show",
+                  "desktop": "show"
+                },
+                "behavior": "static"
+              },
+              "constraints": {
+                "horizontal": "SCALE",
+                "vertical": "CENTER"
+              }
+            },
+            "styles": {
+              "background": {
+                "type": "solid",
+                "color": {
+                  "hex": "#b3b3b3",
+                  "rgba": {
+                    "r": 0.7019608020782471,
+                    "g": 0.7019608020782471,
+                    "b": 0.7019608020782471,
+                    "a": 1
+                  },
+                  "opacity": 1
+                }
+              },
+              "border": {},
+              "effects": {},
+              "typography": {
+                "fontFamily": "Montserrat",
+                "fontSize": 14,
+                "fontWeight": 100,
+                "lineHeight": 29,
+                "letterSpacing": 0,
+                "textAlign": "LEFT"
+              },
+              "appearance": {
+                "opacity": 1,
+                "visible": true,
+                "blendMode": "PASS_THROUGH"
+              }
+            },
+            "content": {
+              "type": "text",
+              "data": "Guide for \nColors",
+              "placeholder": "Sample text"
+            },
+            "interactions": [],
+            "context": {
+              "isRepeated": false,
+              "isClickable": false,
+              "isInputField": false,
+              "isNavigational": false,
+              "dataRole": null
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "insights": {
+    "keyInteractions": [
+      {
+        "element": "Used for both links and titles.",
+        "type": "click",
+        "purpose": "navigate"
+      }
+    ],
+    "contentTypes": [
+      "text"
+    ],
+    "layoutPatterns": [
+      "multi-item-layout"
+    ],
+    "accessibilityConsiderations": [
+      "Consider larger font size for Body (current: 12px)",
+      "Consider larger font size for Used for body copy text (current: 12px)",
+      "Consider larger font size for Label (current: 12px)",
+      "Consider larger font size for Used for the label text. (current: 12px)",
+      "Consider larger font size for Title-Active (current: 12px)",
+      "Add accessible name for Used for both links and titles.",
+      "Consider larger font size for Used for both links and titles. (current: 12px)",
+      "Consider larger font size for Placeholder (current: 12px)",
+      "Consider larger font size for Used for initial copy of inputs. (current: 12px)",
+      "Consider larger font size for Line (current: 12px)",
+      "Consider larger font size for Used for line based elements. (current: 12px)",
+      "Consider larger font size for Background (current: 12px)",
+      "Consider larger font size for Input Background (current: 12px)",
+      "Consider larger font size for Off-white (current: 12px)",
+      "Consider larger font size for Used for element backgrounds. (current: 12px)",
+      "Consider larger font size for Used for input bg accessibility. (current: 12px)",
+      "Consider larger font size for Used to avoid darkmode strain. (current: 12px)",
+      "Consider larger font size for Secondary (current: 12px)",
+      "Consider larger font size for Used for accents & actions. (current: 12px)",
+      "Consider larger font size for Primary (current: 12px)",
+      "Consider larger font size for Used as the primary color. (current: 12px)"
+    ]
+  }
+}

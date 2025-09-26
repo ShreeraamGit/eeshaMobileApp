@@ -15,6 +15,12 @@ export const Badge: React.FC<BadgeProps> = ({ type, text, style }) => {
   const badgeConfig = ECOMMERCE_CONFIG.badges.types[type];
   const productBadgeConfig = ECOMMERCE_CONFIG.product.badge;
 
+  // Safety check for invalid badge types
+  if (!badgeConfig) {
+    console.warn(`Invalid badge type: ${type}. Available types:`, Object.keys(ECOMMERCE_CONFIG.badges.types));
+    return null;
+  }
+
   const badgeStyle: ViewStyle = {
     backgroundColor: badgeConfig.background,
     paddingHorizontal: productBadgeConfig.padding.x,

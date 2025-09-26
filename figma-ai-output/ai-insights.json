@@ -1,0 +1,54 @@
+{
+  "commonPatterns": [
+    "cards-layout",
+    "navigation-bar",
+    "button-groups",
+    "form-layouts",
+    "image-galleries"
+  ],
+  "recommendedComponents": [
+    {
+      "name": "ProductCard",
+      "reason": "Repeated product display pattern"
+    },
+    {
+      "name": "NavigationBar",
+      "reason": "Common navigation pattern"
+    },
+    {
+      "name": "Button",
+      "reason": "Repeated button styles"
+    }
+  ],
+  "dataStructures": {
+    "products": {
+      "id": "string",
+      "name": "string",
+      "price": "number",
+      "image": "url"
+    },
+    "user": {
+      "id": "string",
+      "name": "string",
+      "email": "string"
+    }
+  },
+  "userFlows": [
+    {
+      "flow": "product-discovery",
+      "steps": [
+        "browse",
+        "filter",
+        "view-details"
+      ]
+    },
+    {
+      "flow": "purchase",
+      "steps": [
+        "add-to-cart",
+        "checkout",
+        "payment"
+      ]
+    }
+  ]
+}

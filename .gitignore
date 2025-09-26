@@ -82,9 +82,6 @@ expo-env.d.ts
 # @end expo-cli
 
 # Large design and documentation files
-figma-ai-output/
-design-system-enhanced.json
-compass_artifact*.md
 
 # TypeScript build info
 tsconfig.tsbuildinfo

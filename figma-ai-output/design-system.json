@@ -1,0 +1,433 @@
+{
+  "colors": [
+    {
+      "hex": "#fcfcfc",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#ffffff",
+      "usage": "auto-detected",
+      "role": "accent"
+    },
+    {
+      "hex": "#dd8560",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#555555",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#333333",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#2b2b2b",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#888888",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#000000",
+      "usage": "auto-detected",
+      "role": "text"
+    },
+    {
+      "hex": "#14142b",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#212806",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#e7eaef",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#c4c4c4",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#dedede",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#a8715a",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#f9f9f9",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#14142a",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#f8f8f8",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#e0cfba",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#e1e0db",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#0f140d",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#1a1a1a",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#17181a",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#ed0006",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#979797",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#dadada",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#f9a000",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#6d6dbb",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#ff5e00",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#d4d4d4",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#f8f0e7",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#111111",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#343434",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#f5f5f5",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#aaaaaa",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#202224",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#727272",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#b3b3b3",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#6e7191",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#d9dbe9",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#202020",
+      "usage": "auto-detected",
+      "role": "decoration"
+    },
+    {
+      "hex": "#909090",
+      "usage": "auto-detected",
+      "role": "decoration"
+    }
+  ],
+  "typography": [
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 13,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 16,
+      "fontWeight": 400,
+      "lineHeight": 24,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 18,
+      "fontWeight": 400,
+      "lineHeight": 40,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Agne",
+      "fontSize": 162.70352172851562,
+      "fontWeight": 400,
+      "lineHeight": 244.05526733398438,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Agne",
+      "fontSize": 41.864601135253906,
+      "fontWeight": 400,
+      "lineHeight": 62.79689407348633,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 12.929357528686523,
+      "fontWeight": 400,
+      "lineHeight": 29.091054916381836,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 11.322050094604492,
+      "fontWeight": 400,
+      "lineHeight": 25.474613189697266,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 16,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 15,
+      "fontWeight": 400,
+      "lineHeight": 24,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Manrope",
+      "fontSize": 12,
+      "fontWeight": 300,
+      "lineHeight": 16.392000198364258,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Agne",
+      "fontSize": 38.65641403198242,
+      "fontWeight": 400,
+      "lineHeight": 43.48846435546875,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Agne",
+      "fontSize": 36,
+      "fontWeight": 400,
+      "lineHeight": 43.48846435546875,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Poppins",
+      "fontSize": 16,
+      "fontWeight": 400,
+      "lineHeight": 26,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Tenor Sans",
+      "fontSize": 10,
+      "fontWeight": 400,
+      "lineHeight": 12,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Poppins",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 24,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Poppins",
+      "fontSize": 16,
+      "fontWeight": 500,
+      "lineHeight": 24,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Poppins",
+      "fontSize": 12.929357528686523,
+      "fontWeight": 900,
+      "lineHeight": 29.091054916381836,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "SF Pro Display",
+      "fontSize": 14,
+      "fontWeight": 600,
+      "lineHeight": 29,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Montserrat",
+      "fontSize": 14,
+      "fontWeight": 400,
+      "lineHeight": 22,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Montserrat",
+      "fontSize": 12,
+      "fontWeight": 700,
+      "lineHeight": 13.96674633026123,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Montserrat",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 15.712589263916016,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Poppins",
+      "fontSize": 20.950119018554688,
+      "fontWeight": 700,
+      "lineHeight": 21.823041915893555,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Montserrat",
+      "fontSize": 14,
+      "fontWeight": 100,
+      "lineHeight": 29,
+      "usage": "auto-detected",
+      "role": "body"
+    },
+    {
+      "fontFamily": "Neurial Grotesk",
+      "fontSize": 20,
+      "fontWeight": 400,
+      "lineHeight": 24,
+      "usage": "auto-detected",
+      "role": "body"
+    }
+  ],
+  "spacing": [
+    0,
+    2,
+    3,
+    4,
+    6,
+    8,
+    10,
+    11,
+    12,
+    13,
+    16,
+    20,
+    24,
+    25,
+    30,
+    33,
+    93,
+    103,
+    125
+  ],
+  "components": []
+}

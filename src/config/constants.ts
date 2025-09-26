@@ -1,4 +1,5 @@
 // Application constants and configuration
+import { getScaledFontSize } from '@/utils/responsive';
 
 export const APP_CONFIG = {
   NAME: 'Eesha Silks',
@@ -506,199 +507,199 @@ export const COMPONENT_CONFIG = {
   },
 } as const;
 
-// Text styles from the design system - mapped to React Native compatible format
+// Responsive text styles - scales based on device size
 export const TEXT_STYLES = {
   'display-large': {
-    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.display, // Use Agne for large displays
-    fontSize: 96,
+    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
+    fontSize: getScaledFontSize(72), // Reduced from 96 for mobile
     fontWeight: '700',
-    lineHeight: 96,
-    letterSpacing: -0.96,
+    lineHeight: getScaledFontSize(78),
+    letterSpacing: -0.5,
   },
   'display-medium': {
-    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.display,
-    fontSize: 72,
+    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
+    fontSize: getScaledFontSize(56), // Reduced from 72 for mobile
     fontWeight: '700',
-    lineHeight: 72,
-    letterSpacing: -0.72,
+    lineHeight: getScaledFontSize(62),
+    letterSpacing: -0.4,
   },
   'display-small': {
-    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.display,
-    fontSize: 60,
+    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
+    fontSize: getScaledFontSize(42), // Reduced from 60 for mobile
     fontWeight: '600',
-    lineHeight: 66,
-    letterSpacing: -0.6,
+    lineHeight: getScaledFontSize(48),
+    letterSpacing: -0.3,
   },
   h1: {
-    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.display, // Large headings use Agne
-    fontSize: 48,
+    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
+    fontSize: getScaledFontSize(32), // Reduced from 48 for mobile
     fontWeight: '700',
-    lineHeight: 58,
-    letterSpacing: -0.48,
+    lineHeight: getScaledFontSize(38),
+    letterSpacing: -0.2,
   },
   h2: {
-    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.display,
-    fontSize: 36,
+    fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
+    fontSize: getScaledFontSize(28), // Reduced from 36 for mobile
     fontWeight: '600',
-    lineHeight: 45,
-    letterSpacing: -0.18,
+    lineHeight: getScaledFontSize(34),
+    letterSpacing: -0.1,
   },
   h3: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 30,
+    fontSize: getScaledFontSize(24), // Reduced from 30 for mobile
     fontWeight: '600',
-    lineHeight: 39,
+    lineHeight: getScaledFontSize(30),
     letterSpacing: 0,
   },
   h4: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 24,
+    fontSize: getScaledFontSize(20), // Reduced from 24 for mobile
     fontWeight: '600',
-    lineHeight: 32.4,
+    lineHeight: getScaledFontSize(26),
     letterSpacing: 0,
   },
   h5: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 20,
+    fontSize: getScaledFontSize(18), // Reduced from 20 for mobile
     fontWeight: '500',
-    lineHeight: 28,
+    lineHeight: getScaledFontSize(24),
     letterSpacing: 0,
   },
   h6: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 18,
+    fontSize: getScaledFontSize(16), // Reduced from 18 for mobile
     fontWeight: '500',
-    lineHeight: 26.1,
+    lineHeight: getScaledFontSize(22),
     letterSpacing: 0,
   },
   'body-large': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 18,
+    fontSize: getScaledFontSize(16), // Reduced from 18 for mobile
     fontWeight: '400',
-    lineHeight: 28.8,
+    lineHeight: getScaledFontSize(24),
     letterSpacing: 0,
   },
   'body-regular': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 16,
+    fontSize: getScaledFontSize(14), // Reduced from 16 for mobile
     fontWeight: '400',
-    lineHeight: 24,
+    lineHeight: getScaledFontSize(20),
     letterSpacing: 0,
   },
   'body-small': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 14,
+    fontSize: getScaledFontSize(12), // Reduced from 14 for mobile
     fontWeight: '400',
-    lineHeight: 21,
+    lineHeight: getScaledFontSize(18),
     letterSpacing: 0,
   },
   'price-large': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 32,
+    fontSize: getScaledFontSize(24), // Reduced from 32 for mobile
     fontWeight: '700',
-    lineHeight: 32,
-    letterSpacing: -0.32,
+    lineHeight: getScaledFontSize(28),
+    letterSpacing: -0.2,
   },
   'price-regular': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 24,
+    fontSize: getScaledFontSize(18), // Reduced from 24 for mobile
     fontWeight: '600',
-    lineHeight: 24,
+    lineHeight: getScaledFontSize(22),
     letterSpacing: 0,
   },
   'price-small': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 18,
+    fontSize: getScaledFontSize(16), // Reduced from 18 for mobile
     fontWeight: '600',
-    lineHeight: 18,
+    lineHeight: getScaledFontSize(20),
     letterSpacing: 0,
   },
   'price-sale': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 20,
+    fontSize: getScaledFontSize(16), // Reduced from 20 for mobile
     fontWeight: '700',
-    lineHeight: 20,
+    lineHeight: getScaledFontSize(20),
     letterSpacing: 0,
     textDecorationLine: 'line-through',
   },
   'product-title': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 18,
+    fontSize: getScaledFontSize(16), // Reduced from 18 for mobile
     fontWeight: '500',
-    lineHeight: 23.4,
+    lineHeight: getScaledFontSize(22),
     letterSpacing: 0,
   },
   'product-description': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 14,
+    fontSize: getScaledFontSize(12), // Reduced from 14 for mobile
     fontWeight: '400',
-    lineHeight: 21,
+    lineHeight: getScaledFontSize(18),
     letterSpacing: 0,
   },
   'button-large': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 18,
+    fontSize: getScaledFontSize(16), // Reduced from 18 for mobile
     fontWeight: '600',
-    lineHeight: 18,
-    letterSpacing: 0.36,
+    lineHeight: getScaledFontSize(20),
+    letterSpacing: 0.3,
   },
   'button-regular': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 16,
+    fontSize: getScaledFontSize(14), // Reduced from 16 for mobile
     fontWeight: '600',
-    lineHeight: 16,
-    letterSpacing: 0.32,
+    lineHeight: getScaledFontSize(18),
+    letterSpacing: 0.25,
   },
   'button-small': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 14,
+    fontSize: getScaledFontSize(12), // Reduced from 14 for mobile
     fontWeight: '600',
-    lineHeight: 14,
-    letterSpacing: 0.28,
+    lineHeight: getScaledFontSize(16),
+    letterSpacing: 0.2,
   },
   label: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 12,
+    fontSize: getScaledFontSize(11), // Reduced from 12 for mobile
     fontWeight: '500',
-    lineHeight: 14.4,
-    letterSpacing: 0.6,
+    lineHeight: getScaledFontSize(14),
+    letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
   caption: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 12,
+    fontSize: getScaledFontSize(11), // Reduced from 12 for mobile
     fontWeight: '400',
-    lineHeight: 16.8,
-    letterSpacing: 0.3,
+    lineHeight: getScaledFontSize(16),
+    letterSpacing: 0.25,
   },
   overline: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 11,
+    fontSize: getScaledFontSize(10), // Reduced from 11 for mobile
     fontWeight: '600',
-    lineHeight: 16.5,
-    letterSpacing: 1.1,
+    lineHeight: getScaledFontSize(14),
+    letterSpacing: 1.0,
     textTransform: 'uppercase',
   },
   badge: {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 11,
+    fontSize: getScaledFontSize(10), // Reduced from 11 for mobile
     fontWeight: '700',
-    lineHeight: 11,
-    letterSpacing: 0.55,
+    lineHeight: getScaledFontSize(12),
+    letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
   'category-title': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 22,
+    fontSize: getScaledFontSize(20), // Reduced from 22 for mobile
     fontWeight: '600',
-    lineHeight: 28.6,
-    letterSpacing: -0.11,
+    lineHeight: getScaledFontSize(26),
+    letterSpacing: -0.1,
   },
   'search-placeholder': {
     fontFamily: UI_CONFIG.TYPOGRAPHY.fonts.primary,
-    fontSize: 15,
+    fontSize: getScaledFontSize(14), // Reduced from 15 for mobile
     fontWeight: '400',
-    lineHeight: 18,
+    lineHeight: getScaledFontSize(18),
     letterSpacing: 0,
   },
 } as const;
