@@ -1,8 +1,13 @@
 import React from 'react';
-import { View, ImageBackground, ViewStyle, TextStyle, StyleSheet } from 'react-native';
+import {
+  View,
+  ImageBackground,
+  ViewStyle,
+  TextStyle,
+  StyleSheet,
+} from 'react-native';
 import { Text } from '@/components/common/Text';
 import { UI_CONFIG } from '@/config/constants';
-import { getScaledFontSize } from '@/utils/responsive';
 
 interface HeroSectionProps {
   style?: ViewStyle;
@@ -55,49 +60,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ style }) => {
 
   return (
     <ImageBackground
-      source={{ uri: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=600&fit=crop' }}
+      source={{
+        uri: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=600&fit=crop',
+      }}
       style={containerStyle}
       resizeMode="cover"
     >
       <View style={overlayStyle} />
 
       <View style={contentStyle}>
-        <Text
-          variant="h1"
-          color="text.inverse"
-          style={titleStyle}
-        >
+        <Text variant="h1" color="text.inverse" style={titleStyle}>
           LUXURY{'\n'}FASHION{'\n'}ACCESSORIES
         </Text>
 
-        <Text
-          variant="body-large"
-          color="text.inverse"
-          style={subtitleStyle}
-        >
-          Making a luxurious lifestyle accessible for a generous group of women is our daily drive.
+        <Text variant="body-large" color="text.inverse" style={subtitleStyle}>
+          Making a luxurious lifestyle accessible for a generous group of women
+          is our daily drive.
         </Text>
-
-        {/* Feature highlights */}
-        <View style={featuresStyle}>
-          <View style={featureItemStyle}>
-            <Text variant="caption" color="text.inverse" style={{ textAlign: 'center' }}>
-              Fast shipping.{'\n'}Free on orders over $25.
-            </Text>
-          </View>
-
-          <View style={featureItemStyle}>
-            <Text variant="caption" color="text.inverse" style={{ textAlign: 'center' }}>
-              Sustainable process{'\n'}from start to finish.
-            </Text>
-          </View>
-
-          <View style={featureItemStyle}>
-            <Text variant="caption" color="text.inverse" style={{ textAlign: 'center' }}>
-              Unique designs{'\n'}and high-quality materials.
-            </Text>
-          </View>
-        </View>
       </View>
     </ImageBackground>
   );

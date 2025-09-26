@@ -4,7 +4,6 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HeaderSection } from '@/components/home/HeaderSection';
 import { HeroSection } from '@/components/home/HeroSection';
 import { NewArrivalsSection } from '@/components/home/NewArrivalsSection';
-import { BrandLogosSection } from '@/components/home/BrandLogosSection';
 import { CollectionsSection } from '@/components/home/CollectionsSection';
 import { JustForYouSection } from '@/components/home/JustForYouSection';
 import { BottomNavigation } from '@/components/home/BottomNavigation';
@@ -14,12 +13,17 @@ const HomeScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={{
-      flex: 1,
-      backgroundColor: UI_CONFIG.COLORS.background.default,
-      paddingTop: insets.top
-    }}>
-      <StatusBar barStyle="dark-content" backgroundColor={UI_CONFIG.COLORS.background.default} />
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: UI_CONFIG.COLORS.background.default,
+        paddingTop: insets.top,
+      }}
+    >
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={UI_CONFIG.COLORS.background.default}
+      />
 
       {/* Top Navigation with User and Notifications */}
       <HeaderSection userName="Sarah Johnson" />
@@ -35,9 +39,6 @@ const HomeScreen: React.FC = () => {
 
           {/* New Arrivals Product Grid */}
           <NewArrivalsSection />
-
-          {/* Brand Logos */}
-          <BrandLogosSection />
 
           {/* Collections Section */}
           <CollectionsSection />
@@ -56,6 +57,5 @@ const HomeScreen: React.FC = () => {
     </View>
   );
 };
-
 
 export default HomeScreen;

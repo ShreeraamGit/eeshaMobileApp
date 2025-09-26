@@ -11,8 +11,8 @@ interface HeaderSectionProps {
 }
 
 export const HeaderSection: React.FC<HeaderSectionProps> = ({
-  userName = "Sarah Johnson",
-  style
+  userName = 'Sarah Johnson',
+  style,
 }) => {
   const containerStyle: ViewStyle = {
     flexDirection: 'row',
@@ -22,7 +22,7 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({
     paddingVertical: UI_CONFIG.SPACING[2], // 16px
     backgroundColor: UI_CONFIG.COLORS.background.default,
     borderBottomWidth: 1,
-    borderBottomColor: UI_CONFIG.COLORS.border.light,
+    borderBottomColor: UI_CONFIG.COLORS.border.black,
     ...style,
   };
 
@@ -50,10 +50,18 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({
     <View style={containerStyle}>
       {/* User Section */}
       <View style={userSectionStyle}>
-        <Text variant="caption" color="text.secondary" style={{ fontSize: getScaledFontSize(12) }}>
+        <Text
+          variant="caption"
+          color="text.secondary"
+          style={{ fontSize: getScaledFontSize(12) }}
+        >
           Good morning
         </Text>
-        <Text variant="body-regular" color="text.primary" style={{ fontWeight: '600', fontSize: getScaledFontSize(16) }}>
+        <Text
+          variant="body-regular"
+          color="text.primary"
+          style={{ fontWeight: '600', fontSize: getScaledFontSize(16) }}
+        >
           {userName}
         </Text>
       </View>
@@ -67,7 +75,13 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({
         />
         {/* Notification Badge */}
         <View style={badgeStyle}>
-          <Text style={{ color: 'white', fontSize: getScaledFontSize(8), fontWeight: '600' }}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: getScaledFontSize(8),
+              fontWeight: '600',
+            }}
+          >
             3
           </Text>
         </View>

@@ -14,8 +14,8 @@ export const API_CONFIG = {
 } as const;
 
 export const BUSINESS_CONFIG = {
-  VAT_RATE: 0.20, // 20% French VAT
-  SHIPPING_COST: 10.00, // Flat rate for France
+  VAT_RATE: 0.2, // 20% French VAT
+  SHIPPING_COST: 10.0, // Flat rate for France
   CURRENCY: 'EUR',
   COUNTRY: 'FR',
   DEFAULT_LANGUAGE: 'fr',
@@ -30,10 +30,10 @@ export const UI_CONFIG = {
     attention: '#ff5e00',
 
     // New accent colors from Figma design
-    coral: '#dd8560',     // Primary warm accent
-    golden: '#f9a000',    // Highlight color
+    coral: '#dd8560', // Primary warm accent
+    golden: '#f9a000', // Highlight color
     vibrantOrange: '#ff5e00', // Secondary accent
-    saleRed: '#ed0006',   // Strong call-to-action
+    saleRed: '#ed0006', // Strong call-to-action
 
     // Text colors
     text: {
@@ -60,6 +60,7 @@ export const UI_CONFIG = {
       light: '#E5E5E5',
       default: '#D0D0D0',
       dark: '#999999',
+      black: '#000000',
     },
 
     // Feedback colors
@@ -73,15 +74,15 @@ export const UI_CONFIG = {
 
     // E-commerce specific colors - updated with Figma colors
     ecommerce: {
-      sale: '#ed0006',        // Strong red from Figma
-      newArrival: '#f9a000',  // Golden yellow from Figma
-      outOfStock: '#979797',  // Gray from Figma
+      sale: '#ed0006', // Strong red from Figma
+      newArrival: '#f9a000', // Golden yellow from Figma
+      outOfStock: '#979797', // Gray from Figma
       inStock: '#00AA00',
       limitedStock: '#ff5e00', // Orange from Figma
-      exclusive: '#6d6dbb',    // Purple from Figma
-      trending: '#dd8560',     // Coral from Figma
+      exclusive: '#6d6dbb', // Purple from Figma
+      trending: '#dd8560', // Coral from Figma
       wishlist: '#FF1493',
-      cart: '#dd8560',        // Updated to coral
+      cart: '#dd8560', // Updated to coral
       checkout: '#00AA00',
     },
   },
@@ -89,7 +90,7 @@ export const UI_CONFIG = {
   // Updated spacing scale - includes Figma-specific values alongside 8px grid
   SPACING: {
     0: 0,
-    1: 8,     // base unit
+    1: 8, // base unit
     2: 16,
     3: 24,
     4: 32,
@@ -115,17 +116,17 @@ export const UI_CONFIG = {
 
     // Additional Figma-specific spacing values
     figma: {
-      2: 2,    // Figma specific
-      3: 3,    // Figma specific
-      4: 4,    // Figma specific
-      6: 6,    // Figma specific
-      10: 10,  // Figma specific
-      11: 11,  // Figma specific
-      13: 13,  // Figma specific
-      25: 25,  // Figma specific
-      30: 30,  // Figma specific
-      33: 33,  // Figma specific
-      93: 93,  // Figma specific
+      2: 2, // Figma specific
+      3: 3, // Figma specific
+      4: 4, // Figma specific
+      6: 6, // Figma specific
+      10: 10, // Figma specific
+      11: 11, // Figma specific
+      13: 13, // Figma specific
+      25: 25, // Figma specific
+      30: 30, // Figma specific
+      33: 33, // Figma specific
+      93: 93, // Figma specific
       103: 103, // Figma specific
       125: 125, // Figma specific
     },
@@ -197,10 +198,10 @@ export const UI_CONFIG = {
   // Typography system from design system - updated with Figma fonts
   TYPOGRAPHY: {
     fonts: {
-      primary: 'Tenor Sans',   // Updated from Figma - main UI font
-      secondary: 'Poppins',    // Secondary font for buttons/labels
-      display: 'Agne',        // Large display text (hero sections)
-      body: 'Manrope',        // Alternative body text
+      primary: 'Tenor Sans', // Updated from Figma - main UI font
+      secondary: 'Poppins', // Secondary font for buttons/labels
+      display: 'Agne', // Large display text (hero sections)
+      body: 'Manrope', // Alternative body text
       modern: 'Neurial Grotesk', // Modern accent font
       mono: 'SF Mono, Consolas, monospace',
     },
@@ -267,7 +268,8 @@ export const UI_CONFIG = {
 
     semantic: {
       card: '0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)',
-      cardHover: '0 8px 16px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
+      cardHover:
+        '0 8px 16px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
       productCard: '0 2px 8px rgba(0, 0, 0, 0.08)',
       productCardHover: '0 8px 24px rgba(0, 0, 0, 0.12)',
       dropdown: '0 4px 12px rgba(0, 0, 0, 0.15)',
@@ -281,12 +283,54 @@ export const UI_CONFIG = {
 
   // Breakpoints for responsive design
   BREAKPOINTS: {
-    xs: { min: 0, max: 479, container: '100%', columns: 4, margin: 16, gutter: 16 },
-    sm: { min: 480, max: 767, container: '100%', columns: 6, margin: 20, gutter: 20 },
-    md: { min: 768, max: 1023, container: 720, columns: 8, margin: 32, gutter: 24 },
-    lg: { min: 1024, max: 1279, container: 960, columns: 12, margin: 48, gutter: 32 },
-    xl: { min: 1280, max: 1535, container: 1200, columns: 12, margin: 64, gutter: 32 },
-    '2xl': { min: 1536, max: null, container: 1400, columns: 12, margin: 80, gutter: 40 },
+    xs: {
+      min: 0,
+      max: 479,
+      container: '100%',
+      columns: 4,
+      margin: 16,
+      gutter: 16,
+    },
+    sm: {
+      min: 480,
+      max: 767,
+      container: '100%',
+      columns: 6,
+      margin: 20,
+      gutter: 20,
+    },
+    md: {
+      min: 768,
+      max: 1023,
+      container: 720,
+      columns: 8,
+      margin: 32,
+      gutter: 24,
+    },
+    lg: {
+      min: 1024,
+      max: 1279,
+      container: 960,
+      columns: 12,
+      margin: 48,
+      gutter: 32,
+    },
+    xl: {
+      min: 1280,
+      max: 1535,
+      container: 1200,
+      columns: 12,
+      margin: 64,
+      gutter: 32,
+    },
+    '2xl': {
+      min: 1536,
+      max: null,
+      container: 1400,
+      columns: 12,
+      margin: 80,
+      gutter: 40,
+    },
   },
 
   // Animation system
@@ -357,7 +401,8 @@ export const STORAGE_KEYS = {
 export const FEATURE_FLAGS = {
   MULTI_VENDOR: process.env.EXPO_PUBLIC_ENABLE_MULTI_VENDOR === 'true',
   ADVANCED_SEARCH: process.env.EXPO_PUBLIC_ENABLE_ADVANCED_SEARCH === 'true',
-  PUSH_NOTIFICATIONS: process.env.EXPO_PUBLIC_ENABLE_PUSH_NOTIFICATIONS === 'true',
+  PUSH_NOTIFICATIONS:
+    process.env.EXPO_PUBLIC_ENABLE_PUSH_NOTIFICATIONS === 'true',
 } as const;
 
 export const VALIDATION_RULES = {
@@ -402,9 +447,22 @@ export const ECOMMERCE_CONFIG = {
       borderRadius: 4,
     },
     price: {
-      regular: { fontSize: 18, fontWeight: 600, color: UI_CONFIG.COLORS.text.primary },
-      sale: { fontSize: 16, fontWeight: 400, color: '#999999', textDecoration: 'line-through' },
-      discount: { fontSize: 14, fontWeight: 700, color: UI_CONFIG.COLORS.ecommerce.sale },
+      regular: {
+        fontSize: 18,
+        fontWeight: 600,
+        color: UI_CONFIG.COLORS.text.primary,
+      },
+      sale: {
+        fontSize: 16,
+        fontWeight: 400,
+        color: '#999999',
+        textDecoration: 'line-through',
+      },
+      discount: {
+        fontSize: 14,
+        fontWeight: 700,
+        color: UI_CONFIG.COLORS.ecommerce.sale,
+      },
     },
     rating: {
       starSize: 16,
@@ -435,12 +493,36 @@ export const ECOMMERCE_CONFIG = {
   },
   badges: {
     types: {
-      sale: { background: UI_CONFIG.COLORS.ecommerce.sale, color: '#FFFFFF', text: 'SALE' },
-      new: { background: UI_CONFIG.COLORS.ecommerce.newArrival, color: '#FFFFFF', text: 'NEW' },
-      bestseller: { background: '#FFD700', color: '#1A1A1A', text: 'BESTSELLER' },
-      limited: { background: UI_CONFIG.COLORS.ecommerce.limitedStock, color: '#FFFFFF', text: 'LIMITED' },
-      exclusive: { background: UI_CONFIG.COLORS.ecommerce.exclusive, color: '#FFFFFF', text: 'EXCLUSIVE' },
-      outOfStock: { background: UI_CONFIG.COLORS.ecommerce.outOfStock, color: '#FFFFFF', text: 'OUT OF STOCK' },
+      sale: {
+        background: UI_CONFIG.COLORS.ecommerce.sale,
+        color: '#FFFFFF',
+        text: 'SALE',
+      },
+      new: {
+        background: UI_CONFIG.COLORS.ecommerce.newArrival,
+        color: '#FFFFFF',
+        text: 'NEW',
+      },
+      bestseller: {
+        background: '#FFD700',
+        color: '#1A1A1A',
+        text: 'BESTSELLER',
+      },
+      limited: {
+        background: UI_CONFIG.COLORS.ecommerce.limitedStock,
+        color: '#FFFFFF',
+        text: 'LIMITED',
+      },
+      exclusive: {
+        background: UI_CONFIG.COLORS.ecommerce.exclusive,
+        color: '#FFFFFF',
+        text: 'EXCLUSIVE',
+      },
+      outOfStock: {
+        background: UI_CONFIG.COLORS.ecommerce.outOfStock,
+        color: '#FFFFFF',
+        text: 'OUT OF STOCK',
+      },
     },
   },
   navigation: {
