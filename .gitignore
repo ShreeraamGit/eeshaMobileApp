@@ -86,5 +86,3 @@ expo-env.d.ts
 # TypeScript build info
 tsconfig.tsbuildinfo
 
-# Documentation folders (keep only essential docs)
-docs/
