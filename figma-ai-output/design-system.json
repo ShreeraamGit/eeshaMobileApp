@@ -1,433 +1,376 @@
 {
-  "colors": [
-    {
-      "hex": "#fcfcfc",
-      "usage": "auto-detected",
-      "role": "decoration"
+  "version": "2.0",
+  "lastUpdated": "2025-10-02",
+  "colors": {
+    "primary": {
+      "black": {
+        "100": "#000000",
+        "90": "#111111",
+        "80": "#1a1a1a",
+        "70": "#2b2b2b",
+        "60": "#333333",
+        "usage": "Primary brand color, text, buttons"
+      }
     },
-    {
-      "hex": "#ffffff",
-      "usage": "auto-detected",
-      "role": "accent"
+    "neutrals": {
+      "gray": {
+        "100": "#555555",
+        "80": "#727272",
+        "70": "#888888",
+        "60": "#909090",
+        "50": "#979797",
+        "40": "#aaaaaa",
+        "30": "#b3b3b3",
+        "20": "#c4c4c4",
+        "15": "#d4d4d4",
+        "10": "#dadada",
+        "5": "#dedede",
+        "usage": "Text secondary, borders, dividers"
+      },
+      "lightGray": {
+        "5": "#e7eaef",
+        "4": "#e1e0db",
+        "3": "#d9dbe9",
+        "usage": "Subtle backgrounds, disabled states"
+      }
     },
-    {
-      "hex": "#dd8560",
-      "usage": "auto-detected",
-      "role": "decoration"
+    "backgrounds": {
+      "white": "#ffffff",
+      "offWhite": {
+        "100": "#fcfcfc",
+        "95": "#f9f9f9",
+        "90": "#f8f8f8",
+        "85": "#f5f5f5",
+        "usage": "Page backgrounds, cards"
+      },
+      "cream": {
+        "light": "#f8f0e7",
+        "medium": "#e0cfba",
+        "usage": "Warm accent backgrounds"
+      }
     },
-    {
-      "hex": "#555555",
-      "usage": "auto-detected",
-      "role": "decoration"
+    "accents": {
+      "warm": {
+        "primary": "#dd8560",
+        "dark": "#a8715a",
+        "light": "#e0cfba",
+        "usage": "Warm accent, highlights, CTAs"
+      },
+      "bright": {
+        "red": "#ed0006",
+        "orange": "#ff5e00",
+        "amber": "#f9a000",
+        "purple": "#6d6dbb",
+        "usage": "Alerts, badges, special highlights"
+      }
     },
-    {
-      "hex": "#333333",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#2b2b2b",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#888888",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#000000",
-      "usage": "auto-detected",
-      "role": "text"
-    },
-    {
-      "hex": "#14142b",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#212806",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#e7eaef",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#c4c4c4",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#dedede",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#a8715a",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#f9f9f9",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#14142a",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#f8f8f8",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#e0cfba",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#e1e0db",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#0f140d",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#1a1a1a",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#17181a",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#ed0006",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#979797",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#dadada",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#f9a000",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#6d6dbb",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#ff5e00",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#d4d4d4",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#f8f0e7",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#111111",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#343434",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#f5f5f5",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#aaaaaa",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#202224",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#727272",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#b3b3b3",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#6e7191",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#d9dbe9",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#202020",
-      "usage": "auto-detected",
-      "role": "decoration"
-    },
-    {
-      "hex": "#909090",
-      "usage": "auto-detected",
-      "role": "decoration"
+    "semantic": {
+      "text": {
+        "primary": "#000000",
+        "secondary": "#555555",
+        "tertiary": "#888888",
+        "disabled": "#aaaaaa",
+        "inverse": "#ffffff"
+      },
+      "border": {
+        "light": "#e7eaef",
+        "medium": "#d4d4d4",
+        "dark": "#888888"
+      },
+      "success": "#212806",
+      "error": "#ed0006",
+      "warning": "#f9a000",
+      "info": "#6d6dbb"
     }
-  ],
-  "typography": [
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 14,
-      "fontWeight": 400,
-      "lineHeight": 20,
-      "usage": "auto-detected",
-      "role": "body"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Tenor Sans",
+      "display": "Agne",
+      "secondary": "Poppins",
+      "mono": "Montserrat",
+      "system": "SF Pro Display"
     },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 13,
-      "fontWeight": 400,
-      "lineHeight": 20,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 16,
-      "fontWeight": 400,
-      "lineHeight": 24,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 18,
-      "fontWeight": 400,
-      "lineHeight": 40,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Agne",
-      "fontSize": 162.70352172851562,
-      "fontWeight": 400,
-      "lineHeight": 244.05526733398438,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Agne",
-      "fontSize": 41.864601135253906,
-      "fontWeight": 400,
-      "lineHeight": 62.79689407348633,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 12.929357528686523,
-      "fontWeight": 400,
-      "lineHeight": 29.091054916381836,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 11.322050094604492,
-      "fontWeight": 400,
-      "lineHeight": 25.474613189697266,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "lineHeight": 16,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 15,
-      "fontWeight": 400,
-      "lineHeight": 24,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Manrope",
-      "fontSize": 12,
-      "fontWeight": 300,
-      "lineHeight": 16.392000198364258,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Agne",
-      "fontSize": 38.65641403198242,
-      "fontWeight": 400,
-      "lineHeight": 43.48846435546875,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Agne",
-      "fontSize": 36,
-      "fontWeight": 400,
-      "lineHeight": 43.48846435546875,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Poppins",
-      "fontSize": 16,
-      "fontWeight": 400,
-      "lineHeight": 26,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Tenor Sans",
-      "fontSize": 10,
-      "fontWeight": 400,
-      "lineHeight": 12,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Poppins",
-      "fontSize": 14,
-      "fontWeight": 400,
-      "lineHeight": 24,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Poppins",
-      "fontSize": 16,
-      "fontWeight": 500,
-      "lineHeight": 24,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Poppins",
-      "fontSize": 12.929357528686523,
-      "fontWeight": 900,
-      "lineHeight": 29.091054916381836,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "SF Pro Display",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 29,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 400,
-      "lineHeight": 22,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Montserrat",
-      "fontSize": 12,
-      "fontWeight": 700,
-      "lineHeight": 13.96674633026123,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Montserrat",
-      "fontSize": 12,
-      "fontWeight": 400,
-      "lineHeight": 15.712589263916016,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Poppins",
-      "fontSize": 20.950119018554688,
-      "fontWeight": 700,
-      "lineHeight": 21.823041915893555,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 100,
-      "lineHeight": 29,
-      "usage": "auto-detected",
-      "role": "body"
-    },
-    {
-      "fontFamily": "Neurial Grotesk",
-      "fontSize": 20,
-      "fontWeight": 400,
-      "lineHeight": 24,
-      "usage": "auto-detected",
-      "role": "body"
+    "scale": {
+      "display": {
+        "xlarge": {
+          "family": "Agne",
+          "size": 162.7,
+          "weight": 400,
+          "lineHeight": 244.05,
+          "usage": "Hero headers, large displays"
+        },
+        "large": {
+          "family": "Agne",
+          "size": 41.86,
+          "weight": 400,
+          "lineHeight": 62.79,
+          "usage": "Section headers"
+        },
+        "medium": {
+          "family": "Agne",
+          "size": 38.65,
+          "weight": 400,
+          "lineHeight": 43.48,
+          "usage": "Page titles"
+        },
+        "small": {
+          "family": "Agne",
+          "size": 36,
+          "weight": 400,
+          "lineHeight": 43.48,
+          "usage": "Card titles, collection headers"
+        }
+      },
+      "heading": {
+        "h1": {
+          "family": "Tenor Sans",
+          "size": 18,
+          "weight": 400,
+          "lineHeight": 40,
+          "usage": "Main headings"
+        },
+        "h2": {
+          "family": "Tenor Sans",
+          "size": 16,
+          "weight": 400,
+          "lineHeight": 24,
+          "usage": "Section headings"
+        },
+        "h3": {
+          "family": "Tenor Sans",
+          "size": 15,
+          "weight": 400,
+          "lineHeight": 24,
+          "usage": "Subsection headings"
+        },
+        "h4": {
+          "family": "Tenor Sans",
+          "size": 14,
+          "weight": 400,
+          "lineHeight": 20,
+          "usage": "Card headings"
+        }
+      },
+      "body": {
+        "large": {
+          "family": "Poppins",
+          "size": 16,
+          "weight": 400,
+          "lineHeight": 26,
+          "usage": "Large body text, descriptions"
+        },
+        "medium": {
+          "family": "Tenor Sans",
+          "size": 14,
+          "weight": 400,
+          "lineHeight": 20,
+          "usage": "Standard body text"
+        },
+        "small": {
+          "family": "Tenor Sans",
+          "size": 13,
+          "weight": 400,
+          "lineHeight": 20,
+          "usage": "Small body text, captions"
+        },
+        "xsmall": {
+          "family": "Tenor Sans",
+          "size": 12,
+          "weight": 400,
+          "lineHeight": 16,
+          "usage": "Fine print, metadata"
+        }
+      },
+      "ui": {
+        "button": {
+          "family": "Tenor Sans",
+          "size": 14,
+          "weight": 400,
+          "lineHeight": 20,
+          "usage": "Buttons, CTAs"
+        },
+        "label": {
+          "family": "Tenor Sans",
+          "size": 12,
+          "weight": 400,
+          "lineHeight": 16,
+          "usage": "Form labels, tags"
+        },
+        "caption": {
+          "family": "Tenor Sans",
+          "size": 10,
+          "weight": 400,
+          "lineHeight": 12,
+          "usage": "Image captions, helper text"
+        }
+      },
+      "product": {
+        "brand": {
+          "family": "Montserrat",
+          "size": 12,
+          "weight": 700,
+          "lineHeight": 13.96,
+          "usage": "Brand names in product cards"
+        },
+        "title": {
+          "family": "Montserrat",
+          "size": 12,
+          "weight": 400,
+          "lineHeight": 15.71,
+          "usage": "Product titles"
+        },
+        "price": {
+          "family": "Montserrat",
+          "size": 14,
+          "weight": 400,
+          "lineHeight": 22,
+          "usage": "Product prices"
+        }
+      }
     }
-  ],
-  "spacing": [
-    0,
-    2,
-    3,
-    4,
-    6,
-    8,
-    10,
-    11,
-    12,
-    13,
-    16,
-    20,
-    24,
-    25,
-    30,
-    33,
-    93,
-    103,
-    125
-  ],
-  "components": []
+  },
+  "spacing": {
+    "scale": {
+      "0": 0,
+      "1": 2,
+      "2": 4,
+      "3": 8,
+      "4": 12,
+      "5": 16,
+      "6": 20,
+      "7": 24,
+      "8": 32,
+      "9": 40,
+      "10": 48,
+      "11": 64,
+      "12": 80
+    },
+    "component": {
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "xxl": 48
+    },
+    "layout": {
+      "container": 16,
+      "section": 24,
+      "page": 32
+    }
+  },
+  "borderRadius": {
+    "none": 0,
+    "sm": 4,
+    "md": 8,
+    "lg": 12,
+    "xl": 16,
+    "full": 9999
+  },
+  "shadows": {
+    "sm": {
+      "x": 0,
+      "y": 1,
+      "blur": 2,
+      "spread": 0,
+      "color": "rgba(0, 0, 0, 0.05)"
+    },
+    "md": {
+      "x": 0,
+      "y": 4,
+      "blur": 6,
+      "spread": -1,
+      "color": "rgba(0, 0, 0, 0.1)"
+    },
+    "lg": {
+      "x": 0,
+      "y": 10,
+      "blur": 15,
+      "spread": -3,
+      "color": "rgba(0, 0, 0, 0.1)"
+    },
+    "xl": {
+      "x": 0,
+      "y": 20,
+      "blur": 25,
+      "spread": -5,
+      "color": "rgba(0, 0, 0, 0.1)"
+    }
+  },
+  "components": {
+    "button": {
+      "variants": {
+        "primary": {
+          "background": "#000000",
+          "text": "#ffffff",
+          "border": "none",
+          "height": 48,
+          "padding": "12px 24px",
+          "borderRadius": 0
+        },
+        "secondary": {
+          "background": "transparent",
+          "text": "#000000",
+          "border": "1px solid #000000",
+          "height": 48,
+          "padding": "12px 24px",
+          "borderRadius": 0
+        },
+        "ghost": {
+          "background": "transparent",
+          "text": "#000000",
+          "border": "none",
+          "height": 48,
+          "padding": "12px 24px",
+          "borderRadius": 0
+        }
+      }
+    },
+    "input": {
+      "height": 48,
+      "padding": "12px 16px",
+      "borderRadius": 0,
+      "border": "1px solid #e7eaef",
+      "focusBorder": "1px solid #000000"
+    },
+    "card": {
+      "product": {
+        "borderRadius": 0,
+        "shadow": "sm",
+        "aspectRatio": "3:4",
+        "padding": 0
+      },
+      "content": {
+        "borderRadius": 0,
+        "shadow": "none",
+        "padding": 16
+      }
+    },
+    "badge": {
+      "sale": {
+        "background": "#ed0006",
+        "text": "#ffffff",
+        "padding": "4px 8px",
+        "borderRadius": 0
+      },
+      "new": {
+        "background": "#f9a000",
+        "text": "#ffffff",
+        "padding": "4px 8px",
+        "borderRadius": 0
+      }
+    }
+  },
+  "breakpoints": {
+    "mobile": 375,
+    "tablet": 768,
+    "desktop": 1024,
+    "wide": 1440
+  },
+  "grid": {
+    "columns": 12,
+    "gutter": 16,
+    "margin": 16
+  }
 }

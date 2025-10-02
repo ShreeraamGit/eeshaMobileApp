@@ -1,54 +1,349 @@
 {
-  "commonPatterns": [
-    "cards-layout",
-    "navigation-bar",
-    "button-groups",
-    "form-layouts",
-    "image-galleries"
-  ],
-  "recommendedComponents": [
-    {
-      "name": "ProductCard",
-      "reason": "Repeated product display pattern"
+  "version": "2.0",
+  "lastUpdated": "2025-10-02",
+  "designPrinciples": {
+    "visualStyle": "Minimalist, clean, elegant fashion e-commerce",
+    "brandPersonality": "Sophisticated, modern, accessible luxury",
+    "keyCharacteristics": [
+      "Sharp, clean lines with no border radius",
+      "Strong black and white contrast",
+      "Warm accent colors for highlights",
+      "Editorial-style typography with Agne for display",
+      "High-quality product photography",
+      "Generous white space",
+      "Clear visual hierarchy"
+    ]
+  },
+  "commonPatterns": {
+    "layout": [
+      "Grid-based product displays (2-column on mobile)",
+      "Full-width hero images with overlay text",
+      "Sticky header navigation",
+      "Bottom navigation for key actions",
+      "Horizontal scrolling product carousels",
+      "Collection cards with image backgrounds",
+      "List and grid view toggles"
+    ],
+    "navigation": [
+      "Hamburger menu with expandable categories",
+      "Search with recent searches and suggestions",
+      "Breadcrumb navigation for categories",
+      "Tab navigation for product details",
+      "Pagination for product lists",
+      "Back navigation with breadcrumbs"
+    ],
+    "cards": [
+      "Product cards with 3:4 aspect ratio",
+      "Wishlist heart icon in top-right corner",
+      "Brand name above product title",
+      "Price display below title",
+      "Collection cards with full-bleed images",
+      "Blog cards with image and excerpt"
+    ],
+    "forms": [
+      "Clean input fields with bottom border only",
+      "Floating labels on focus",
+      "Dropdown selectors for options",
+      "Checkbox and radio button groups",
+      "Address and payment card forms",
+      "Validation states with error messages"
+    ],
+    "buttons": [
+      "Primary: Black background, white text, full width",
+      "Secondary: White/transparent with black border",
+      "Ghost: Text only with no background",
+      "Icon buttons for wishlist, cart, share",
+      "Quantity steppers with +/- buttons",
+      "Filter and sort buttons with icons"
+    ]
+  },
+  "componentLibrary": {
+    "core": [
+      {
+        "name": "Header",
+        "variants": ["default", "search-active", "transparent"],
+        "elements": ["logo", "search", "cart", "menu"],
+        "behavior": "Sticky on scroll, collapses search on mobile"
+      },
+      {
+        "name": "ProductCard",
+        "variants": ["grid", "list", "featured"],
+        "elements": ["image", "brand", "title", "price", "wishlist", "colors"],
+        "behavior": "Tap to view details, wishlist toggle, quick add"
+      },
+      {
+        "name": "Navigation",
+        "variants": ["menu", "menu-expanded", "bottom-nav"],
+        "elements": ["categories", "links", "social"],
+        "behavior": "Slide-in animation, category expansion"
+      },
+      {
+        "name": "SearchBar",
+        "variants": ["default", "focused", "with-results"],
+        "elements": ["input", "icon", "clear", "suggestions"],
+        "behavior": "Expand on focus, show recent searches, live suggestions"
+      }
+    ],
+    "ecommerce": [
+      {
+        "name": "ProductDetail",
+        "sections": ["images", "info", "size-selector", "cta", "details", "recommendations"],
+        "interactions": ["image-gallery", "size-selection", "add-to-cart", "wishlist"],
+        "behavior": "Image zoom, size guide, share product"
+      },
+      {
+        "name": "CartItem",
+        "elements": ["thumbnail", "details", "quantity", "price", "remove"],
+        "interactions": ["quantity-change", "remove-item", "save-for-later"],
+        "behavior": "Swipe to remove, quantity stepper"
+      },
+      {
+        "name": "CartSummary",
+        "elements": ["subtotal", "shipping", "discount", "total", "cta"],
+        "behavior": "Live updates on quantity change, promo code application"
+      },
+      {
+        "name": "CollectionCard",
+        "variants": ["large", "medium", "small"],
+        "elements": ["image", "title", "subtitle", "cta"],
+        "behavior": "Parallax scroll effect, tap to browse collection"
+      },
+      {
+        "name": "FilterPanel",
+        "sections": ["categories", "price", "size", "color", "brand"],
+        "elements": ["checkboxes", "sliders", "chips"],
+        "behavior": "Slide-up modal, multi-select filters, apply/clear"
+      }
+    ],
+    "content": [
+      {
+        "name": "BlogCard",
+        "variants": ["grid", "list", "featured"],
+        "elements": ["image", "title", "excerpt", "date", "author"],
+        "behavior": "Tap to read full article"
+      },
+      {
+        "name": "HeroSection",
+        "variants": ["full-screen", "split", "carousel"],
+        "elements": ["image", "headline", "subheading", "cta"],
+        "behavior": "Auto-play carousel, parallax effect"
+      },
+      {
+        "name": "BrandStrip",
+        "elements": ["logo-grid", "horizontal-scroll"],
+        "behavior": "Auto-scroll or manual swipe"
+      }
+    ],
+    "feedback": [
+      {
+        "name": "Toast",
+        "variants": ["success", "error", "info"],
+        "elements": ["icon", "message", "action"],
+        "behavior": "Auto-dismiss after 3s, swipe to dismiss"
+      },
+      {
+        "name": "EmptyState",
+        "variants": ["cart", "wishlist", "search", "404"],
+        "elements": ["icon", "heading", "description", "cta"],
+        "behavior": "Contextual messaging, action to resolve"
+      },
+      {
+        "name": "LoadingState",
+        "variants": ["skeleton", "spinner", "shimmer"],
+        "behavior": "Show while content loads"
+      }
+    ]
+  },
+  "userFlows": {
+    "productDiscovery": {
+      "flow": "Browse and discover products",
+      "screens": [
+        "home-page",
+        "category-grid-view",
+        "category-listview",
+        "search",
+        "search-view",
+        "product-detail"
+      ],
+      "keyInteractions": [
+        "Browse featured collections",
+        "Navigate categories",
+        "Apply filters and sorting",
+        "Search for products",
+        "View product details",
+        "Add to wishlist"
+      ]
     },
-    {
-      "name": "NavigationBar",
-      "reason": "Common navigation pattern"
+    "purchase": {
+      "flow": "Complete a purchase",
+      "screens": [
+        "product-detail",
+        "cart",
+        "checkout",
+        "add-new-address",
+        "add-new-card",
+        "payment-success"
+      ],
+      "keyInteractions": [
+        "Select size/color",
+        "Add to cart",
+        "View cart",
+        "Update quantities",
+        "Enter shipping info",
+        "Select payment method",
+        "Place order",
+        "View confirmation"
+      ]
     },
-    {
-      "name": "Button",
-      "reason": "Repeated button styles"
-    }
-  ],
-  "dataStructures": {
-    "products": {
-      "id": "string",
-      "name": "string",
-      "price": "number",
-      "image": "url"
+    "content": {
+      "flow": "Explore brand content",
+      "screens": [
+        "home-page",
+        "collection",
+        "collection-detail",
+        "blog-grid-view",
+        "blog-list-view",
+        "blog-post",
+        "our-story",
+        "contact-us"
+      ],
+      "keyInteractions": [
+        "Browse collections",
+        "View collection details",
+        "Read blog articles",
+        "Learn about brand",
+        "Contact support"
+      ]
     },
-    "user": {
-      "id": "string",
-      "name": "string",
-      "email": "string"
+    "navigation": {
+      "flow": "Navigate the app",
+      "screens": [
+        "menu",
+        "menu-expand",
+        "search",
+        "search-recent"
+      ],
+      "keyInteractions": [
+        "Open menu",
+        "Browse categories",
+        "Search products",
+        "View recent searches"
+      ]
     }
   },
-  "userFlows": [
-    {
-      "flow": "product-discovery",
-      "steps": [
-        "browse",
-        "filter",
-        "view-details"
-      ]
+  "dataStructures": {
+    "product": {
+      "id": "string",
+      "brand": "string",
+      "name": "string",
+      "description": "string",
+      "price": "number",
+      "images": "array<url>",
+      "sizes": "array<string>",
+      "colors": "array<{name: string, hex: string}>",
+      "category": "string",
+      "inStock": "boolean",
+      "isNew": "boolean",
+      "onSale": "boolean"
     },
-    {
-      "flow": "purchase",
-      "steps": [
-        "add-to-cart",
-        "checkout",
-        "payment"
-      ]
+    "collection": {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "image": "url",
+      "products": "array<product>",
+      "featured": "boolean"
+    },
+    "cartItem": {
+      "productId": "string",
+      "size": "string",
+      "color": "string",
+      "quantity": "number",
+      "price": "number"
+    },
+    "order": {
+      "id": "string",
+      "items": "array<cartItem>",
+      "subtotal": "number",
+      "shipping": "number",
+      "discount": "number",
+      "total": "number",
+      "shippingAddress": "object",
+      "paymentMethod": "object",
+      "status": "string"
+    },
+    "blogPost": {
+      "id": "string",
+      "title": "string",
+      "excerpt": "string",
+      "content": "string",
+      "image": "url",
+      "author": "string",
+      "date": "string",
+      "category": "string"
     }
-  ]
+  },
+  "interactionPatterns": {
+    "gestures": [
+      "Tap to select/navigate",
+      "Swipe to remove cart items",
+      "Horizontal swipe for image galleries",
+      "Pull to refresh product lists",
+      "Pinch to zoom on product images",
+      "Long press for quick actions"
+    ],
+    "animations": [
+      "Slide-in navigation menu (300ms ease-out)",
+      "Fade in product cards (staggered 100ms)",
+      "Bounce on add to cart (200ms)",
+      "Shimmer loading state",
+      "Modal slide-up (250ms ease-in-out)",
+      "Wishlist heart fill animation"
+    ],
+    "feedback": [
+      "Visual: Button state changes, loading indicators",
+      "Haptic: On add to cart, remove item, successful purchase",
+      "Toast messages: Success, error, info notifications",
+      "Empty states: Clear messaging with CTAs"
+    ]
+  },
+  "responsiveStrategy": {
+    "mobile": {
+      "breakpoint": 375,
+      "layout": "Single column, 2-column product grid",
+      "navigation": "Hamburger menu, bottom nav for key actions",
+      "typography": "Base sizes as defined",
+      "images": "Full width, 3:4 aspect ratio for products"
+    },
+    "tablet": {
+      "breakpoint": 768,
+      "layout": "2-3 column grid, sidebar navigation option",
+      "navigation": "Expanded menu, persistent header",
+      "typography": "Slightly larger base sizes",
+      "images": "Adaptive sizing, maintain aspect ratios"
+    },
+    "desktop": {
+      "breakpoint": 1024,
+      "layout": "Multi-column grid, max-width container",
+      "navigation": "Full horizontal menu, mega-menu for categories",
+      "typography": "Desktop-optimized sizes",
+      "images": "High resolution, hover effects"
+    }
+  },
+  "accessibilityConsiderations": {
+    "contrast": "Ensure 4.5:1 ratio for text on backgrounds",
+    "focusStates": "Clear focus indicators on all interactive elements",
+    "screenReaders": "Semantic HTML, ARIA labels for icons and actions",
+    "touchTargets": "Minimum 48x48px for all tap targets",
+    "keyboardNav": "Full keyboard navigation support",
+    "textScaling": "Support dynamic type/text scaling"
+  },
+  "implementationNotes": {
+    "fontLoading": "Use Tenor Sans as primary, Agne for display headlines, Montserrat for product info",
+    "imageOptimization": "Use WebP format, lazy loading, progressive loading for large images",
+    "stateManagement": "React Query for product data, Zustand for cart and UI state",
+    "routing": "React Navigation with stack and bottom tab navigators",
+    "performance": "FlatList for product grids, memoization for product cards, code splitting",
+    "offline": "Cache product images, persist cart locally, show offline indicators"
+  }
 }
