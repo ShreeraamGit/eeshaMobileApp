@@ -44,32 +44,38 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
   ];
 
   const containerStyle: ViewStyle = {
-    paddingHorizontal: UI_CONFIG.SPACING[3], // 24px
-    paddingVertical: UI_CONFIG.SPACING[5], // 40px
+    paddingHorizontal: 16, // From Figma: Products start at x=16
+    paddingTop: 32, // Add spacing from Hero section
+    paddingBottom: 40, // Add spacing before next section
     backgroundColor: UI_CONFIG.COLORS.background.default,
     ...style,
   };
 
   const headerStyle: ViewStyle = {
     alignItems: 'center',
-    marginBottom: UI_CONFIG.SPACING[4], // 32px
+    marginTop: 8, // From Figma: Title at y=8
+    marginBottom: 49, // From Figma: Products at y=113, Tabs at y=64, gap = 113-64 = 49px
   };
 
-  const gridStyle: ViewStyle = {
+  const gridContainerStyle: ViewStyle = {
+    alignItems: 'center',
+  };
+
+  const rowStyle: ViewStyle = {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'space-between',
+    width: '100%',
+    marginBottom: 12, // From Figma: Row 1 products at y=113, Row 2 at y=385, gap = 385-113-260 = 12px
   };
 
   const productItemStyle: ViewStyle = {
-    width: '48%',
-    marginBottom: UI_CONFIG.SPACING[3], // 24px
+    width: 165, // Fixed width from Figma: Product at x=16, width=165; Product at x=194, width=165
   };
 
   const productImageStyle: ImageStyle = {
-    width: '100%',
+    width: 165,
     height: 200,
-    borderRadius: 8,
+    borderRadius: 0, // No border radius in design
     marginBottom: UI_CONFIG.SPACING[1], // 8px
   };
 
@@ -80,7 +86,8 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
 
   const viewMoreStyle: ViewStyle = {
     alignItems: 'center',
-    marginTop: UI_CONFIG.SPACING[3], // 24px
+    marginTop: 12, // From Figma: Button at y=673, last product ends around y=645 (385+260)
+    marginBottom: 0,
   };
 
   const renderProduct = (product: Product) => (
@@ -91,10 +98,10 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
         resizeMode="cover"
       />
       <View style={productInfoStyle}>
-        <Text variant="product-title" color="text.primary" style={{ textAlign: 'center', marginBottom: 4 }}>
+        <Text variant="body-small" color="text.primary" style={{ textAlign: 'center', marginBottom: 4, fontSize: 12 }}>
           {product.name}
         </Text>
-        <Text variant="price-regular" color="text.secondary">
+        <Text variant="body-regular" color="text.secondary" style={{ fontSize: 14 }}>
           {product.price}
         </Text>
       </View>
@@ -118,8 +125,18 @@ export const NewArrivalsSection: React.FC<NewArrivalsSectionProps> = ({ style })
         </View>
       </View>
 
-      <View style={gridStyle}>
-        {products.map(renderProduct)}
+      <View style={gridContainerStyle}>
+        {/* First Row: Products 1 & 2 */}
+        <View style={rowStyle}>
+          {renderProduct(products[0])}
+          {renderProduct(products[1])}
+        </View>
+
+        {/* Second Row: Products 3 & 4 */}
+        <View style={rowStyle}>
+          {renderProduct(products[2])}
+          {renderProduct(products[3])}
+        </View>
       </View>
 
       <TouchableOpacity style={viewMoreStyle}>

@@ -6,6 +6,8 @@ import { HeroSection } from '@/components/home/HeroSection';
 import { NewArrivalsSection } from '@/components/home/NewArrivalsSection';
 import { CollectionsSection } from '@/components/home/CollectionsSection';
 import { JustForYouSection } from '@/components/home/JustForYouSection';
+import { BrandInfoSection } from '@/components/home/BrandInfoSection';
+import { FooterSection } from '@/components/home/FooterSection';
 import { BottomNavigation } from '@/components/home/BottomNavigation';
 import { UI_CONFIG } from '@/config/constants';
 
@@ -45,6 +47,12 @@ const HomeScreen: React.FC = () => {
 
           {/* Just for You Section */}
           <JustForYouSection />
+
+          {/* Brand Info Section */}
+          <BrandInfoSection />
+
+          {/* Footer Section */}
+          <FooterSection />
         </ScrollView>
       </View>
 

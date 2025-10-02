@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View,
   ImageBackground,
+  TouchableOpacity,
   ViewStyle,
   TextStyle,
   StyleSheet,
@@ -15,11 +16,11 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ style }) => {
   const containerStyle: ViewStyle = {
-    height: 465,
+    height: 600, // From Figma: Banner height = 600px
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
-    backgroundColor: UI_CONFIG.COLORS.background.default, // Consistent background
+    backgroundColor: UI_CONFIG.COLORS.background.default,
     ...style,
   };
 
@@ -39,23 +40,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ style }) => {
     marginBottom: UI_CONFIG.SPACING[3], // 24px
   };
 
-  const subtitleStyle: TextStyle = {
-    textAlign: 'center',
-    marginBottom: UI_CONFIG.SPACING[6], // 48px
-    paddingHorizontal: UI_CONFIG.SPACING[2], // 16px
-  };
-
-  const featuresStyle: ViewStyle = {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '100%',
-    marginTop: UI_CONFIG.SPACING[4], // 32px
-  };
-
-  const featureItemStyle: ViewStyle = {
-    alignItems: 'center',
-    flex: 1,
-    paddingHorizontal: UI_CONFIG.SPACING[1], // 8px
+  const buttonStyle: ViewStyle = {
+    marginTop: 40, // From Figma: Button at y=520
+    paddingVertical: 12,
+    paddingHorizontal: 40,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.5)',
   };
 
   return (
@@ -73,10 +63,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ style }) => {
           LUXURY{'\n'}FASHION{'\n'}ACCESSORIES
         </Text>
 
-        <Text variant="body-large" color="text.inverse" style={subtitleStyle}>
-          Making a luxurious lifestyle accessible for a generous group of women
-          is our daily drive.
-        </Text>
+        <TouchableOpacity style={buttonStyle}>
+          <Text variant="body-regular" color="text.inverse" style={{ textAlign: 'center' }}>
+            Explore Collection
+          </Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );

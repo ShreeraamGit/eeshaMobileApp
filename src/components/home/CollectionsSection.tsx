@@ -35,16 +35,23 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({ style })
   ];
 
   const containerStyle: ViewStyle = {
-    paddingVertical: UI_CONFIG.SPACING[3], // 24px
-    backgroundColor: UI_CONFIG.COLORS.background.default, // Consistent background
+    paddingTop: 32, // Add top spacing from previous section
+    paddingBottom: 40, // Add bottom spacing before next section
+    backgroundColor: UI_CONFIG.COLORS.background.default,
     ...style,
   };
 
-  const collectionItemStyle: ViewStyle = {
-    height: 200,
-    marginBottom: UI_CONFIG.SPACING[2], // 16px
-    marginHorizontal: UI_CONFIG.SPACING[3], // 24px
-    borderRadius: 12,
+  const firstCollectionStyle: ViewStyle = {
+    height: 240, // From Figma: Frame 2 height = 240px
+    marginBottom: 40, // Gap between collections
+    overflow: 'hidden',
+  };
+
+  const secondCollectionStyle: ViewStyle = {
+    height: 296, // From Figma: Image 9 height = 296px
+    width: 260, // From Figma: Image 9 width = 260px
+    alignSelf: 'center',
+    marginBottom: 0,
     overflow: 'hidden',
   };
 
@@ -59,7 +66,7 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({ style })
   };
 
   const renderCollection = (collection: Collection, index: number) => (
-    <TouchableOpacity key={collection.id} style={collectionItemStyle}>
+    <TouchableOpacity key={collection.id} style={index === 0 ? firstCollectionStyle : secondCollectionStyle}>
       <ImageBackground
         source={{ uri: collection.image }}
         style={{ flex: 1 }}
@@ -71,8 +78,8 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({ style })
               variant="h1"
               color={index === 0 ? "text.inverse" : "text.primary"}
               style={{
-                fontSize: getScaledFontSize(36),
-                fontWeight: '400',
+                fontSize: getScaledFontSize(48),
+                fontWeight: '300',
                 marginBottom: 4,
                 textAlign: 'center'
               }}
@@ -83,9 +90,10 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({ style })
               variant="caption"
               color={index === 0 ? "text.inverse" : "text.primary"}
               style={{
-                letterSpacing: 2,
+                letterSpacing: 3,
                 fontWeight: '300',
-                textAlign: 'center'
+                textAlign: 'center',
+                fontSize: 14
               }}
             >
               {collection.subtitle}
@@ -96,16 +104,21 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({ style })
     </TouchableOpacity>
   );
 
+  const titleContainerStyle: ViewStyle = {
+    marginTop: 0,
+    marginBottom: 56, // From Figma: Title at y=0, Frame 2 at y=56
+  };
+
   return (
     <View style={containerStyle}>
-      <View style={{ marginBottom: UI_CONFIG.SPACING[3] }}>
+      <View style={titleContainerStyle}>
         <Text
           variant="h2"
           color="text.primary"
           style={{
             textAlign: 'center',
             letterSpacing: 1,
-            marginBottom: UI_CONFIG.SPACING[1]
+            marginBottom: 0
           }}
         >
           COLLECTIONS
