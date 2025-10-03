@@ -1,4 +1,5 @@
 import { requireAdmin } from '@/lib/auth/adminAuthService';
+import { LogoutButton } from '@/components/admin/LogoutButton';
 
 export default async function AdminDashboardPage() {
   // This will redirect to /admin/login if not authenticated as admin
@@ -8,13 +9,16 @@ export default async function AdminDashboardPage() {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-normal text-black mb-2" style={{ fontFamily: 'Tenor Sans, serif' }}>
-            Admin Dashboard
-          </h1>
-          <p className="text-base text-gray-600">
-            Welcome back, {user.email}
-          </p>
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-3xl font-normal text-black mb-2" style={{ fontFamily: 'Tenor Sans, serif' }}>
+              Admin Dashboard
+            </h1>
+            <p className="text-base text-gray-600">
+              Welcome back, {user.email}
+            </p>
+          </div>
+          <LogoutButton />
         </div>
 
         {/* Quick Stats */}

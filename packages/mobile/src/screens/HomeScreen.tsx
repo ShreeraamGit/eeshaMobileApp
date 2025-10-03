@@ -10,9 +10,11 @@ import { BrandInfoSection } from '@/components/home/BrandInfoSection';
 import { FooterSection } from '@/components/home/FooterSection';
 import { BottomNavigation } from '@/components/home/BottomNavigation';
 import { UI_CONFIG } from '@/config/constants';
+import { useAuthStore } from '@/store/authStore';
 
 const HomeScreen: React.FC = () => {
   const insets = useSafeAreaInsets();
+  const { user } = useAuthStore();
 
   return (
     <View
@@ -28,7 +30,7 @@ const HomeScreen: React.FC = () => {
       />
 
       {/* Top Navigation with User and Notifications */}
-      <HeaderSection userName="Sarah Johnson" />
+      <HeaderSection userName={user?.email?.split('@')[0] || 'User'} />
 
       {/* Main Content */}
       <View style={{ flex: 1 }}>

@@ -101,19 +101,27 @@ export async function getAdminUser(): Promise<User> {
  * Usage in Server Components:
  * ```tsx
  * export default async function AdminPage() {
- *   await requireAdmin(); // Redirects if not admin
+ *   const user = await requireAdmin(); // Redirects if not admin
  *   return <div>Admin content</div>;
  * }
  * ```
  */
 export async function requireAdmin(): Promise<User> {
-  try {
-    const user = await getAdminUser();
-    return user;
-  } catch (error) {
-    // Redirect to admin login
+  const user = await getCurrentUser();
+
+  if (!user) {
+    console.log('[AdminAuth] No user found, redirecting to login');
     redirect('/admin/login');
   }
+
+  const userIsAdmin = await isAdmin(user);
+  if (!userIsAdmin) {
+    console.log('[AdminAuth] User is not admin, redirecting to login');
+    redirect('/admin/login');
+  }
+
+  console.log('[AdminAuth] Admin access granted:', user.email);
+  return user;
 }
 
 /**

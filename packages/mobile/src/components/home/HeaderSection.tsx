@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, ViewStyle } from 'react-native';
+import { View, TouchableOpacity, ViewStyle, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Text } from '@/components/common/Text';
 import { UI_CONFIG } from '@/config/constants';
 import { getScaledFontSize } from '@/utils/responsive';
+import { useAuthStore } from '@/store/authStore';
 
 interface HeaderSectionProps {
   userName?: string;
@@ -14,6 +15,28 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({
   userName = 'Sarah Johnson',
   style,
 }) => {
+  const { signOut } = useAuthStore();
+
+  const handleLogout = () => {
+    Alert.alert(
+      'Se déconnecter',
+      'Êtes-vous sûr de vouloir vous déconnecter?',
+      [
+        {
+          text: 'Annuler',
+          style: 'cancel',
+        },
+        {
+          text: 'Se déconnecter',
+          style: 'destructive',
+          onPress: async () => {
+            await signOut();
+          },
+        },
+      ]
+    );
+  };
+
   const containerStyle: ViewStyle = {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -66,26 +89,38 @@ export const HeaderSection: React.FC<HeaderSectionProps> = ({
         </Text>
       </View>
 
-      {/* Notification Icon */}
-      <TouchableOpacity style={notificationStyle}>
-        <Ionicons
-          name="notifications-outline"
-          size={24}
-          color={UI_CONFIG.COLORS.text.primary}
-        />
-        {/* Notification Badge */}
-        <View style={badgeStyle}>
-          <Text
-            style={{
-              color: 'white',
-              fontSize: getScaledFontSize(8),
-              fontWeight: '600',
-            }}
-          >
-            3
-          </Text>
-        </View>
-      </TouchableOpacity>
+      {/* Right Icons */}
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 16 }}>
+        {/* Notification Icon */}
+        <TouchableOpacity style={notificationStyle}>
+          <Ionicons
+            name="notifications-outline"
+            size={24}
+            color={UI_CONFIG.COLORS.text.primary}
+          />
+          {/* Notification Badge */}
+          <View style={badgeStyle}>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: getScaledFontSize(8),
+                fontWeight: '600',
+              }}
+            >
+              3
+            </Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* Logout Icon */}
+        <TouchableOpacity onPress={handleLogout}>
+          <Ionicons
+            name="log-out-outline"
+            size={24}
+            color={UI_CONFIG.COLORS.text.primary}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
