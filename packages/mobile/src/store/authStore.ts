@@ -37,6 +37,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const { user, session, error } = await authService.signIn({ email, password });
 
       if (error) {
+        console.error('[AuthStore] SignIn failed:', error.message);
         set({ isLoading: false });
         return { error: error.message };
       }
@@ -50,6 +51,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       return { error: null };
     } catch (error) {
+      console.error('[AuthStore] SignIn error:', error);
       set({ isLoading: false });
       return { error: 'An unexpected error occurred' };
     }
@@ -137,7 +139,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         }
       });
     } catch (error) {
-      console.error('Initialize auth error:', error);
+      console.error('[AuthStore] Initialize error:', error);
       set({
         user: null,
         session: null,

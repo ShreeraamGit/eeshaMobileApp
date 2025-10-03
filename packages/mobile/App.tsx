@@ -9,12 +9,8 @@ import { useFonts, TenorSans_400Regular } from '@expo-google-fonts/tenor-sans';
 import * as SplashScreen from 'expo-splash-screen';
 import { API_CONFIG } from '@/config/constants';
 
-// Import screens
-import HomeScreen from '@/screens/HomeScreen';
-// import { DesignSystemShowcaseScreen } from '@/screens/DesignSystemShowcaseScreen';
-
-// Import your main navigation component (to be created)
-// import { RootNavigator } from '@/navigation/RootNavigator';
+// Import navigation
+import { AppNavigator } from '@/navigation/AppNavigator';
 
 // Create a query client for React Query
 const queryClient = new QueryClient({
@@ -57,9 +53,7 @@ export default function App() {
           merchantIdentifier="merchant.com.eeshasilks.app"
         >
           <StatusBar style="auto" />
-          <HomeScreen />
-          {/* <DesignSystemShowcaseScreen /> */}
-          {/* <RootNavigator /> */}
+          <AppNavigator />
         </AppStripeProvider>
       </QueryClientProvider>
     </SafeAreaProvider>
