@@ -1,212 +1,308 @@
-# Eesha Silks Mobile App
+# Eesha Silks E-commerce - Monorepo
 
-A production-grade mobile e-commerce application built with React Native and Expo, featuring product variants (size/color), order tracking, and seamless payment processing.
+**Scalable monorepo architecture** for Eesha Silks e-commerce ecosystem.
 
-## 🚀 Tech Stack
-
-- **Frontend**: React Native with Expo SDK 50
-- **Backend**: Supabase (PostgreSQL + Auth + Storage)
-- **Payments**: Stripe with React Native integration
-- **State Management**: React Query + Zustand
-- **Navigation**: React Navigation 6
-- **UI Framework**: React Native Elements
-- **Type Safety**: TypeScript with strict configuration
-
-## 📱 Features
-
-### MVP (Phase 1)
-- [x] Product catalog with variants (size/color)
-- [x] Shopping cart with local persistence
-- [x] Stripe payment integration
-- [x] Order tracking system
-- [x] User authentication
-- [x] French VAT calculation (20%)
-- [x] Self-fulfilled shipping (€10 flat rate)
-
-### Future (Phase 2-3)
-- [ ] Multi-vendor marketplace
-- [ ] Advanced search & filtering
-- [ ] Push notifications
-- [ ] Vendor dashboard
-- [ ] Analytics & reporting
-
-## 🏗️ Architecture
+## 📁 Project Structure
 
 ```
-src/
-├── components/          # Reusable UI components
-├── screens/            # Screen components
-├── services/           # API services & business logic
-├── navigation/         # Navigation configuration
-├── store/             # State management
-├── hooks/             # Custom React hooks
-├── utils/             # Utility functions
-├── types/             # TypeScript type definitions
-└── config/            # App configuration
+eesha_app/                     # Root monorepo
+├── packages/
+│   ├── mobile/                # React Native mobile app (Expo)
+│   │   ├── src/              # Mobile app source code
+│   │   ├── app/              # Expo Router screens
+│   │   └── package.json      # Mobile dependencies
+│   │
+│   ├── admin/                 # Next.js admin dashboard
+│   │   ├── src/              # Admin app source code
+│   │   ├── app/              # Next.js App Router
+│   │   └── package.json      # Admin dependencies
+│   │
+│   └── shared/                # Shared package
+│       ├── src/
+│       │   ├── types/        # TypeScript types
+│       │   ├── config/       # Constants & config
+│       │   └── utils/        # Utilities
+│       └── package.json      # Shared dependencies
+│
+├── docs/                      # Documentation
+├── package.json              # Root workspace config
+└── README.md                 # This file
 ```
 
-## 🛠️ Development Setup
+## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
-- npm or yarn
+- npm 9+
 - Expo CLI
-- iOS Simulator (Mac) or Android Emulator
+- Supabase account
+- Stripe account
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd eesha-app
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Setup environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your actual API keys
-   ```
-
-4. **Start the development server**
-   ```bash
-   npm start
-   ```
-
-### Environment Variables
-
 ```bash
-# Supabase Configuration
-EXPO_PUBLIC_SUPABASE_URL=your_supabase_url_here
-EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key_here
-
-# Stripe Configuration
-EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key_here
-
-# App Configuration
-EXPO_PUBLIC_APP_ENV=development
+# Install all workspace dependencies
+npm install
 ```
 
-## 🗄️ Database Schema
-
-The app uses Supabase PostgreSQL with the following key tables:
-
-- `products` - Product information
-- `product_variants` - Size/color combinations with stock
-- `orders` - Order details with French VAT
-- `order_tracking` - Tracking events for orders
-- `carts` - Shopping cart persistence
-
-See `/docs/database-schema.sql` for complete schema.
-
-## 💳 Payment Flow
-
-1. User adds products to cart (with variant selection)
-2. Checkout calculates subtotal + 20% VAT + €10 shipping
-3. Stripe Checkout processes payment
-4. Order created with tracking number
-5. Order fulfillment updates tracking status
-
-## 📦 Deployment
-
-### Preview Build
-```bash
-npm run build:preview
-```
-
-### Production Build
-```bash
-npm run build:android  # Android APK/AAB
-npm run build:ios      # iOS IPA
-```
-
-### App Store Submission
-```bash
-npm run submit:android  # Google Play Store
-npm run submit:ios      # Apple App Store
-```
-
-## 🧪 Testing
+### Development
 
 ```bash
-npm test              # Run unit tests
-npm run test:watch    # Run tests in watch mode
-npm run test:coverage # Generate coverage report
-npm run lint          # Run ESLint
-npm run typecheck     # Run TypeScript check
+# Run mobile app only
+npm run mobile
+
+# Run admin dashboard only
+npm run admin
+
+# Run both mobile + admin in parallel
+npm run dev
+
+# Run on specific platforms
+npm run mobile:ios
+npm run mobile:android
 ```
 
-## 📊 Performance Targets
+## 📦 Workspace Packages
 
-| Metric | Target |
-|--------|--------|
-| Cold Start | <4s |
-| API Response (P50) | <200ms |
-| API Response (P99) | <800ms |
-| Crash-free Rate | >98% |
+### `@eesha/mobile` - React Native Mobile App
 
-## 🔒 Security
+**Tech Stack:**
+- React Native 0.81+ with Expo SDK 54
+- Expo Router for navigation
+- Zustand for state management
+- React Query for data fetching
+- Stripe for payments
+- Supabase for backend
 
-- **Authentication**: Supabase Auth with JWT tokens
-- **Storage**: Secure token storage with Expo SecureStore
-- **API**: Row Level Security (RLS) policies
-- **Payments**: PCI DSS compliant via Stripe
-- **HTTPS**: Enforced via Cloudflare
+**Commands:**
+```bash
+npm run mobile              # Start Expo dev server
+npm run mobile:ios          # Run on iOS
+npm run mobile:android      # Run on Android
+npm run mobile:build:ios    # Build iOS app
+npm run mobile:build:android # Build Android app
+```
 
-## 📱 Platform Support
+**Location:** `packages/mobile/`
 
-- **iOS**: 13.0+
-- **Android**: API level 21+ (Android 5.0)
-- **Web**: Modern browsers (development only)
+---
 
-## 🚀 Getting Started (Next Steps)
+### `@eesha/admin` - Next.js Admin Dashboard
 
-1. **Setup Supabase Project**
-   - Create new project at supabase.com
-   - Run database migrations
-   - Configure RLS policies
+**Tech Stack:**
+- Next.js 15+ with App Router
+- React 19
+- TailwindCSS for styling
+- Supabase for backend
+- Server Components & Server Actions
 
-2. **Setup Stripe Account**
-   - Create Stripe account
-   - Get publishable/secret keys
-   - Configure webhooks
+**Commands:**
+```bash
+npm run admin               # Start dev server (port 3001)
+npm run admin:build         # Build for production
+npm run admin:start         # Start production server
+```
 
-3. **Run Initial Data Migration**
-   ```bash
-   npm run migrate:products  # Import initial product catalog
-   ```
+**Location:** `packages/admin/`
 
-4. **Start Development**
-   ```bash
-   npm start
-   ```
+---
+
+### `@eesha/shared` - Shared Package
+
+**Contains:**
+- `types/database.ts` - Database types (single source of truth)
+- `config/constants.ts` - Shared constants (VAT, shipping, etc.)
+- `utils/validation.ts` - Validation utilities
+- `utils/formatting.ts` - Formatting utilities (price, date, phone)
+
+**Usage:**
+```typescript
+// In mobile app
+import { Product, formatting } from '@eesha/shared';
+
+// In admin dashboard
+import { Product, formatting } from '@eesha/shared';
+```
+
+**Location:** `packages/shared/`
+
+## 🔑 Environment Variables
+
+### Mobile App (`packages/mobile/.env`)
+
+```bash
+EXPO_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
+EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+```
+
+### Admin Dashboard (`packages/admin/.env.local`)
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+```
+
+## 🎯 Key Features
+
+### Shared Types
+
+All database types are defined once in `@eesha/shared` and used across mobile and admin:
+
+```typescript
+// packages/shared/src/types/database.ts
+export interface Product {
+  id: string;
+  name: string;
+  base_price: number;
+  // ...
+}
+
+// Used in mobile app
+import { Product } from '@eesha/shared';
+
+// Used in admin dashboard
+import { Product } from '@eesha/shared';
+```
+
+### Shared Utilities
+
+Common utilities are centralized:
+
+```typescript
+import { formatting, validation } from '@eesha/shared';
+
+// Format price in EUR with French locale
+formatting.formatPrice(299.99); // "299,99 €"
+
+// Calculate order total with VAT
+formatting.calculateOrderTotal(100); // { subtotal: 100, vat: 20, shipping: 10, total: 130 }
+
+// Validate French postal code
+validation.isValidPostalCode('75001'); // true
+```
+
+## 🛠️ Development Workflow
+
+### Adding a New Feature
+
+1. **Define types** in `packages/shared/src/types/`
+2. **Add utilities** in `packages/shared/src/utils/` if needed
+3. **Implement in mobile** at `packages/mobile/src/`
+4. **Implement in admin** at `packages/admin/src/`
+
+### Modifying Database Schema
+
+1. Update `docs/setup/database-schema.sql`
+2. Update `packages/shared/src/types/database.ts`
+3. Both mobile and admin automatically get new types
+
+### Running Tests
+
+```bash
+# Run all tests across all packages
+npm run test
+
+# Run type checking
+npm run typecheck
+
+# Run linting
+npm run lint
+npm run lint:fix
+```
 
 ## 📚 Documentation
 
-- [API Documentation](./docs/api.md)
-- [Database Schema](./docs/database.md)
-- [Deployment Guide](./docs/deployment.md)
-- [Contributing Guidelines](./docs/contributing.md)
+- **[Quick Start](./QUICK_START.md)** - 30-minute setup guide
+- **[Full Setup Guide](./docs/setup/01-quick-start.md)** - Comprehensive setup
+- **[Variants Guide](./docs/guides/variants-implementation.md)** - Product variants
+- **[4-Week Roadmap](./docs/planning/4-week-roadmap.md)** - Development timeline
+- **[Admin Dashboard Setup](./docs/setup/02-admin-dashboard.md)** - Admin guide
 
-## 🤝 Contributing
+## 🏗️ Architecture Decisions
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new features
-5. Submit a pull request
+### Why Monorepo?
 
-## 📄 License
+✅ **Single source of truth** for types and utilities
+✅ **Consistent versioning** across mobile and admin
+✅ **Shared code** reduces duplication
+✅ **Easier refactoring** - change once, update everywhere
+✅ **Atomic commits** - mobile + admin + shared in one PR
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Why npm Workspaces?
+
+✅ **Native to npm** - no additional tools needed
+✅ **Simple** - just `npm install` in root
+✅ **Fast** - shared node_modules, minimal duplication
+✅ **Scalable** - can add more packages later
+
+### Package Naming Convention
+
+- `@eesha/mobile` - Mobile app
+- `@eesha/admin` - Admin dashboard
+- `@eesha/shared` - Shared package
+- Future: `@eesha/vendor` - Vendor dashboard (for multi-vendor)
+- Future: `@eesha/api` - Custom API (if needed)
+
+## 📈 Scaling the Monorepo
+
+### Adding New Packages
+
+```bash
+# Add vendor dashboard
+mkdir -p packages/vendor
+cd packages/vendor
+npm init -y
+# Edit package.json name to @eesha/vendor
+```
+
+### Adding New Shared Modules
+
+```bash
+# Add email templates
+mkdir packages/shared/src/email
+touch packages/shared/src/email/templates.ts
+```
+
+### Multi-Vendor Support (Phase 2)
+
+```
+packages/
+├── mobile/           # Customer app
+├── admin/            # Admin dashboard
+├── vendor/           # NEW: Vendor dashboard
+├── shared/           # Shared types/utils
+└── api/              # NEW: Custom API (if needed)
+```
+
+## 🔒 Security
+
+- ✅ Supabase RLS policies for data protection
+- ✅ Environment variables not committed
+- ✅ Service role keys only in admin (server-side)
+- ✅ Stripe keys properly scoped (publishable vs secret)
 
 ## 📞 Support
 
-For support and questions:
-- Create an issue on GitHub
-- Email: support@eeshasilks.com
-- Documentation: [docs.eeshasilks.com](https://docs.eeshasilks.com)
+- **Documentation:** `./docs/README.md`
+- **Issues:** Check `./docs/guides/` for troubleshooting
+- **Supabase:** https://supabase.com/docs
+- **Expo:** https://docs.expo.dev
+- **Next.js:** https://nextjs.org/docs
+
+## 🎯 Next Steps
+
+1. **Setup Supabase** - Follow `./docs/setup/01-quick-start.md`
+2. **Configure environment** - Copy `.env.example` files
+3. **Install dependencies** - `npm install` in root
+4. **Run mobile app** - `npm run mobile`
+5. **Run admin dashboard** - `npm run admin`
+6. **Read docs** - Review `./docs/README.md`
+
+---
+
+**Built with ❤️ for Eesha Silks**

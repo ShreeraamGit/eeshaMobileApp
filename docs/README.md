@@ -1,28 +1,26 @@
-# 📚 Eesha Mobile App - Documentation
+# 📚 Eesha Silks - Documentation Hub
 
-## 🚀 **Quick Start (Start Here!)**
+**Complete documentation** for the Eesha Silks e-commerce monorepo.
 
-**New to this project?** Follow these steps:
+---
 
-1. **[Setup Guide](./setup/01-quick-start.md)** ⭐ **START HERE** (30 minutes)
-   - Database setup
-   - API keys configuration
-   - First product creation
+## 🚀 **Quick Navigation**
 
-2. **[Variants Guide](./guides/variants-implementation.md)** 📦
-   - Understanding size/color variants
-   - Stock management
-   - Cart integration
+### **New to the Project?**
 
-3. **[Admin Dashboard](./setup/02-admin-dashboard.md)** 🖥️
-   - Next.js setup
-   - Product management
-   - Order fulfillment
+👉 **Start here:** [Quick Start Guide](./getting-started/quick-start.md) (30 minutes)
 
-4. **[Project Plan](./planning/4-week-roadmap.md)** 📅
-   - 4-week timeline
-   - Daily tasks
-   - Success metrics
+### **Setting Up the Monorepo?**
+
+👉 **Read:** [Monorepo Setup Guide](./getting-started/monorepo-setup.md)
+
+### **Need Help with Something Specific?**
+
+- **Product Variants** → [Variants Guide](./development/variants-guide.md)
+- **Admin Dashboard** → [Admin Setup](./infrastructure/admin-dashboard.md)
+- **Mobile App Issues** → [Mobile App Fix](./development/mobile-app-fix.md)
+- **Security** → [Security Audit](./infrastructure/security-audit.md)
+- **Project Timeline** → [4-Week Roadmap](./infrastructure/4-week-roadmap.md)
 
 ---
 
@@ -30,201 +28,295 @@
 
 ```
 docs/
-├── README.md                    # This file - start here
+├── README.md (you are here)
 │
-├── setup/                       # Setup & Configuration
-│   ├── 01-quick-start.md       # 30-min setup guide
-│   ├── 02-admin-dashboard.md   # Next.js admin setup
-│   └── database-schema.sql     # Production schema with variants
+├── getting-started/          # Setup & configuration
+│   ├── quick-start.md        # 30-min setup guide
+│   ├── monorepo-setup.md     # Monorepo architecture
+│   └── database-schema.sql   # Production database schema
 │
-├── guides/                      # Implementation Guides
-│   ├── variants-implementation.md  # Product variants guide
-│   ├── authentication.md           # Auth implementation
-│   ├── payments.md                 # Stripe integration
-│   └── deployment.md               # Deployment guide
+├── development/              # Development guides
+│   ├── variants-guide.md     # Product variants implementation
+│   ├── implementation-summary.md  # What changed in the project
+│   └── mobile-app-fix.md     # Mobile app troubleshooting
 │
-├── planning/                    # Project Planning
-│   ├── 4-week-roadmap.md       # Detailed timeline
-│   └── gantt-chart.md          # Visual timeline
+├── infrastructure/           # Infrastructure & deployment
+│   ├── admin-dashboard.md    # Next.js admin dashboard
+│   ├── security-audit.md     # Security vulnerabilities & fixes
+│   └── 4-week-roadmap.md     # Project timeline
 │
-└── archive/                     # Old/Reference Files
-    └── [old documentation]
+└── archive/                  # Reference only (old versions)
+    ├── api-design.md
+    ├── migration-guide.md
+    ├── gantt-chart.md
+    └── database-schema.* (old versions)
 ```
 
 ---
 
-## 🎯 **What You Have**
+## 🎯 **By Topic**
 
-### **✅ Backend Services (Pre-built)**
-- `src/services/supabase.ts` - Supabase client
-- `src/services/auth/authService.ts` - Authentication
-- `src/services/api/productsService.ts` - Products CRUD
-- `src/services/api/variantsService.ts` - Variants management
-- `src/services/api/ordersService.ts` - Orders & tracking
-- `src/services/payment/stripeService.ts` - Stripe payments
+### **Setup & Installation**
 
-### **✅ State Management**
-- `src/store/authStore.ts` - Auth state (Zustand)
-- `src/store/cartStore.ts` - Cart with variants (Zustand + MMKV)
+| Document | Description | Time |
+|----------|-------------|------|
+| [Quick Start](./getting-started/quick-start.md) | Get the app running | 30 min |
+| [Monorepo Setup](./getting-started/monorepo-setup.md) | Understand monorepo structure | 15 min |
+| [Database Schema](./getting-started/database-schema.sql) | Production database schema | 5 min |
 
-### **✅ Database Schema**
-- Products with variants (size/color)
-- Individual stock tracking
-- Auto stock reduction
-- Order tracking system
-- French VAT (20%) support
+### **Development**
+
+| Document | Description | When to Use |
+|----------|-------------|-------------|
+| [Variants Guide](./development/variants-guide.md) | Product variants (size/color) | When implementing products |
+| [Implementation Summary](./development/implementation-summary.md) | What changed in the project | Understanding project evolution |
+| [Mobile App Fix](./development/mobile-app-fix.md) | Mobile app troubleshooting | If mobile app won't start |
+
+### **Infrastructure**
+
+| Document | Description | When to Use |
+|----------|-------------|-------------|
+| [Admin Dashboard](./infrastructure/admin-dashboard.md) | Next.js admin setup | Setting up admin panel |
+| [Security Audit](./infrastructure/security-audit.md) | Security fixes | Understanding security posture |
+| [4-Week Roadmap](./infrastructure/4-week-roadmap.md) | Project timeline | Planning development |
 
 ---
 
-## 🔑 **Key Features**
+## 🏃 **Getting Started Paths**
+
+### **Path 1: Just Want to Run the App** (30 minutes)
+
+1. [Quick Start Guide](./getting-started/quick-start.md)
+2. Run `npm install`
+3. Configure `.env` files
+4. Run `npm run mobile` or `npm run admin`
+
+### **Path 2: Understanding the Architecture** (1 hour)
+
+1. [Monorepo Setup Guide](./getting-started/monorepo-setup.md)
+2. [Database Schema](./getting-started/database-schema.sql)
+3. [Variants Guide](./development/variants-guide.md)
+4. [4-Week Roadmap](./infrastructure/4-week-roadmap.md)
+
+### **Path 3: Setting Up Everything** (4 hours)
+
+1. [Quick Start](./getting-started/quick-start.md) - 30 min
+2. [Database Schema](./getting-started/database-schema.sql) - 15 min
+3. [Admin Dashboard](./infrastructure/admin-dashboard.md) - 2 hours
+4. [Variants Guide](./development/variants-guide.md) - 1 hour
+5. Test everything - 30 min
+
+---
+
+## 🔑 **Key Concepts**
+
+### **Monorepo Structure**
+
+The project uses **npm workspaces** with 3 packages:
+
+```
+packages/
+├── mobile/    # React Native app (Expo)
+├── admin/     # Next.js dashboard
+└── shared/    # Shared types & utilities
+```
+
+**Why?** Single source of truth for types, easier maintenance, atomic commits.
 
 ### **Product Variants**
+
+Products have **size and color variants** with individual stock tracking:
+
 ```
-Product (Parent)
-├── name, description, base_price
-└── Variants (Size × Color)
-    ├── SKU: "SAREE-M-RED"
-    ├── Stock: 15 units
-    ├── Price: optional override
-    └── Image: color-specific
+Product (Saree)
+├── Variant: S, Red (10 in stock)
+├── Variant: M, Red (15 in stock)
+└── Variant: L, Red (20 in stock)
 ```
 
-### **Cart System**
-- Variant-based (not product-based)
-- Includes size, color, SKU
-- Stock validation per variant
-- MMKV persistence + cloud sync
+**Why?** E-commerce products need size/color combinations with separate inventory.
 
-### **Stock Management**
-- Individual tracking per variant
-- Auto reduction on payment
-- Low stock alerts
-- Reservation system (30 min hold)
+### **Tech Stack**
+
+| Layer | Technology |
+|-------|-----------|
+| Mobile | React Native + Expo SDK 54 |
+| Admin | Next.js 15 + React 19 |
+| Backend | Supabase (PostgreSQL + Auth) |
+| Payments | Stripe |
+| State | React Query + Zustand |
+| Types | TypeScript (shared across apps) |
 
 ---
 
-## 📋 **Quick Reference**
+## 📊 **Project Status**
 
-### **Environment Variables**
-```bash
-EXPO_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
-EXPO_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
-EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
-```
+### **Completed** ✅
 
-### **Key Commands**
-```bash
-# Mobile App
-npm start              # Start Expo dev server
-npm run ios            # Run on iOS
-npm test               # Run tests
+- [x] Monorepo structure with npm workspaces
+- [x] Shared package with types and utilities
+- [x] Database schema with product variants
+- [x] Backend services (Supabase clients, auth, API)
+- [x] Mobile app entry point
+- [x] Admin dashboard scaffolding
+- [x] Security vulnerabilities patched
+- [x] Documentation organized
 
-# Admin Dashboard (create on Day 4)
-npx create-next-app@latest eesha-admin
-cd eesha-admin && npm run dev
-```
+### **In Progress** 🚧
 
-### **Common Queries**
-```typescript
-// Get product with variants
-const product = await variantsService.getProductWithVariants(id);
+- [ ] Supabase database setup (need to run schema)
+- [ ] Environment variables configuration
+- [ ] Admin dashboard features
+- [ ] Mobile app variant UI integration
 
-// Get specific variant
-const variant = await variantsService.getVariant(productId, 'M', 'Rouge');
+### **Planned** 📅
 
-// Check stock
-const hasStock = await variantsService.checkStock(variantId, quantity);
-
-// Add to cart
-addItem({
-  variant_id: variant.id,
-  size: 'M',
-  color: 'Rouge',
-  sku: 'SAR-M-RED',
-  ...
-});
-```
-
----
-
-## 📅 **4-Week Timeline**
-
-| Week | Focus | Goal |
-|------|-------|------|
-| **Week 1** | Foundation | Backend + Auth + Products + Variants |
-| **Week 2** | Payments | Checkout + Stripe + Orders |
-| **Week 3** | Polish | Tracking + French + Optimization |
-| **Week 4** | Launch | Deployment + App Store |
-
-**Current Status:** Week 1, Day 1 - Database Setup ✓
-
----
-
-## ✅ **Today's Checklist**
-
-- [ ] Read [Quick Start Guide](./setup/01-quick-start.md)
-- [ ] Run database schema
-- [ ] Add 1 test product with variants
-- [ ] Configure API keys
-- [ ] Test app connection
+- [ ] Authentication implementation
+- [ ] Product management in admin
+- [ ] Order tracking
+- [ ] Stripe payment integration
+- [ ] Deployment to production
 
 ---
 
 ## 🚨 **Common Issues**
 
-**SQL Error?**
-→ Use `setup/database-schema.sql` (production version)
+### **Mobile app won't start**
 
-**Variant Not Working?**
-→ Check product exists before adding variants
+→ Read [Mobile App Fix](./development/mobile-app-fix.md)
 
-**Can't Connect?**
-→ Verify API keys in `.env` file
+**Quick fix:**
+```bash
+cd packages/mobile
+npx expo start --clear
+```
 
-**Stock Issues?**
-→ Read `guides/variants-implementation.md`
+### **Admin dashboard build errors**
 
----
+→ Check [Security Audit](./infrastructure/security-audit.md)
 
-## 📞 **Support Resources**
+**Quick fix:**
+```bash
+cd packages/admin
+npm install
+npm run dev
+```
 
-- **Supabase**: https://supabase.com/docs
-- **Stripe**: https://stripe.com/docs
-- **React Native**: https://reactnative.dev
-- **Next.js**: https://nextjs.org/docs
+### **Cannot find module '@eesha/shared'**
 
----
+→ Read [Monorepo Setup](./getting-started/monorepo-setup.md)
 
-## 🎯 **Success Criteria**
+**Quick fix:**
+```bash
+# From root
+npm install
+```
 
-**By End of Week 1:**
-- ✅ Database configured with variants
-- ✅ Auth working (login/register)
-- ✅ Products displaying with variants
-- ✅ Cart functional with size/color
-- ✅ Admin dashboard started
+### **Database connection issues**
 
-**By End of Week 4:**
-- ✅ App submitted to App Store
-- ✅ Payment processing working
-- ✅ Order tracking functional
-- ✅ 10+ beta users testing
+→ Read [Quick Start](./getting-started/quick-start.md)
 
----
-
-## 📚 **Additional Resources**
-
-### **Architecture Docs**
-- API Design (archived)
-- Migration Guide (for multi-vendor later)
-- Database Schema Documentation
-
-### **Learning Path**
-1. Supabase fundamentals
-2. React Query patterns
-3. Stripe integration
-4. EAS deployment
+**Quick fix:**
+- Verify `.env` files have correct Supabase keys
+- Check Supabase project is active
 
 ---
 
-**Next Step:** Open [Quick Start Guide](./setup/01-quick-start.md) and begin! 🚀
+## 🔧 **Useful Commands**
+
+### **Development**
+
+```bash
+npm run mobile         # Start mobile app
+npm run admin          # Start admin dashboard
+npm run dev            # Run both in parallel
+```
+
+### **Quality**
+
+```bash
+npm run typecheck      # Type check all packages
+npm run lint           # Lint all packages
+npm test               # Test all packages
+```
+
+### **Maintenance**
+
+```bash
+npm audit              # Check for vulnerabilities
+npm run clean          # Clean all builds
+npm run clean:install  # Clean and reinstall
+```
+
+---
+
+## 📞 **Support**
+
+### **Documentation Issues**
+
+If you find errors or missing information:
+1. Check [archive/](./archive/) for old versions
+2. Review commit history for context
+3. Create an issue on GitHub (if configured)
+
+### **Technical Support**
+
+- **Supabase:** https://supabase.com/docs
+- **Expo:** https://docs.expo.dev
+- **Next.js:** https://nextjs.org/docs
+- **Stripe:** https://stripe.com/docs
+
+### **External Resources**
+
+- [React Native Documentation](https://reactnative.dev)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [npm Workspaces](https://docs.npmjs.com/cli/v10/using-npm/workspaces)
+
+---
+
+## 🎓 **Learning Resources**
+
+### **For Mobile Development**
+
+- [Expo Tutorial](https://docs.expo.dev/tutorial/introduction/)
+- [React Native School](https://www.reactnativeschool.com/)
+- [Supabase + React Native](https://supabase.com/docs/guides/getting-started/tutorials/with-expo-react-native)
+
+### **For Admin Dashboard**
+
+- [Next.js Learn](https://nextjs.org/learn)
+- [Next.js + Supabase](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs)
+- [TailwindCSS](https://tailwindcss.com/docs)
+
+### **For E-commerce**
+
+- [Stripe Payment Intents](https://stripe.com/docs/payments/payment-intents)
+- [Inventory Management Best Practices](https://www.shopify.com/retail/inventory-management)
+
+---
+
+## 📈 **Version History**
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 3.0 | 2025-10-03 | Reorganized docs into logical folders |
+| 2.0 | 2025-10-03 | Added monorepo structure |
+| 1.0 | 2025-09-26 | Initial documentation |
+
+---
+
+## 🎯 **What to Read Next**
+
+**If you're:**
+
+- **Just starting** → [Quick Start Guide](./getting-started/quick-start.md)
+- **Setting up monorepo** → [Monorepo Setup](./getting-started/monorepo-setup.md)
+- **Building admin panel** → [Admin Dashboard](./infrastructure/admin-dashboard.md)
+- **Working with products** → [Variants Guide](./development/variants-guide.md)
+- **Planning timeline** → [4-Week Roadmap](./infrastructure/4-week-roadmap.md)
+
+---
+
+**Last Updated:** 2025-10-03
+**Status:** ✅ Production-ready documentation
+**Maintainer:** Eesha Silks Development Team

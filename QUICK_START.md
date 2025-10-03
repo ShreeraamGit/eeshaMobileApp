@@ -102,13 +102,14 @@ After setup, verify:
 
 ### **Need More Details?**
 
-👉 **[Full Setup Guide](./docs/setup/01-quick-start.md)** - Comprehensive step-by-step guide with troubleshooting
+👉 **[Full Setup Guide](./docs/getting-started/quick-start.md)** - Comprehensive step-by-step guide with troubleshooting
 
 ### **Understanding the System:**
 
-- **[Variants Guide](./docs/guides/variants-implementation.md)** - Product variants, stock management, cart integration
-- **[4-Week Roadmap](./docs/planning/4-week-roadmap.md)** - Complete development timeline
-- **[Admin Dashboard](./docs/setup/02-admin-dashboard.md)** - Next.js admin setup
+- **[Variants Guide](./docs/development/variants-guide.md)** - Product variants, stock management, cart integration
+- **[4-Week Roadmap](./docs/infrastructure/4-week-roadmap.md)** - Complete development timeline
+- **[Admin Dashboard](./docs/infrastructure/admin-dashboard.md)** - Next.js admin setup
+- **[Monorepo Guide](./docs/getting-started/monorepo-setup.md)** - Monorepo architecture
 
 ### **Documentation Hub:**
 
