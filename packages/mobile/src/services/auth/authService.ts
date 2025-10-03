@@ -1,17 +1,13 @@
 import { supabase } from '../supabase';
 import { AuthError, Session, User } from '@supabase/supabase-js';
-
-export interface SignUpData {
-  email: string;
-  password: string;
-  fullName?: string;
-  phone?: string;
-}
-
-export interface SignInData {
-  email: string;
-  password: string;
-}
+import {
+  SignUpData,
+  SignInData,
+  UserRole,
+  validateEmail,
+  validatePassword,
+  AUTH_ERRORS,
+} from '@eesha/shared';
 
 export interface AuthResponse {
   user: User | null;
@@ -21,11 +17,31 @@ export interface AuthResponse {
 
 class AuthService {
   /**
-   * Register a new user
+   * Register a new user (customer role)
    */
   async signUp(data: SignUpData): Promise<AuthResponse> {
     try {
       const { email, password, fullName, phone } = data;
+
+      // Validate email
+      const emailValidation = validateEmail(email);
+      if (!emailValidation.valid) {
+        return {
+          user: null,
+          session: null,
+          error: { message: emailValidation.error || AUTH_ERRORS.INVALID_EMAIL, name: 'ValidationError' } as AuthError,
+        };
+      }
+
+      // Validate password
+      const passwordValidation = validatePassword(password);
+      if (!passwordValidation.valid) {
+        return {
+          user: null,
+          session: null,
+          error: { message: passwordValidation.error || AUTH_ERRORS.WEAK_PASSWORD, name: 'ValidationError' } as AuthError,
+        };
+      }
 
       const { data: authData, error } = await supabase.auth.signUp({
         email,
@@ -193,6 +209,27 @@ class AuthService {
     return supabase.auth.onAuthStateChange((_event, session) => {
       callback(session);
     });
+  }
+
+  /**
+   * Get user role from metadata
+   */
+  async getUserRole(): Promise<UserRole> {
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      return (user?.app_metadata?.role as UserRole) || 'customer';
+    } catch (error) {
+      console.error('GetUserRole error:', error);
+      return 'customer';
+    }
+  }
+
+  /**
+   * Check if current user is admin
+   */
+  async isAdmin(): Promise<boolean> {
+    const role = await this.getUserRole();
+    return role === 'admin';
   }
 }
 

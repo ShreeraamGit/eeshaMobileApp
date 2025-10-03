@@ -6,6 +6,7 @@
 
 // Types
 export * from './types/database';
+export * from './types/auth';
 
 // Config
 export * from './config/constants';
