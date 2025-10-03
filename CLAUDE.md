@@ -2,208 +2,352 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Monorepo Architecture
+
+This is a **npm workspaces monorepo** with three packages:
+
+```
+packages/
+├── mobile/     # React Native app (Expo SDK 54, React 19)
+├── admin/      # Next.js dashboard (Next.js 15, React 19)
+└── shared/     # Shared types, utilities, and constants
+```
+
+**Critical**: Always use `@eesha/shared` for types and utilities shared between mobile and admin. Never duplicate code.
+
 ## Development Commands
 
-### Project Setup
+### Monorepo Commands (from root)
+
 ```bash
-npm install                    # Install dependencies
-cp .env.example .env          # Create environment file (configure before running)
-npx expo install              # Install Expo dependencies
+npm install                      # Install all workspace dependencies
+npm run mobile                   # Start mobile app (Expo)
+npm run admin                    # Start admin dashboard (Next.js on port 3001)
+npm run dev                      # Run mobile + admin in parallel
+npm run typecheck                # Type check all packages
+npm run lint                     # Lint all packages
+npm run lint:fix                 # Fix linting issues
+npm test                         # Test all packages
+npm run clean                    # Remove all node_modules and builds
+npm run clean:install            # Clean and reinstall
 ```
 
-### Development
+### Mobile App (packages/mobile/)
+
 ```bash
-npm start                     # Start Expo development server
-npm run android              # Run on Android device/emulator
-npm run ios                  # Run on iOS device/simulator
-npm run web                  # Run in web browser (development only)
+npm run mobile                   # Start Expo dev server
+npm run mobile:ios               # Run on iOS simulator
+npm run mobile:android           # Run on Android emulator
+npm run mobile:build:ios         # Build iOS app with EAS
+npm run mobile:build:android     # Build Android app with EAS
 ```
 
-### Code Quality & Testing
+### Admin Dashboard (packages/admin/)
+
 ```bash
-npm run lint                 # Run ESLint
-npm run lint:fix             # Fix auto-fixable lint issues
-npm run typecheck            # Run TypeScript type checking
-npm test                     # Run Jest unit tests
-npm run test:watch           # Run tests in watch mode
-npm run test:coverage        # Generate test coverage report
+npm run admin                    # Start Next.js dev server (port 3001)
+npm run admin:build              # Build for production
+npm run admin:start              # Start production server
 ```
 
-### Building & Deployment
+### Testing & Quality
+
 ```bash
-npm run prebuild             # Generate native code
-npm run build:android        # Build Android app with EAS
-npm run build:ios            # Build iOS app with EAS
-npm run submit:android       # Submit to Google Play Store
-npm run submit:ios           # Submit to Apple App Store
+npm test                         # Run all tests
+npm run test:watch               # Watch mode (mobile only)
+npm run test:coverage            # Coverage report (mobile only)
+npm run typecheck                # Type check all packages
+npm run lint                     # Lint all packages
 ```
 
-## Architecture Overview
+## Critical Architecture Patterns
 
-### Core Technology Stack
-- **React Native 0.73** with **Expo SDK 50** for cross-platform mobile development
-- **Supabase** as backend-as-a-service (PostgreSQL, Auth, Storage, Edge Functions)
-- **Stripe** for payment processing with React Native integration
-- **React Query** for server state management and caching
-- **Zustand** for client-side state management
-- **React Navigation 6** for navigation between screens
+### Shared Package System
 
-### Project Structure Philosophy
-The codebase follows a **feature-based architecture** with strict TypeScript and absolute import paths:
+The `@eesha/shared` package is the **single source of truth** for:
 
-```
-src/
-├── components/    # Reusable UI components organized by domain
-├── screens/       # Full-screen components for navigation
-├── services/      # Business logic and API integrations
-├── navigation/    # Navigation configuration and route definitions
-├── store/         # Global state management (Zustand stores)
-├── hooks/         # Custom React hooks for shared logic
-├── utils/         # Pure utility functions
-├── types/         # TypeScript type definitions
-└── config/        # App configuration and constants
-```
+1. **Database Types** (`packages/shared/src/types/database.ts`):
+   - Product, ProductVariant, ProductWithVariants
+   - Order, OrderItem, OrderTracking
+   - All Supabase database types
 
-### Import Path Strategy
-Use absolute imports with the `@/` prefix for all internal modules:
+2. **Constants** (`packages/shared/src/config/constants.ts`):
+   - APP_CONFIG (VAT: 20%, shipping: €10, currency: EUR)
+   - ORDER_STATUSES, PAYMENT_STATUSES, USER_ROLES
+   - VALIDATION_RULES (French postal codes, phone numbers)
+   - ERROR_MESSAGES (in French)
+
+3. **Utilities** (`packages/shared/src/utils/`):
+   - `validation.ts` - French postal codes, phone, email validation
+   - `formatting.ts` - Price formatting (€), VAT calculation, date formatting
+
+**Usage in mobile**:
 ```typescript
-import { supabase } from '@/config/supabase';
+import { Product, formatting, validation } from '@eesha/shared';
+```
+
+**Usage in admin**:
+```typescript
+import { Product, formatting, APP_CONFIG } from '@eesha/shared';
+```
+
+### Product Variants Architecture
+
+**Critical**: Products have a **two-table variant system**:
+
+```
+products table (parent)
+├── id, name, description, base_price, category, images
+
+product_variants table (children)
+├── id, product_id, sku, size, color, color_hex
+├── price (optional override), stock_quantity, image_url
+└── UNIQUE(product_id, size, color)
+```
+
+**Key Points**:
+- Cart items reference `variant_id`, NOT `product_id`
+- Each variant has individual stock tracking
+- SKU format: `{CATEGORY}-{SIZE}-{COLOR}` (e.g., "SAR-M-RED")
+- Stock reduction is automatic via database trigger on `payment_status = 'paid'`
+
+### State Management Split
+
+**Server State** (React Query):
+- All API data fetching
+- 5-minute cache stale time
+- Automatic revalidation
+- Used in: `packages/mobile/src/services/`
+
+**Client State** (Zustand):
+- UI state, cart, user preferences
+- Persisted to MMKV for mobile
+- Used in: `packages/mobile/src/store/`
+
+**Never mix these concerns**. Server data goes through React Query, client UI state goes through Zustand.
+
+### Supabase Integration
+
+**Mobile app** (`packages/mobile/src/services/supabase.ts`):
+- Uses Expo SecureStore for token storage
+- Client-side RLS policies enforce security
+- Anonymous key only (`EXPO_PUBLIC_SUPABASE_ANON_KEY`)
+
+**Admin dashboard** (future implementation):
+- Uses Next.js Server Components
+- Service role key for admin operations (server-side only)
+- `@supabase/ssr@0.7.0` with new cookie API
+
+### French Market Requirements
+
+**Always** include in order calculations:
+- VAT: 20% (`APP_CONFIG.VAT_RATE`)
+- Shipping: €10 flat rate (`APP_CONFIG.SHIPPING_COST`)
+- Currency: EUR formatted as `299,99 €` (use `formatting.formatPrice()`)
+
+**Validation**:
+- Postal codes: 5 digits (use `validation.isValidPostalCode()`)
+- Phone: `+33` or `0` prefix (use `validation.isValidPhone()`)
+
+## Import Path Conventions
+
+**Mobile app**: Use `@/` prefix
+```typescript
 import { Product } from '@/types';
-import { useProducts } from '@/hooks/useProducts';
+import { supabase } from '@/services/supabase';
+import { useCartStore } from '@/store/cartStore';
 ```
 
-### E-commerce Domain Model
-The application is built around these core entities:
-
-**Products with Variants**: Products have size/color variants with individual stock tracking. Each variant has its own SKU, price override capability, and stock quantity.
-
-**Cart System**: Shopping cart persists locally and syncs with Supabase for authenticated users. Cart items reference specific product variants, not just products.
-
-**Order Management**: Orders include French VAT calculation (20%), flat-rate shipping (€10), and integrated tracking system with 6 status levels.
-
-**Authentication**: Uses Supabase Auth with secure token storage via Expo SecureStore for biometric protection.
-
-### Data Flow Architecture
-- **React Query** manages all server state with 5-minute cache stale time
-- **Zustand** stores handle UI state (cart, user preferences, navigation state)
-- **Supabase RLS** enforces row-level security policies
-- **Stripe Elements** ensures PCI compliance by never touching card data
-
-### French Market Specifics
-The app is designed for the French market with:
-- 20% VAT calculation on all orders
-- French address validation (5-digit postal codes)
-- Euro currency throughout
-- French phone number validation (`+33` or `0` prefix)
-- Tracking status messages in French
-
-### Performance Optimizations
-- **FlatList** with `initialNumToRender: 10` and `windowSize: 5` for product lists
-- **React Query** caching with smart invalidation strategies
-- **Expo Image** for optimized image loading and caching
-- **MMKV** for high-performance local storage
-
-### Environment Variables
-Required environment variables in `.env`:
-```bash
-EXPO_PUBLIC_SUPABASE_URL=           # Supabase project URL
-EXPO_PUBLIC_SUPABASE_ANON_KEY=      # Supabase anonymous key
-EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY= # Stripe publishable key
-EXPO_PUBLIC_APP_ENV=                # development|staging|production
-```
-
-### Feature Flags
-The app uses feature flags for progressive enhancement:
-- `MULTI_VENDOR`: Enable marketplace features (Phase 2)
-- `ADVANCED_SEARCH`: Enable Elasticsearch integration (Phase 3)
-- `PUSH_NOTIFICATIONS`: Enable push notification system
-
-### Database Integration
-Supabase client is configured with:
-- **Secure token storage** using Expo SecureStore
-- **Auto-refresh tokens** for seamless authentication
-- **Type-safe database operations** with generated TypeScript types
-- **Row Level Security** policies for data protection
-
-### Testing Strategy
-- **Unit tests** with Jest and React Native Testing Library
-- **80% coverage threshold** enforced for branches, functions, lines, and statements
-- **TypeScript strict mode** with comprehensive type checking
-- **ESLint** with React hooks and TypeScript rules
-
-### State Management Patterns
-- **Server state**: React Query for API data, caching, and synchronization
-- **Client state**: Zustand stores for UI state and user preferences
-- **Authentication state**: Supabase Auth with automatic token refresh
-- **Cart persistence**: Local storage with cloud sync for authenticated users
-
-### Code Quality Standards
-- **TypeScript strict mode** with no implicit any
-- **ESLint** with React hooks exhaustive deps rule
-- **Absolute imports** using `@/` prefix for all internal modules
-- **Consistent naming**: PascalCase for components, camelCase for functions/variables
-- **File naming**: kebab-case for files, PascalCase for component files
-
-### Security Implementation
-- **Expo SecureStore** for sensitive data (auth tokens, payment info)
-- **Supabase RLS** policies prevent unauthorized data access
-- **Stripe Elements** for PCI-compliant payment processing
-- **HTTPS enforcement** via Cloudflare
-- **Input validation** using Zod schemas (to be implemented)
-
-## Design System Integration
-
-The codebase implements a **comprehensive design system** based on the enhanced design-system.json file:
-
-### Design System Components
-All UI components are built using the design system tokens from `@/config/constants.ts`:
-
-**Common Components (`@/components/common/`)**:
-- `Text` - Typography with variants (h1-h6, body, price, product, button styles)
-- `Button` - Primary, secondary, ghost, danger variants with size options
-- `Card` - Consistent card styling with shadow and radius
-- `Input` - Form inputs with focus states and validation
-- `Badge` - E-commerce badges (sale, new, bestseller, etc.)
-
-**Product Components (`@/components/product/`)**:
-- `ProductCard` - Standardized product display with 3:4 aspect ratio
-- `ProductGrid` - Responsive grid with performance optimizations
-
-**Cart Components (`@/components/cart/`)**:
-- `CartItem` - Shopping cart item with quantity controls
-- `CartSummary` - Order summary with French VAT calculation
-
-### Design Token Usage
+**Admin app**: Use `@/` prefix
 ```typescript
-// Always use design tokens instead of hardcoded values
-import { UI_CONFIG, ECOMMERCE_CONFIG, TEXT_STYLES } from '@/config/constants';
+import { Product } from '@eesha/shared';
+import { createClient } from '@/lib/supabase';
+```
+
+**Shared package**: Use relative imports
+```typescript
+import { APP_CONFIG } from '../config/constants';
+```
+
+## Database Schema Location
+
+**Production schema**: `docs/getting-started/database-schema.sql`
+
+This includes:
+- Product variants with stock tracking
+- Auto stock reduction trigger
+- Order tracking system
+- French VAT fields
+- Inventory reservations (30-min holds)
+
+**Never use** archived schemas in `docs/archive/`.
+
+## Mobile App Entry Point
+
+**Critical**: Entry point is `packages/mobile/index.js` (NOT `App.tsx` directly)
+
+```javascript
+import { registerRootComponent } from 'expo';
+import App from './App';
+registerRootComponent(App);
+```
+
+`package.json` must have: `"main": "index.js"`
+
+## Environment Variables
+
+### Mobile (`packages/mobile/.env`)
+```bash
+EXPO_PUBLIC_SUPABASE_URL=
+EXPO_PUBLIC_SUPABASE_ANON_KEY=
+EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+```
+
+### Admin (`packages/admin/.env.local`)
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=          # Server-side only!
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=                   # Server-side only!
+```
+
+**Never** commit `.env` or `.env.local` files.
+
+## Design System Usage (Mobile Only)
+
+**Always** use design tokens from `@/config/constants.ts`:
+
+```typescript
+import { UI_CONFIG, ECOMMERCE_CONFIG } from '@/config/constants';
 
 // Spacing (8px base scale)
-marginTop: UI_CONFIG.SPACING[3] // 24px
+marginTop: UI_CONFIG.SPACING[3]  // 24px
 
-// Colors (semantic naming)
+// Colors
 backgroundColor: UI_CONFIG.COLORS.primary
-color: UI_CONFIG.COLORS.text.secondary
-
-// Typography (predefined text styles)
-<Text variant="product-title" color="text.primary">
-
-// E-commerce specific tokens
-padding: ECOMMERCE_CONFIG.product.card.padding
 ```
 
-### Component Guidelines
-1. **Always use design system components** instead of raw React Native components
-2. **Use semantic color paths** (e.g., 'text.primary', 'feedback.error')
-3. **Follow spacing scale** (multiples of 8px base unit)
-4. **Use predefined text variants** for consistent typography
-5. **Apply shadows and borders** from the design system
-6. **Respect breakpoints** for responsive design
+**Use design system components**:
+- `@/components/common/Text` - NOT React Native `<Text>`
+- `@/components/common/Button` - NOT custom buttons
+- `@/components/product/ProductCard` - For all product displays
 
-### French Market Design
-- **E-commerce badges** with French text ("SOLDE", "NOUVEAU")
-- **VAT calculation** (20%) integrated in pricing displays
-- **Euro currency** formatting (€XX.XX)
-- **French labels** throughout the interface
+## Testing Strategy
 
-When working with this codebase, prioritize type safety, follow the established import patterns, maintain the feature-based architecture, and **always use design system components** for 100% consistency. Always use React Query for server state and Zustand for client state management.
+**Mobile app**:
+- Jest + React Native Testing Library
+- 80% coverage threshold enforced
+- Tests in `__tests__/` folders or `.test.ts` files
+
+**Shared package**:
+- Pure function tests
+- No coverage threshold (utility library)
+
+**Admin**:
+- No tests currently (add Next.js + React Testing Library)
+
+## Common Workflows
+
+### Adding a New Database Field
+
+1. Update `docs/getting-started/database-schema.sql`
+2. Update `packages/shared/src/types/database.ts`
+3. Both mobile and admin automatically get new types
+
+### Adding a Shared Utility
+
+1. Create in `packages/shared/src/utils/`
+2. Export from `packages/shared/src/index.ts`
+3. Use in mobile: `import { myUtil } from '@eesha/shared'`
+4. Use in admin: `import { myUtil } from '@eesha/shared'`
+
+### Fixing Mobile App Entry Point Issues
+
+If "Cannot resolve entry file" error:
+```bash
+cd packages/mobile
+# Verify index.js exists
+# Verify package.json has "main": "index.js"
+npx expo start --clear
+```
+
+### Working with Variants
+
+**Always** fetch products with variants:
+```typescript
+import { variantsService } from '@/services/api/variantsService';
+
+const product = await variantsService.getProductWithVariants(productId);
+// Returns: { ...product, variants[], available_sizes[], available_colors[] }
+```
+
+**Cart items** must include:
+```typescript
+{
+  variant_id: string;  // Required!
+  product_id: string;
+  size: string;
+  color: string;
+  sku: string;
+  // ...
+}
+```
+
+## Security Considerations
+
+- **Supabase RLS**: All tables have row-level security
+- **Stripe**: Never expose secret keys in client code
+- **Admin service_role_key**: Server-side only (Next.js API routes/server components)
+- **Expo SecureStore**: Used for auth tokens on mobile
+
+## Documentation Structure
+
+- `docs/README.md` - Main documentation hub
+- `docs/getting-started/` - Setup guides, database schema
+- `docs/development/` - Variants guide, troubleshooting
+- `docs/infrastructure/` - Admin setup, security, timeline
+- `docs/archive/` - Old versions (reference only, don't use)
+
+## Package Dependencies
+
+**React version**: 19.1.0 (all packages)
+**Expo SDK**: 54.0.12
+**Next.js**: 15.5.4
+**Supabase SSR**: 0.7.0 (uses new cookie API)
+
+When installing packages that require peer dependencies with React 19:
+```bash
+npm install <package> --legacy-peer-deps
+```
+
+## Performance Patterns
+
+**Mobile**:
+- FlatList with `initialNumToRender: 10`, `windowSize: 5`
+- React Query caching (5-min stale time)
+- Expo Image for optimized loading
+- MMKV for fast local storage
+
+**Admin**:
+- Next.js Server Components by default
+- Client Components only when needed
+- Streaming for large data sets
+
+## Workspace Management
+
+**Adding a new package**:
+```bash
+mkdir -p packages/new-package
+cd packages/new-package
+npm init -y
+# Edit package.json name to "@eesha/new-package"
+```
+
+**Installing package-specific dependencies**:
+```bash
+npm install <package> --workspace=@eesha/mobile
+```
+
+**Linking workspace packages**:
+Automatic via npm workspaces. Just run `npm install` from root.
