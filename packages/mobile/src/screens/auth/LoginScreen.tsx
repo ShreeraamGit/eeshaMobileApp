@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -7,6 +7,8 @@ import {
   Platform,
   TouchableOpacity,
   ActivityIndicator,
+  TextInput,
+  Keyboard,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -30,9 +32,24 @@ export const LoginScreen: React.FC = () => {
   const [generalError, setGeneralError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // Refs for input navigation
+  const emailRef = useRef<TextInput>(null);
+  const passwordRef = useRef<TextInput>(null);
+
   const { signIn } = useAuthStore();
 
+  // Auto-focus email input on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      emailRef.current?.focus();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleLogin = async () => {
+    // Dismiss keyboard
+    Keyboard.dismiss();
+
     // Reset errors
     setEmailError('');
     setPasswordError('');
@@ -42,6 +59,7 @@ export const LoginScreen: React.FC = () => {
     const emailValidation = validateEmail(email);
     if (!emailValidation.valid) {
       setEmailError(emailValidation.error || AUTH_ERRORS.INVALID_EMAIL);
+      emailRef.current?.focus();
       return;
     }
 
@@ -49,6 +67,7 @@ export const LoginScreen: React.FC = () => {
     const passwordValidation = validatePassword(password);
     if (!passwordValidation.valid) {
       setPasswordError(passwordValidation.error || AUTH_ERRORS.WEAK_PASSWORD);
+      passwordRef.current?.focus();
       return;
     }
 
@@ -102,6 +121,7 @@ export const LoginScreen: React.FC = () => {
           {/* Form */}
           <View style={styles.form}>
             <Input
+              ref={emailRef}
               label="Adresse e-mail"
               placeholder="votre@email.com"
               value={email}
@@ -115,10 +135,14 @@ export const LoginScreen: React.FC = () => {
               autoCapitalize="none"
               autoComplete="email"
               textContentType="emailAddress"
+              returnKeyType="next"
+              onSubmitEditing={() => passwordRef.current?.focus()}
+              blurOnSubmit={false}
               editable={!isLoading}
             />
 
             <Input
+              ref={passwordRef}
               label="Mot de passe"
               placeholder="••••••••"
               value={password}
@@ -132,6 +156,8 @@ export const LoginScreen: React.FC = () => {
               autoCapitalize="none"
               autoComplete="password"
               textContentType="password"
+              returnKeyType="done"
+              onSubmitEditing={handleLogin}
               editable={!isLoading}
             />
 

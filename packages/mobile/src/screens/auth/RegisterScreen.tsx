@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,6 +6,8 @@ import {
   KeyboardAvoidingView,
   Platform,
   TouchableOpacity,
+  TextInput,
+  Keyboard,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -40,9 +42,26 @@ export const RegisterScreen: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  // Refs for input navigation
+  const fullNameRef = useRef<TextInput>(null);
+  const emailRef = useRef<TextInput>(null);
+  const passwordRef = useRef<TextInput>(null);
+  const confirmPasswordRef = useRef<TextInput>(null);
+
   const { signUp } = useAuthStore();
 
+  // Auto-focus full name input on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fullNameRef.current?.focus();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleRegister = async () => {
+    // Dismiss keyboard
+    Keyboard.dismiss();
+
     // Reset errors
     setFullNameError('');
     setEmailError('');
@@ -55,6 +74,7 @@ export const RegisterScreen: React.FC = () => {
     // Validate full name
     if (!fullName.trim()) {
       setFullNameError('Le nom complet est requis');
+      fullNameRef.current?.focus();
       hasError = true;
     }
 
@@ -62,6 +82,7 @@ export const RegisterScreen: React.FC = () => {
     const emailValidation = validateEmail(email);
     if (!emailValidation.valid) {
       setEmailError(emailValidation.error || AUTH_ERRORS.INVALID_EMAIL);
+      if (!hasError) emailRef.current?.focus();
       hasError = true;
     }
 
@@ -69,12 +90,14 @@ export const RegisterScreen: React.FC = () => {
     const passwordValidation = validatePassword(password);
     if (!passwordValidation.valid) {
       setPasswordError(passwordValidation.error || AUTH_ERRORS.WEAK_PASSWORD);
+      if (!hasError) passwordRef.current?.focus();
       hasError = true;
     }
 
     // Validate confirm password
     if (password !== confirmPassword) {
       setConfirmPasswordError('Les mots de passe ne correspondent pas');
+      if (!hasError) confirmPasswordRef.current?.focus();
       hasError = true;
     }
 
@@ -136,6 +159,7 @@ export const RegisterScreen: React.FC = () => {
           {/* Form */}
           <View style={styles.form}>
             <Input
+              ref={fullNameRef}
               label="Nom complet"
               placeholder="Jean Dupont"
               value={fullName}
@@ -148,10 +172,13 @@ export const RegisterScreen: React.FC = () => {
               autoCapitalize="words"
               autoComplete="name"
               textContentType="name"
+              returnKeyType="next"
+              onSubmitEditing={() => emailRef.current?.focus()}
               editable={!isLoading}
             />
 
             <Input
+              ref={emailRef}
               label="Adresse e-mail"
               placeholder="votre@email.com"
               value={email}
@@ -165,10 +192,13 @@ export const RegisterScreen: React.FC = () => {
               autoCapitalize="none"
               autoComplete="email"
               textContentType="emailAddress"
+              returnKeyType="next"
+              onSubmitEditing={() => passwordRef.current?.focus()}
               editable={!isLoading}
             />
 
             <Input
+              ref={passwordRef}
               label="Mot de passe"
               placeholder="••••••••"
               value={password}
@@ -183,10 +213,13 @@ export const RegisterScreen: React.FC = () => {
               autoCapitalize="none"
               autoComplete="password-new"
               textContentType="newPassword"
+              returnKeyType="next"
+              onSubmitEditing={() => confirmPasswordRef.current?.focus()}
               editable={!isLoading}
             />
 
             <Input
+              ref={confirmPasswordRef}
               label="Confirmer le mot de passe"
               placeholder="••••••••"
               value={confirmPassword}
@@ -200,6 +233,8 @@ export const RegisterScreen: React.FC = () => {
               autoCapitalize="none"
               autoComplete="password-new"
               textContentType="newPassword"
+              returnKeyType="done"
+              onSubmitEditing={handleRegister}
               editable={!isLoading}
             />
           </View>
