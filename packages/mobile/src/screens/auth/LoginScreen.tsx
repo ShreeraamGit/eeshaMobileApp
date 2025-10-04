@@ -5,23 +5,15 @@ import { useAuthStore } from '@/store/authStore';
 import { validateEmail, validatePassword, AUTH_ERRORS } from '@eesha/shared';
 import type { RootStackParamList } from '@/navigation/AppNavigator';
 
-// Gluestack UI Components
+// Eesha Branded Components
+import { EeshaButton, EeshaInput, EeshaFormControl, EeshaText } from '@/components/common';
+
+// Gluestack UI Layout Components
 import { VStack } from '@/components/ui/gluestack-ui-provider/vstack';
 import { HStack } from '@/components/ui/gluestack-ui-provider/hstack';
-import { Text } from '@/components/ui/gluestack-ui-provider/text';
-import { Input, InputField, InputSlot, InputIcon } from '@/components/ui/gluestack-ui-provider/input';
-import { Button, ButtonText, ButtonSpinner } from '@/components/ui/gluestack-ui-provider/button';
-import {
-  FormControl,
-  FormControlLabel,
-  FormControlLabelText,
-  FormControlError,
-  FormControlErrorText
-} from '@/components/ui/gluestack-ui-provider/form-control';
 import { Pressable } from '@/components/ui/gluestack-ui-provider/pressable';
 import { SafeAreaView } from '@/components/ui/gluestack-ui-provider/safe-area-view';
 import { ScrollView } from '@/components/ui/gluestack-ui-provider/scroll-view';
-import { EyeIcon, EyeOffIcon } from 'lucide-react-native';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -29,7 +21,6 @@ export const LoginScreen: React.FC = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [generalError, setGeneralError] = useState('');
@@ -79,99 +70,97 @@ export const LoginScreen: React.FC = () => {
         <VStack className="flex-1 px-6 pt-10 pb-6" space="xl">
           {/* Header */}
           <VStack space="xs" className="mb-2">
-            <Text className="text-3xl font-bold text-black">Connexion</Text>
-            <Text className="text-base text-gray-600">Accédez à votre compte</Text>
+            <EeshaText variant="h1">Connexion</EeshaText>
+            <EeshaText variant="body-regular" color="secondary">
+              Accédez à votre compte
+            </EeshaText>
           </VStack>
 
           {/* Error Message */}
           {generalError && (
             <VStack className="bg-red-50 p-4 rounded-lg">
-              <Text className="text-red-600 text-sm">{generalError}</Text>
+              <EeshaText variant="body-small" className="text-red-600">
+                {generalError}
+              </EeshaText>
             </VStack>
           )}
 
           {/* Form */}
           <VStack space="lg" className="flex-1">
             {/* Email Input */}
-            <FormControl isInvalid={!!emailError}>
-              <FormControlLabel>
-                <FormControlLabelText>Adresse e-mail</FormControlLabelText>
-              </FormControlLabel>
-              <Input>
-                <InputField
-                  placeholder="votre@email.com"
-                  value={email}
-                  onChangeText={(text) => {
-                    setEmail(text);
-                    setEmailError('');
-                    setGeneralError('');
-                  }}
-                  keyboardType="email-address"
-                  autoCapitalize="none"
-                  autoComplete="email"
-                  returnKeyType="next"
-                  editable={!isLoading}
-                />
-              </Input>
-              {emailError && (
-                <FormControlError>
-                  <FormControlErrorText>{emailError}</FormControlErrorText>
-                </FormControlError>
-              )}
-            </FormControl>
+            <EeshaFormControl
+              label="Adresse e-mail"
+              error={emailError}
+              isInvalid={!!emailError}
+            >
+              <EeshaInput
+                value={email}
+                onChangeText={(text) => {
+                  setEmail(text);
+                  setEmailError('');
+                  setGeneralError('');
+                }}
+                placeholder="votre@email.com"
+                type="email"
+                keyboardType="email-address"
+                autoComplete="email"
+                returnKeyType="next"
+                isDisabled={isLoading}
+                isInvalid={!!emailError}
+              />
+            </EeshaFormControl>
 
             {/* Password Input */}
-            <FormControl isInvalid={!!passwordError}>
-              <FormControlLabel>
-                <FormControlLabelText>Mot de passe</FormControlLabelText>
-              </FormControlLabel>
-              <Input>
-                <InputField
-                  placeholder="••••••••"
-                  value={password}
-                  onChangeText={(text) => {
-                    setPassword(text);
-                    setPasswordError('');
-                    setGeneralError('');
-                  }}
-                  type={showPassword ? 'text' : 'password'}
-                  autoCapitalize="none"
-                  returnKeyType="done"
-                  onSubmitEditing={handleLogin}
-                  editable={!isLoading}
-                />
-                <InputSlot className="pr-3" onPress={() => setShowPassword(!showPassword)}>
-                  <InputIcon as={showPassword ? EyeOffIcon : EyeIcon} />
-                </InputSlot>
-              </Input>
-              {passwordError && (
-                <FormControlError>
-                  <FormControlErrorText>{passwordError}</FormControlErrorText>
-                </FormControlError>
-              )}
-            </FormControl>
+            <EeshaFormControl
+              label="Mot de passe"
+              error={passwordError}
+              isInvalid={!!passwordError}
+            >
+              <EeshaInput
+                value={password}
+                onChangeText={(text) => {
+                  setPassword(text);
+                  setPasswordError('');
+                  setGeneralError('');
+                }}
+                placeholder="••••••••"
+                type="password"
+                returnKeyType="done"
+                onSubmitEditing={handleLogin}
+                isDisabled={isLoading}
+                isInvalid={!!passwordError}
+              />
+            </EeshaFormControl>
 
             {/* Forgot Password */}
             <Pressable onPress={() => console.log('Forgot password')} className="self-end">
-              <Text className="text-sm text-gray-600">Mot de passe oublié?</Text>
+              <EeshaText variant="body-small" color="secondary">
+                Mot de passe oublié?
+              </EeshaText>
             </Pressable>
           </VStack>
 
           {/* Login Button */}
-          <Button
+          <EeshaButton
             onPress={handleLogin}
+            isLoading={isLoading}
             isDisabled={isLoading}
-            className="bg-black"
+            variant="primary"
+            size="large"
+            fullWidth
           >
-            {isLoading && <ButtonSpinner />}
-            <ButtonText>Se connecter</ButtonText>
-          </Button>
+            Se connecter
+          </EeshaButton>
 
           {/* Register Link */}
           <HStack space="xs" className="justify-center items-center mt-4">
-            <Text className="text-base text-gray-600">Vous n'avez pas de compte?</Text>
-            <Pressable onPress={() => navigation.navigate('Register')} isDisabled={isLoading}>
-              <Text className="text-base text-black font-semibold">Créer un compte</Text>
+            <EeshaText variant="body-regular" color="secondary">
+              Vous n'avez pas de compte?
+            </EeshaText>
+            <Pressable onPress={() => navigation.navigate('Register')} disabled={isLoading}>
+              <EeshaText variant="body-regular" className="font-semibold">
+                Créer un compte
+              </EeshaText>
             </Pressable>
           </HStack>
         </VStack>

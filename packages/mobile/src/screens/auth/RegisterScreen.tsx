@@ -1,19 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  View,
-  StyleSheet,
-  Platform,
-  TouchableOpacity,
-  TextInput,
-  Keyboard,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Text } from '@/components/common/Text';
-import { Button } from '@/components/common/Button';
-import { Input } from '@/components/common/Input';
 import { useAuthStore } from '@/store/authStore';
 import {
   validateEmail,
@@ -21,8 +8,17 @@ import {
   AUTH_ERRORS,
   VALIDATION_RULES,
 } from '@eesha/shared';
-import { UI_CONFIG } from '@/config/constants';
 import type { RootStackParamList } from '@/navigation/AppNavigator';
+
+// Eesha Branded Components
+import { EeshaButton, EeshaInput, EeshaFormControl, EeshaText } from '@/components/common';
+
+// Gluestack UI Layout Components
+import { VStack } from '@/components/ui/gluestack-ui-provider/vstack';
+import { HStack } from '@/components/ui/gluestack-ui-provider/hstack';
+import { Pressable } from '@/components/ui/gluestack-ui-provider/pressable';
+import { SafeAreaView } from '@/components/ui/gluestack-ui-provider/safe-area-view';
+import { ScrollView } from '@/components/ui/gluestack-ui-provider/scroll-view';
 
 type RegisterScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Register'>;
 
@@ -41,26 +37,9 @@ export const RegisterScreen: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // Refs for input navigation
-  const fullNameRef = useRef<TextInput>(null);
-  const emailRef = useRef<TextInput>(null);
-  const passwordRef = useRef<TextInput>(null);
-  const confirmPasswordRef = useRef<TextInput>(null);
-
   const { signUp } = useAuthStore();
 
-  // Auto-focus full name input on mount with proper delay
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      fullNameRef.current?.focus();
-    }, 300); // Increased delay for better reliability
-    return () => clearTimeout(timer);
-  }, []);
-
   const handleRegister = async () => {
-    // Dismiss keyboard
-    Keyboard.dismiss();
-
     // Reset errors
     setFullNameError('');
     setEmailError('');
@@ -73,7 +52,6 @@ export const RegisterScreen: React.FC = () => {
     // Validate full name
     if (!fullName.trim()) {
       setFullNameError('Le nom complet est requis');
-      fullNameRef.current?.focus();
       hasError = true;
     }
 
@@ -81,7 +59,6 @@ export const RegisterScreen: React.FC = () => {
     const emailValidation = validateEmail(email);
     if (!emailValidation.valid) {
       setEmailError(emailValidation.error || AUTH_ERRORS.INVALID_EMAIL);
-      if (!hasError) emailRef.current?.focus();
       hasError = true;
     }
 
@@ -89,14 +66,12 @@ export const RegisterScreen: React.FC = () => {
     const passwordValidation = validatePassword(password);
     if (!passwordValidation.valid) {
       setPasswordError(passwordValidation.error || AUTH_ERRORS.WEAK_PASSWORD);
-      if (!hasError) passwordRef.current?.focus();
       hasError = true;
     }
 
     // Validate confirm password
     if (password !== confirmPassword) {
       setConfirmPasswordError('Les mots de passe ne correspondent pas');
-      if (!hasError) confirmPasswordRef.current?.focus();
       hasError = true;
     }
 
@@ -126,203 +101,155 @@ export const RegisterScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      <KeyboardAwareScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-        enableOnAndroid={true}
-        enableAutomaticScroll={true}
-        extraScrollHeight={20}
-        extraHeight={Platform.OS === 'ios' ? 20 : 0}
-      >
+    <SafeAreaView className="flex-1 bg-white">
+      <ScrollView className="flex-1" contentContainerClassName="flex-grow">
+        <VStack className="flex-1 px-6 pt-10 pb-6" space="xl">
           {/* Header */}
-          <View style={styles.header}>
-            <Text variant="display-medium" style={styles.title}>
-              Créer un compte
-            </Text>
-            <Text variant="body-regular" color="text.secondary" style={styles.subtitle}>
+          <VStack space="xs" className="mb-6">
+            <EeshaText variant="h1">Créer un compte</EeshaText>
+            <EeshaText variant="body-regular" color="secondary">
               Rejoignez-nous pour commencer vos achats
-            </Text>
-          </View>
+            </EeshaText>
+          </VStack>
 
           {/* Error Message */}
-          {generalError ? (
-            <View style={styles.errorContainer}>
-              <Text variant="body-small" color="feedback.error">
+          {generalError && (
+            <VStack className="bg-red-50 p-4 rounded-lg mb-4">
+              <EeshaText variant="body-small" className="text-red-600">
                 {generalError}
-              </Text>
-            </View>
-          ) : null}
+              </EeshaText>
+            </VStack>
+          )}
 
           {/* Form */}
-          <View style={styles.form}>
-            <Input
-              ref={fullNameRef}
+          <VStack space="lg" className="flex-1">
+            {/* Full Name Input */}
+            <EeshaFormControl
               label="Nom complet"
-              placeholder="Jean Dupont"
-              value={fullName}
-              onChangeText={(text) => {
-                setFullName(text);
-                setFullNameError('');
-                setGeneralError('');
-              }}
               error={fullNameError}
-              autoCapitalize="words"
-              autoComplete="name"
-              textContentType="name"
-              returnKeyType="next"
-              onSubmitEditing={() => emailRef.current?.focus()}
-              editable={!isLoading}
-            />
+              isInvalid={!!fullNameError}
+            >
+              <EeshaInput
+                value={fullName}
+                onChangeText={(text) => {
+                  setFullName(text);
+                  setFullNameError('');
+                  setGeneralError('');
+                }}
+                placeholder="Jean Dupont"
+                autoCapitalize="words"
+                returnKeyType="next"
+                isDisabled={isLoading}
+                isInvalid={!!fullNameError}
+              />
+            </EeshaFormControl>
 
-            <Input
-              ref={emailRef}
+            {/* Email Input */}
+            <EeshaFormControl
               label="Adresse e-mail"
-              placeholder="votre@email.com"
-              value={email}
-              onChangeText={(text) => {
-                setEmail(text);
-                setEmailError('');
-                setGeneralError('');
-              }}
               error={emailError}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoComplete="email"
-              textContentType="emailAddress"
-              returnKeyType="next"
-              onSubmitEditing={() => passwordRef.current?.focus()}
-              editable={!isLoading}
-            />
+              isInvalid={!!emailError}
+            >
+              <EeshaInput
+                value={email}
+                onChangeText={(text) => {
+                  setEmail(text);
+                  setEmailError('');
+                  setGeneralError('');
+                }}
+                placeholder="votre@email.com"
+                type="email"
+                keyboardType="email-address"
+                autoComplete="email"
+                returnKeyType="next"
+                isDisabled={isLoading}
+                isInvalid={!!emailError}
+              />
+            </EeshaFormControl>
 
-            <Input
-              ref={passwordRef}
+            {/* Password Input */}
+            <EeshaFormControl
               label="Mot de passe"
-              placeholder="••••••••"
-              value={password}
-              onChangeText={(text) => {
-                setPassword(text);
-                setPasswordError('');
-                setGeneralError('');
-              }}
               error={passwordError}
-              helperText={`Minimum ${VALIDATION_RULES.MIN_PASSWORD_LENGTH} caractères`}
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password-new"
-              textContentType="newPassword"
-              returnKeyType="next"
-              onSubmitEditing={() => confirmPasswordRef.current?.focus()}
-              editable={!isLoading}
-            />
+              helper={`Minimum ${VALIDATION_RULES.MIN_PASSWORD_LENGTH} caractères`}
+              isInvalid={!!passwordError}
+            >
+              <EeshaInput
+                value={password}
+                onChangeText={(text) => {
+                  setPassword(text);
+                  setPasswordError('');
+                  setGeneralError('');
+                }}
+                placeholder="••••••••"
+                type="password"
+                returnKeyType="next"
+                isDisabled={isLoading}
+                isInvalid={!!passwordError}
+              />
+            </EeshaFormControl>
 
-            <Input
-              ref={confirmPasswordRef}
+            {/* Confirm Password Input */}
+            <EeshaFormControl
               label="Confirmer le mot de passe"
-              placeholder="••••••••"
-              value={confirmPassword}
-              onChangeText={(text) => {
-                setConfirmPassword(text);
-                setConfirmPasswordError('');
-                setGeneralError('');
-              }}
               error={confirmPasswordError}
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password-new"
-              textContentType="newPassword"
-              returnKeyType="done"
-              onSubmitEditing={handleRegister}
-              editable={!isLoading}
-            />
-          </View>
+              isInvalid={!!confirmPasswordError}
+            >
+              <EeshaInput
+                value={confirmPassword}
+                onChangeText={(text) => {
+                  setConfirmPassword(text);
+                  setConfirmPasswordError('');
+                  setGeneralError('');
+                }}
+                placeholder="••••••••"
+                type="password"
+                returnKeyType="done"
+                onSubmitEditing={handleRegister}
+                isDisabled={isLoading}
+                isInvalid={!!confirmPasswordError}
+              />
+            </EeshaFormControl>
+          </VStack>
 
           {/* Register Button */}
-          <Button
-            title="Créer un compte"
+          <EeshaButton
+            onPress={handleRegister}
+            isLoading={isLoading}
+            isDisabled={isLoading}
             variant="primary"
             size="large"
             fullWidth
-            onPress={handleRegister}
-            disabled={isLoading}
-            loading={isLoading}
-          />
+          >
+            Créer un compte
+          </EeshaButton>
 
           {/* Terms */}
-          <Text
+          <EeshaText
             variant="body-small"
-            color="text.secondary"
-            style={styles.terms}
+            color="secondary"
+            align="center"
+            className="mt-6 px-4"
           >
             En créant un compte, vous acceptez nos conditions d'utilisation et
             notre politique de confidentialité.
-          </Text>
+          </EeshaText>
 
           {/* Login Link */}
-          <View style={styles.footer}>
-            <Text variant="body-regular" color="text.secondary">
-              Vous avez déjà un compte?{' '}
-            </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Login')}
-              disabled={isLoading}
-            >
-              <Text variant="body-regular" color="primary">
+          <HStack space="xs" className="justify-center items-center mt-6">
+            <EeshaText variant="body-regular" color="secondary">
+              Vous avez déjà un compte?
+            </EeshaText>
+            <Pressable onPress={() => navigation.navigate('Login')} disabled={isLoading}>
+              <EeshaText variant="body-regular" className="font-semibold">
                 Se connecter
-              </Text>
-            </TouchableOpacity>
-          </View>
-      </KeyboardAwareScrollView>
+              </EeshaText>
+            </Pressable>
+          </HStack>
+        </VStack>
+      </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: UI_CONFIG.COLORS.background.default,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    flexGrow: 1,
-    paddingHorizontal: UI_CONFIG.SPACING[3], // 24px
-    paddingTop: UI_CONFIG.SPACING[5], // 40px
-    paddingBottom: UI_CONFIG.SPACING[4], // 32px
-  },
-  header: {
-    marginBottom: UI_CONFIG.SPACING[5], // 40px
-  },
-  title: {
-    color: UI_CONFIG.COLORS.text.primary,
-    marginBottom: UI_CONFIG.SPACING[1], // 8px
-  },
-  subtitle: {
-    fontSize: 16,
-  },
-  errorContainer: {
-    backgroundColor: '#FEE2E2', // Light red background
-    padding: UI_CONFIG.SPACING[2],
-    borderRadius: UI_CONFIG.COMPONENT_RADIUS.card,
-    marginBottom: UI_CONFIG.SPACING[3],
-  },
-  form: {
-    marginBottom: UI_CONFIG.SPACING[4], // 32px
-  },
-  terms: {
-    textAlign: 'center',
-    marginTop: UI_CONFIG.SPACING[3], // 24px
-    paddingHorizontal: UI_CONFIG.SPACING[2],
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: UI_CONFIG.SPACING[4], // 32px
-  },
-});
 
 export default RegisterScreen;
