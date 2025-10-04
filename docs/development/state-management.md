@@ -595,7 +595,7 @@ storage.delete('cart_items');
 
 ## Authentication Flow
 
-### Complete Login Flow
+### Email/Password Login Flow
 
 ```typescript
 ┌─────────────────────────────────────────────────────────┐
@@ -647,10 +647,97 @@ storage.delete('cart_items');
 └─────────────────────────────────────────────────────────┘
 ```
 
-### Code Example
+### Social Login Flow (Google/Apple)
+
+```typescript
+┌─────────────────────────────────────────────────────────┐
+│ 1. User clicks "Continue with Google/Apple"            │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 2. LoginScreen.handleGoogleSignIn()                     │
+│    - Sets isSocialLoading = true                        │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 3. useAuthStore.signInWithGoogle()                      │
+│    - Sets isLoading = true                              │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 4. authService.signInWithGoogle()                       │
+│    - Calls Supabase auth.signInWithOAuth()              │
+│    - Opens browser with Google consent screen           │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 5. User approves permissions in Google                  │
+│    - Selects Google account                             │
+│    - Approves email/profile access                      │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 6. Google redirects to eeshaapp://auth/callback         │
+│    - Includes auth code in URL                          │
+│    - Expo deep linking opens app                        │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 7. Supabase SDK exchanges code for session              │
+│    - Validates auth code with Google                    │
+│    - Creates or fetches user account                    │
+│    - Returns access_token + refresh_token               │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 8. onAuthStateChange listener fires                     │
+│    - Receives new session from Supabase                 │
+│    - Zustand updates state automatically                │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 9. Zustand updates state                                │
+│    - user: User object (from Google profile)            │
+│    - session: { access_token, refresh_token, ... }      │
+│    - isAuthenticated: true                              │
+│    - isLoading: false                                   │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│ 10. AppNavigator renders HomeStack                      │
+│     - User navigates to Home screen                     │
+│     - Account created automatically if new user         │
+└─────────────────────────────────────────────────────────┘
+```
+
+**Key Differences: Social vs Email/Password**
+
+| Aspect | Email/Password | Social (Google/Apple) |
+|--------|---------------|----------------------|
+| **Account Creation** | Separate RegisterScreen | Automatic on first login |
+| **User Flow** | Fill form → Create account → Login | Click button → Approve → Done |
+| **Validation** | Email + password rules | Provider handles validation |
+| **UX** | 2-screen flow (Register + Login) | Single-click authentication |
+| **Session Storage** | Supabase + Expo SecureStore | Same (Supabase handles OAuth) |
+| **Navigation Trigger** | Immediate after signIn() | Delayed (after OAuth callback) |
+
+### Code Examples
+
+#### Email/Password Login
 
 ```typescript
 // LoginScreen.tsx
+const { signIn } = useAuthStore();
+
 const handleLogin = async () => {
   setIsLoading(true);
 
@@ -667,6 +754,77 @@ const handleLogin = async () => {
     // Navigation handled automatically via isAuthenticated
   }
 };
+```
+
+#### Social Login (Google/Apple)
+
+```typescript
+// LoginScreen.tsx
+const { signInWithGoogle, signInWithApple } = useAuthStore();
+
+const handleGoogleSignIn = async () => {
+  setIsSocialLoading(true);
+
+  try {
+    const { error } = await signInWithGoogle();
+
+    if (error) {
+      setIsSocialLoading(false);
+      setGeneralError(error);
+    }
+    // Keep loading until OAuth callback completes
+    // onAuthStateChange will handle navigation
+  } catch (error) {
+    setIsSocialLoading(false);
+    setGeneralError('Une erreur est survenue');
+  }
+};
+
+const handleAppleSignIn = async () => {
+  setIsSocialLoading(true);
+
+  try {
+    const { error } = await signInWithApple();
+
+    if (error) {
+      setIsSocialLoading(false);
+      setGeneralError(error);
+    }
+    // Keep loading until OAuth callback completes
+  } catch (error) {
+    setIsSocialLoading(false);
+    setGeneralError('Une erreur est survenue');
+  }
+};
+```
+
+#### UI Implementation
+
+```typescript
+// LoginScreen.tsx - Social buttons at top
+<VStack space="md">
+  <EeshaSocialButton
+    provider="google"
+    onPress={handleGoogleSignIn}
+    isLoading={isSocialLoading}
+    isDisabled={isLoading || isSocialLoading}
+  />
+  <EeshaSocialButton
+    provider="apple"
+    onPress={handleAppleSignIn}
+    isLoading={isSocialLoading}
+    isDisabled={isLoading || isSocialLoading}
+  />
+</VStack>
+
+{/* Divider */}
+<HStack className="items-center" space="md">
+  <VStack className="flex-1 h-[1px] bg-gray-200" />
+  <EeshaText variant="body-small" color="secondary">OU</EeshaText>
+  <VStack className="flex-1 h-[1px] bg-gray-200" />
+</HStack>
+
+{/* Email/Password form below */}
 
 // AppNavigator.tsx
 const AppNavigator = () => {

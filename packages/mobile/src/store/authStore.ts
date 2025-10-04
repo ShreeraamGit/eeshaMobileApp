@@ -14,6 +14,7 @@ interface AuthState {
   setLoading: (loading: boolean) => void;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signUp: (email: string, password: string, fullName?: string) => Promise<{ error: string | null }>;
+  signInWithGoogle: () => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
   initialize: () => Promise<void>;
 }
@@ -86,6 +87,31 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
   },
 
+  signInWithGoogle: async () => {
+    try {
+      console.log('[AuthStore] signInWithGoogle: Starting...');
+      set({ isLoading: true });
+
+      const { error } = await authService.signInWithGoogle();
+
+      if (error) {
+        console.error('[AuthStore] signInWithGoogle: Error returned:', error.message);
+        set({ isLoading: false });
+        return { error: error.message };
+      }
+
+      console.log('[AuthStore] signInWithGoogle: OAuth initiated, waiting for callback...');
+      // OAuth flow will open browser
+      // Session will be handled by onAuthStateChange listener
+      // Keep loading state until auth state changes
+      return { error: null };
+    } catch (error) {
+      console.error('[AuthStore] signInWithGoogle: Caught exception:', error);
+      set({ isLoading: false });
+      return { error: 'An unexpected error occurred' };
+    }
+  },
+
   signOut: async () => {
     try {
       set({ isLoading: true });
@@ -130,11 +156,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       // Listen to auth changes
       authService.onAuthStateChange((session) => {
+        console.log('[AuthStore] Auth state changed, session exists:', !!session);
+
         if (session) {
+          console.log('[AuthStore] Fetching user details...');
           authService.getCurrentUser().then((user) => {
+            console.log('[AuthStore] User fetched:', user?.email);
             set({ user, session, isAuthenticated: true });
           });
         } else {
+          console.log('[AuthStore] No session, setting user to null');
           set({ user: null, session: null, isAuthenticated: false });
         }
       });

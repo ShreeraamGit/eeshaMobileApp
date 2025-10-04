@@ -7,6 +7,7 @@ import type { RootStackParamList } from '@/navigation/AppNavigator';
 
 // Eesha Branded Components
 import { EeshaButton, EeshaInput, EeshaFormControl, EeshaText } from '@/components/common';
+import { EeshaSocialButton } from '@/components/common/EeshaSocialButton';
 
 // Gluestack UI Layout Components
 import { VStack } from '@/components/ui/gluestack-ui-provider/vstack';
@@ -25,8 +26,9 @@ export const LoginScreen: React.FC = () => {
   const [passwordError, setPasswordError] = useState('');
   const [generalError, setGeneralError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isSocialLoading, setIsSocialLoading] = useState(false);
 
-  const { signIn } = useAuthStore();
+  const { signIn, signInWithGoogle } = useAuthStore();
 
   const handleLogin = async () => {
     // Reset errors
@@ -69,6 +71,30 @@ export const LoginScreen: React.FC = () => {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+    console.log('[LoginScreen] handleGoogleSignIn: User clicked Google button');
+    setGeneralError('');
+    setIsSocialLoading(true);
+
+    try {
+      console.log('[LoginScreen] handleGoogleSignIn: Calling signInWithGoogle...');
+      const { error } = await signInWithGoogle();
+
+      if (error) {
+        console.error('[LoginScreen] handleGoogleSignIn: Error received:', error);
+        setIsSocialLoading(false);
+        setGeneralError(error);
+      } else {
+        console.log('[LoginScreen] handleGoogleSignIn: OAuth flow initiated successfully');
+      }
+      // Keep loading until OAuth callback completes
+    } catch (error) {
+      console.error('[LoginScreen] handleGoogleSignIn: Exception caught:', error);
+      setIsSocialLoading(false);
+      setGeneralError(AUTH_ERRORS.UNKNOWN_ERROR);
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       <ScrollView className="flex-1" contentContainerClassName="flex-grow">
@@ -89,6 +115,23 @@ export const LoginScreen: React.FC = () => {
               </EeshaText>
             </VStack>
           )}
+
+          {/* Social Login Button */}
+          <EeshaSocialButton
+            provider="google"
+            onPress={handleGoogleSignIn}
+            isLoading={isSocialLoading}
+            isDisabled={isLoading || isSocialLoading}
+          />
+
+          {/* Divider */}
+          <HStack className="items-center" space="md">
+            <VStack className="flex-1 h-[1px] bg-gray-200" />
+            <EeshaText variant="body-small" color="secondary">
+              OU
+            </EeshaText>
+            <VStack className="flex-1 h-[1px] bg-gray-200" />
+          </HStack>
 
           {/* Form */}
           <VStack space="lg" className="flex-1">
