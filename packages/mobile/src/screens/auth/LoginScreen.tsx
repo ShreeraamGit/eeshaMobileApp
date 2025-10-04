@@ -12,8 +12,8 @@ import { EeshaButton, EeshaInput, EeshaFormControl, EeshaText } from '@/componen
 import { VStack } from '@/components/ui/gluestack-ui-provider/vstack';
 import { HStack } from '@/components/ui/gluestack-ui-provider/hstack';
 import { Pressable } from '@/components/ui/gluestack-ui-provider/pressable';
-import { SafeAreaView } from '@/components/ui/gluestack-ui-provider/safe-area-view';
 import { ScrollView } from '@/components/ui/gluestack-ui-provider/scroll-view';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -50,22 +50,27 @@ export const LoginScreen: React.FC = () => {
 
     setIsLoading(true);
 
+    // Show loading for minimum 2 seconds for better UX
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     try {
       const { error } = await signIn(email, password);
 
       if (error) {
+        setIsLoading(false);
         setGeneralError(error);
+      } else {
+        setIsLoading(false);
+        // Navigation will be handled by auth state change
       }
     } catch (error) {
-      console.error('[LoginScreen] Login error:', error);
-      setGeneralError(AUTH_ERRORS.UNKNOWN_ERROR);
-    } finally {
       setIsLoading(false);
+      setGeneralError(AUTH_ERRORS.UNKNOWN_ERROR);
     }
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       <ScrollView className="flex-1" contentContainerClassName="flex-grow">
         <VStack className="flex-1 px-6 pt-10 pb-6" space="xl">
           {/* Header */}

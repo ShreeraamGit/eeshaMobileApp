@@ -111,20 +111,99 @@ product_variants table (children)
 - SKU format: `{CATEGORY}-{SIZE}-{COLOR}` (e.g., "SAR-M-RED")
 - Stock reduction is automatic via database trigger on `payment_status = 'paid'`
 
-### State Management Split
+### State Management Architecture
 
-**Server State** (React Query):
-- All API data fetching
-- 5-minute cache stale time
-- Automatic revalidation
-- Used in: `packages/mobile/src/services/`
+**Complete documentation**: `docs/development/state-management.md`
 
-**Client State** (Zustand):
-- UI state, cart, user preferences
-- Persisted to MMKV for mobile
-- Used in: `packages/mobile/src/store/`
+The app uses a **hybrid state management approach** with clear separation of concerns:
 
-**Never mix these concerns**. Server data goes through React Query, client UI state goes through Zustand.
+#### Decision Tree: Which State Manager to Use?
+
+```
+Does the data come from the server?
+├─ YES → Use React Query
+│   └─ Examples: Products, Orders, User Profile
+│
+└─ NO → Does it need to persist locally?
+    ├─ YES → Use Zustand + MMKV
+    │   └─ Examples: Cart, Auth Session, User Preferences
+    │
+    └─ NO → Use local useState
+        └─ Examples: Form inputs, Modal visibility
+```
+
+#### Server State (React Query)
+- **Location**: `packages/mobile/src/services/`
+- **Purpose**: All API data fetching and caching
+- **Configuration**: 5-minute stale time, automatic revalidation
+- **Examples**: Products, Orders, User Profile
+
+```typescript
+// ✅ CORRECT: Fetch products with React Query
+const { data: products } = useQuery({
+  queryKey: ['products'],
+  queryFn: () => productsService.getProducts(),
+});
+```
+
+#### Client State (Zustand)
+- **Location**: `packages/mobile/src/store/`
+- **Purpose**: UI state, cart, user preferences
+- **Persistence**: MMKV for mobile (fast, synchronous)
+- **Stores**:
+  - `authStore.ts` - Authentication & user session
+  - `cartStore.ts` - Shopping cart & checkout
+
+```typescript
+// ✅ CORRECT: Use Zustand for client state
+const { user, isAuthenticated, signIn, signOut } = useAuthStore();
+const { items, total, addItem, removeItem } = useCartStore();
+```
+
+#### Key Patterns
+
+**Authentication Flow**:
+```typescript
+// 1. User signs in (Zustand)
+const { signIn } = useAuthStore();
+await signIn(email, password);
+
+// 2. Session stored in MMKV (persistent)
+// 3. Auth state triggers navigation
+// 4. Protected screens check isAuthenticated
+```
+
+**Shopping Cart Flow**:
+```typescript
+// 1. Add item to cart (Zustand + MMKV)
+const { addItem } = useCartStore();
+addItem(product, variant, quantity);
+
+// 2. Cart persists across app restarts
+// 3. Create order (React Query mutation)
+const createOrder = useMutation({
+  mutationFn: (orderData) => ordersService.createOrder(orderData),
+});
+
+// 4. Clear cart after successful order
+const { clearCart } = useCartStore();
+```
+
+**Business Logic in Cart**:
+- VAT calculation: 20% (`APP_CONFIG.VAT_RATE`)
+- Shipping: €10 flat rate (`APP_CONFIG.SHIPPING_COST`)
+- Total = (Subtotal + Shipping) × (1 + VAT)
+
+**Never mix these concerns**:
+```typescript
+// ❌ WRONG: Don't put server data in Zustand
+const useProductStore = create((set) => ({
+  products: [], // ❌ Use React Query instead
+}));
+
+// ❌ WRONG: Don't put UI state in React Query
+const { data: isModalOpen } = useQuery(['modal']); // ❌ Use useState instead
+```
 
 ### Supabase Integration
 
@@ -305,9 +384,19 @@ const product = await variantsService.getProductWithVariants(productId);
 
 - `docs/README.md` - Main documentation hub
 - `docs/getting-started/` - Setup guides, database schema
-- `docs/development/` - Variants guide, troubleshooting
+- `docs/development/` - Variants guide, state management, troubleshooting
 - `docs/infrastructure/` - Admin setup, security, timeline
 - `docs/archive/` - Old versions (reference only, don't use)
+
+### Key Documentation Files
+
+- **State Management**: `docs/development/state-management.md`
+  - Complete architecture guide
+  - Zustand stores (auth, cart)
+  - React Query patterns
+  - MMKV persistence
+  - Authentication & cart flows
+  - Best practices & troubleshooting
 
 ## Package Dependencies
 

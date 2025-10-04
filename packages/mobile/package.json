@@ -29,6 +29,7 @@
     "@gluestack-ui/nativewind-utils": "^1.0.28",
     "@gluestack-ui/utils": "^3.0.7",
     "@gluestack/ui-next-adapter": "^3.0.3",
+    "@legendapp/motion": "^2.4.0",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",

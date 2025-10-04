@@ -62,6 +62,9 @@ export const EeshaButton: React.FC<EeshaButtonProps> = ({
 
   const widthStyle = fullWidth ? 'w-full' : '';
 
+  // Spinner color based on variant
+  const spinnerColor = variant === 'secondary' || variant === 'ghost' ? '#14142b' : '#FFFFFF';
+
   return (
     <Button
       onPress={onPress}
@@ -75,7 +78,7 @@ export const EeshaButton: React.FC<EeshaButtonProps> = ({
         elevation: 2,
       }}
     >
-      {isLoading && <ButtonSpinner className="mr-2" />}
+      {isLoading && <ButtonSpinner color={spinnerColor} size="small" />}
       <ButtonText
         className={`${textColorStyles[variant]} ${textSizeStyles[size]} font-semibold`}
         style={{

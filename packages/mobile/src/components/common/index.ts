@@ -16,3 +16,6 @@ export { EeshaFormControl } from './EeshaFormControl';
 
 export { EeshaText } from './EeshaText';
 export type { EeshaTextVariant, EeshaTextColor } from './EeshaText';
+
+export { EeshaModal } from './EeshaModal';
+export type { EeshaModalType } from './EeshaModal';
