@@ -2,7 +2,9 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
-    "lib": ["ES2020"],
+    "lib": [
+      "ES2020"
+    ],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -11,9 +13,19 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@eesha/shared": ["./packages/shared/src"],
-      "@eesha/shared/*": ["./packages/shared/src/*"]
+      "@eesha/shared": [
+        "./packages/shared/src"
+      ],
+      "@eesha/shared/*": [
+        "./packages/shared/src/*"
+      ]
     }
   },
-  "exclude": ["node_modules", "packages/*/node_modules", "packages/*/.next", "packages/*/dist"]
+  "exclude": [
+    "node_modules",
+    "packages/*/node_modules",
+    "packages/*/.next",
+    "packages/*/dist"
+  ],
+  "extends": "expo/tsconfig.base"
 }

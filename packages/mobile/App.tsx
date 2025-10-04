@@ -1,10 +1,10 @@
+import './global.css';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Platform } from 'react-native';
-
 import { AppStripeProvider } from '@/components/providers/StripeProvider';
+import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider/gluestack-ui-provider';
 import { useFonts, TenorSans_400Regular } from '@expo-google-fonts/tenor-sans';
 import * as SplashScreen from 'expo-splash-screen';
 import { API_CONFIG } from '@/config/constants';
@@ -17,7 +17,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 5 * 60 * 1000, // 5 minutes
-      cacheTime: 10 * 60 * 1000, // 10 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes (previously cacheTime)
       retry: 3,
       retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
     },
@@ -46,16 +46,18 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <AppStripeProvider
-          publishableKey={API_CONFIG.STRIPE_PUBLISHABLE_KEY}
-          merchantIdentifier="merchant.com.eeshasilks.app"
-        >
-          <StatusBar style="auto" />
-          <AppNavigator />
-        </AppStripeProvider>
-      </QueryClientProvider>
-    </SafeAreaProvider>
+    <GluestackUIProvider mode="light">
+      <SafeAreaProvider>
+        <QueryClientProvider client={queryClient}>
+          <AppStripeProvider
+            publishableKey={API_CONFIG.STRIPE_PUBLISHABLE_KEY}
+            merchantIdentifier="merchant.com.eeshasilks.app"
+          >
+            <StatusBar style="auto" />
+            <AppNavigator />
+          </AppStripeProvider>
+        </QueryClientProvider>
+      </SafeAreaProvider>
+    </GluestackUIProvider>
   );
 }

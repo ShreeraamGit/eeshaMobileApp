@@ -1,25 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  TouchableOpacity,
-  ActivityIndicator,
-  TextInput,
-  Keyboard,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Text } from '@/components/common/Text';
-import { Button } from '@/components/common/Button';
-import { Input } from '@/components/common/Input';
 import { useAuthStore } from '@/store/authStore';
 import { validateEmail, validatePassword, AUTH_ERRORS } from '@eesha/shared';
-import { UI_CONFIG } from '@/config/constants';
 import type { RootStackParamList } from '@/navigation/AppNavigator';
+
+// Gluestack UI Components
+import { VStack } from '@/components/ui/gluestack-ui-provider/vstack';
+import { HStack } from '@/components/ui/gluestack-ui-provider/hstack';
+import { Text } from '@/components/ui/gluestack-ui-provider/text';
+import { Input, InputField, InputSlot, InputIcon } from '@/components/ui/gluestack-ui-provider/input';
+import { Button, ButtonText, ButtonSpinner } from '@/components/ui/gluestack-ui-provider/button';
+import {
+  FormControl,
+  FormControlLabel,
+  FormControlLabelText,
+  FormControlError,
+  FormControlErrorText
+} from '@/components/ui/gluestack-ui-provider/form-control';
+import { Pressable } from '@/components/ui/gluestack-ui-provider/pressable';
+import { SafeAreaView } from '@/components/ui/gluestack-ui-provider/safe-area-view';
+import { ScrollView } from '@/components/ui/gluestack-ui-provider/scroll-view';
+import { EyeIcon, EyeOffIcon } from 'lucide-react-native';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -27,29 +29,15 @@ export const LoginScreen: React.FC = () => {
   const navigation = useNavigation<LoginScreenNavigationProp>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [generalError, setGeneralError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // Refs for input navigation
-  const emailRef = useRef<TextInput>(null);
-  const passwordRef = useRef<TextInput>(null);
-
   const { signIn } = useAuthStore();
 
-  // Auto-focus email input on mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      emailRef.current?.focus();
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   const handleLogin = async () => {
-    // Dismiss keyboard
-    Keyboard.dismiss();
-
     // Reset errors
     setEmailError('');
     setPasswordError('');
@@ -59,7 +47,6 @@ export const LoginScreen: React.FC = () => {
     const emailValidation = validateEmail(email);
     if (!emailValidation.valid) {
       setEmailError(emailValidation.error || AUTH_ERRORS.INVALID_EMAIL);
-      emailRef.current?.focus();
       return;
     }
 
@@ -67,7 +54,6 @@ export const LoginScreen: React.FC = () => {
     const passwordValidation = validatePassword(password);
     if (!passwordValidation.valid) {
       setPasswordError(passwordValidation.error || AUTH_ERRORS.WEAK_PASSWORD);
-      passwordRef.current?.focus();
       return;
     }
 
@@ -79,7 +65,6 @@ export const LoginScreen: React.FC = () => {
       if (error) {
         setGeneralError(error);
       }
-      // Success - auth state will automatically navigate to Home
     } catch (error) {
       console.error('[LoginScreen] Login error:', error);
       setGeneralError(AUTH_ERRORS.UNKNOWN_ERROR);
@@ -89,168 +74,110 @@ export const LoginScreen: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.keyboardView}
-      >
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
+    <SafeAreaView className="flex-1 bg-white">
+      <ScrollView className="flex-1" contentContainerClassName="flex-grow">
+        <VStack className="flex-1 px-6 pt-10 pb-6" space="xl">
           {/* Header */}
-          <View style={styles.header}>
-            <Text variant="display-medium" style={styles.title}>
-              Connexion
-            </Text>
-            <Text variant="body-regular" color="text.secondary" style={styles.subtitle}>
-              Accédez à votre compte
-            </Text>
-          </View>
+          <VStack space="xs" className="mb-2">
+            <Text className="text-3xl font-bold text-black">Connexion</Text>
+            <Text className="text-base text-gray-600">Accédez à votre compte</Text>
+          </VStack>
 
           {/* Error Message */}
-          {generalError ? (
-            <View style={styles.errorContainer}>
-              <Text variant="body-small" color="feedback.error">
-                {generalError}
-              </Text>
-            </View>
-          ) : null}
+          {generalError && (
+            <VStack className="bg-red-50 p-4 rounded-lg">
+              <Text className="text-red-600 text-sm">{generalError}</Text>
+            </VStack>
+          )}
 
           {/* Form */}
-          <View style={styles.form}>
-            <Input
-              ref={emailRef}
-              label="Adresse e-mail"
-              placeholder="votre@email.com"
-              value={email}
-              onChangeText={(text) => {
-                setEmail(text);
-                setEmailError('');
-                setGeneralError('');
-              }}
-              error={emailError}
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoComplete="email"
-              textContentType="emailAddress"
-              returnKeyType="next"
-              onSubmitEditing={() => passwordRef.current?.focus()}
-              blurOnSubmit={false}
-              editable={!isLoading}
-            />
+          <VStack space="lg" className="flex-1">
+            {/* Email Input */}
+            <FormControl isInvalid={!!emailError}>
+              <FormControlLabel>
+                <FormControlLabelText>Adresse e-mail</FormControlLabelText>
+              </FormControlLabel>
+              <Input>
+                <InputField
+                  placeholder="votre@email.com"
+                  value={email}
+                  onChangeText={(text) => {
+                    setEmail(text);
+                    setEmailError('');
+                    setGeneralError('');
+                  }}
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  autoComplete="email"
+                  returnKeyType="next"
+                  editable={!isLoading}
+                />
+              </Input>
+              {emailError && (
+                <FormControlError>
+                  <FormControlErrorText>{emailError}</FormControlErrorText>
+                </FormControlError>
+              )}
+            </FormControl>
 
-            <Input
-              ref={passwordRef}
-              label="Mot de passe"
-              placeholder="••••••••"
-              value={password}
-              onChangeText={(text) => {
-                setPassword(text);
-                setPasswordError('');
-                setGeneralError('');
-              }}
-              error={passwordError}
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete="password"
-              textContentType="password"
-              returnKeyType="done"
-              onSubmitEditing={handleLogin}
-              editable={!isLoading}
-            />
+            {/* Password Input */}
+            <FormControl isInvalid={!!passwordError}>
+              <FormControlLabel>
+                <FormControlLabelText>Mot de passe</FormControlLabelText>
+              </FormControlLabel>
+              <Input>
+                <InputField
+                  placeholder="••••••••"
+                  value={password}
+                  onChangeText={(text) => {
+                    setPassword(text);
+                    setPasswordError('');
+                    setGeneralError('');
+                  }}
+                  type={showPassword ? 'text' : 'password'}
+                  autoCapitalize="none"
+                  returnKeyType="done"
+                  onSubmitEditing={handleLogin}
+                  editable={!isLoading}
+                />
+                <InputSlot className="pr-3" onPress={() => setShowPassword(!showPassword)}>
+                  <InputIcon as={showPassword ? EyeOffIcon : EyeIcon} />
+                </InputSlot>
+              </Input>
+              {passwordError && (
+                <FormControlError>
+                  <FormControlErrorText>{passwordError}</FormControlErrorText>
+                </FormControlError>
+              )}
+            </FormControl>
 
             {/* Forgot Password */}
-            <TouchableOpacity
-              onPress={() => {
-                // TODO: Implement forgot password screen
-                console.log('Forgot password tapped');
-              }}
-              disabled={isLoading}
-              style={styles.forgotPassword}
-            >
-              <Text variant="body-small" color="text.secondary">
-                Mot de passe oublié?
-              </Text>
-            </TouchableOpacity>
-          </View>
+            <Pressable onPress={() => console.log('Forgot password')} className="self-end">
+              <Text className="text-sm text-gray-600">Mot de passe oublié?</Text>
+            </Pressable>
+          </VStack>
 
           {/* Login Button */}
           <Button
-            title="Se connecter"
-            variant="primary"
-            size="large"
-            fullWidth
             onPress={handleLogin}
-            disabled={isLoading}
-            loading={isLoading}
-          />
+            isDisabled={isLoading}
+            className="bg-black"
+          >
+            {isLoading && <ButtonSpinner />}
+            <ButtonText>Se connecter</ButtonText>
+          </Button>
 
           {/* Register Link */}
-          <View style={styles.footer}>
-            <Text variant="body-regular" color="text.secondary">
-              Vous n'avez pas de compte?{' '}
-            </Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('Register')}
-              disabled={isLoading}
-            >
-              <Text variant="body-regular" color="primary">
-                Créer un compte
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+          <HStack space="xs" className="justify-center items-center mt-4">
+            <Text className="text-base text-gray-600">Vous n'avez pas de compte?</Text>
+            <Pressable onPress={() => navigation.navigate('Register')} isDisabled={isLoading}>
+              <Text className="text-base text-black font-semibold">Créer un compte</Text>
+            </Pressable>
+          </HStack>
+        </VStack>
+      </ScrollView>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: UI_CONFIG.COLORS.background.default,
-  },
-  keyboardView: {
-    flex: 1,
-  },
-  scrollContent: {
-    flexGrow: 1,
-    paddingHorizontal: UI_CONFIG.SPACING[3], // 24px
-    paddingTop: UI_CONFIG.SPACING[5], // 40px
-    paddingBottom: UI_CONFIG.SPACING[4], // 32px
-  },
-  header: {
-    marginBottom: UI_CONFIG.SPACING[5], // 40px
-  },
-  title: {
-    color: UI_CONFIG.COLORS.text.primary,
-    marginBottom: UI_CONFIG.SPACING[1], // 8px
-  },
-  subtitle: {
-    fontSize: 16,
-  },
-  errorContainer: {
-    backgroundColor: '#FEE2E2', // Light red background
-    padding: UI_CONFIG.SPACING[2],
-    borderRadius: UI_CONFIG.COMPONENT_RADIUS.card,
-    marginBottom: UI_CONFIG.SPACING[3],
-  },
-  form: {
-    marginBottom: UI_CONFIG.SPACING[4], // 32px
-  },
-  forgotPassword: {
-    alignSelf: 'flex-end',
-    marginTop: -UI_CONFIG.SPACING[1], // -8px (closer to input)
-    marginBottom: UI_CONFIG.SPACING[3], // 24px
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: UI_CONFIG.SPACING[4], // 32px
-  },
-});
 
 export default LoginScreen;

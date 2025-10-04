@@ -2,14 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   StyleSheet,
-  ScrollView,
-  KeyboardAvoidingView,
   Platform,
   TouchableOpacity,
   TextInput,
   Keyboard,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Text } from '@/components/common/Text';
@@ -50,11 +49,11 @@ export const RegisterScreen: React.FC = () => {
 
   const { signUp } = useAuthStore();
 
-  // Auto-focus full name input on mount
+  // Auto-focus full name input on mount with proper delay
   useEffect(() => {
     const timer = setTimeout(() => {
       fullNameRef.current?.focus();
-    }, 100);
+    }, 300); // Increased delay for better reliability
     return () => clearTimeout(timer);
   }, []);
 
@@ -128,15 +127,16 @@ export const RegisterScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.keyboardView}
+      <KeyboardAwareScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+        enableOnAndroid={true}
+        enableAutomaticScroll={true}
+        extraScrollHeight={20}
+        extraHeight={Platform.OS === 'ios' ? 20 : 0}
       >
-        <ScrollView
-          contentContainerStyle={styles.scrollContent}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-        >
           {/* Header */}
           <View style={styles.header}>
             <Text variant="display-medium" style={styles.title}>
@@ -274,8 +274,7 @@ export const RegisterScreen: React.FC = () => {
               </Text>
             </TouchableOpacity>
           </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };
@@ -285,7 +284,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: UI_CONFIG.COLORS.background.default,
   },
-  keyboardView: {
+  scrollView: {
     flex: 1,
   },
   scrollContent: {
